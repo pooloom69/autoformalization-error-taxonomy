@@ -1,0 +1,52 @@
+[
+  {
+    "id": "mathd_algebra_478",
+    "error_type": "SORRY",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:8: warning: declaration uses `sorry`\n"
+  },
+  {
+    "id": "numbertheory_4x3m7y3neq2003",
+    "error_type": "SORRY",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:8: warning: declaration uses `sorry`\n"
+  },
+  {
+    "id": "aime_1983_p1",
+    "error_type": "SORRY",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:8: warning: declaration uses `sorry`\n"
+  },
+  {
+    "id": "amc12_2001_p5",
+    "error_type": "SORRY",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:8: warning: declaration uses `sorry`\n"
+  },
+  {
+    "id": "mathd_algebra_141",
+    "error_type": "SORRY",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:8: warning: declaration uses `sorry`\n"
+  },
+  {
+    "id": "mathd_numbertheory_3",
+    "error_type": "SORRY",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:8: warning: declaration uses `sorry`\n"
+  },
+  {
+    "id": "imo_1969_p2",
+    "error_type": "SORRY",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:8: warning: declaration uses `sorry`\n"
+  },
+  {
+    "id": "mathd_algebra_44",
+    "error_type": "SORRY",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:8: warning: declaration uses `sorry`\n"
+  },
+  {
+    "id": "mathd_algebra_209",
+    "error_type": "SORRY",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:8: warning: declaration uses `sorry`\n"
+  },
+  {
+    "id": "mathd_numbertheory_1124",
+    "error_type": "SORRY",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:8: warning: declaration uses `sorry`\n"
+  }
+]
