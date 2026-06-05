@@ -1,0 +1,100 @@
+[
+  {
+    "id": "suc_001",
+    "expected": "SUCCESS",
+    "predicted": "SUCCESS",
+    "correct": true,
+    "lean_output": ""
+  },
+  {
+    "id": "suc_002",
+    "expected": "SUCCESS",
+    "predicted": "SUCCESS",
+    "correct": true,
+    "lean_output": ""
+  },
+  {
+    "id": "suc_003",
+    "expected": "SUCCESS",
+    "predicted": "SUCCESS",
+    "correct": true,
+    "lean_output": ""
+  },
+  {
+    "id": "sor_001",
+    "expected": "SORRY",
+    "predicted": "SORRY",
+    "correct": true,
+    "lean_output": "/tmp/mathlib_test/_tmp.lean:1:8: warning: declaration uses `sorry`\n"
+  },
+  {
+    "id": "sor_002",
+    "expected": "SORRY",
+    "predicted": "SORRY",
+    "correct": true,
+    "lean_output": "/tmp/mathlib_test/_tmp.lean:1:8: warning: declaration uses `sorry`\n"
+  },
+  {
+    "id": "syn_001",
+    "expected": "SYNTACTIC",
+    "predicted": "SYNTACTIC",
+    "correct": true,
+    "lean_output": "/tmp/mathlib_test/_tmp.lean:1:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  Membership ?m.1 Type\n\nHint: Type class instance resolution failures can be inspected wi"
+  },
+  {
+    "id": "syn_002",
+    "expected": "SYNTACTIC",
+    "predicted": "SYNTACTIC",
+    "correct": true,
+    "lean_output": "/tmp/mathlib_test/_tmp.lean:1:25: error: unexpected token ':='; expected ','\n"
+  },
+  {
+    "id": "syn_003",
+    "expected": "SYNTACTIC",
+    "predicted": "UNKNOWN",
+    "correct": false,
+    "lean_output": "/tmp/mathlib_test/_tmp.lean:2:2: error(lean.unknownIdentifier): Unknown identifier `intro`\n"
+  },
+  {
+    "id": "prv_001",
+    "expected": "PROVER_FAILURE",
+    "predicted": "PROVER_FAILURE",
+    "correct": true,
+    "lean_output": "/tmp/mathlib_test/_tmp.lean:3:2: error: Tactic `rfl` failed: The left-hand side\n  n + 1\nis not definitionally equal to the right-hand side\n  n\n\nn : Nat\n⊢ n + 1 = n\n"
+  },
+  {
+    "id": "prv_002",
+    "expected": "PROVER_FAILURE",
+    "predicted": "PROVER_FAILURE",
+    "correct": true,
+    "lean_output": "/tmp/mathlib_test/_tmp.lean:3:2: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  a ≥ 0\nwhere\n a := ↑n\n"
+  },
+  {
+    "id": "prv_003",
+    "expected": "PROVER_FAILURE",
+    "predicted": "PROVER_FAILURE",
+    "correct": true,
+    "lean_output": "/tmp/mathlib_test/_tmp.lean:2:2: error: omega could not prove the goal:\nNo usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`"
+  },
+  {
+    "id": "prv_004",
+    "expected": "PROVER_FAILURE",
+    "predicted": "PROVER_FAILURE",
+    "correct": true,
+    "lean_output": "/tmp/mathlib_test/_tmp.lean:1:36: error: unsolved goals\nn : Nat\n⊢ False\n"
+  },
+  {
+    "id": "sem_001",
+    "expected": "SEMANTIC",
+    "predicted": "SUCCESS",
+    "correct": true,
+    "lean_output": ""
+  },
+  {
+    "id": "sem_002",
+    "expected": "SEMANTIC",
+    "predicted": "SUCCESS",
+    "correct": true,
+    "lean_output": ""
+  }
+]

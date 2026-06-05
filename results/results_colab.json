@@ -1,0 +1,37 @@
+[
+  {
+    "id": "prob_001",
+    "nl": "For any natural number n, n + 0 equals n.",
+    "proof": "intro n\n  simp",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "prob_002",
+    "nl": "For any natural number n, n + 1 is greater than n.",
+    "proof": "intro n\n  omega",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "prob_003",
+    "nl": "1 + 1 equals 2.",
+    "proof": "rfl",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "prob_004",
+    "nl": "For any natural number n, n equals n.",
+    "proof": "intro n\n  rfl",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "prob_005",
+    "nl": "For any natural number n, n + 1 equals n.",
+    "proof": "intro n\n  rfl",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "_tmp.lean:3:2: error: Tactic `rfl` failed: The left-hand side\n  n + 1\nis not definitionally equal to the right-hand side\n  n\n\nn : Nat\n⊢ n + 1 = n\n"
+  }
+]

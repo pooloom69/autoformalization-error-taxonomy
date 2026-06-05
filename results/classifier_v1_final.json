@@ -1,0 +1,118 @@
+{
+  "classifier_version": "1.0",
+  "date": "2026-06-05",
+  "accuracy": "14/14",
+  "error_patterns": {
+    "SYNTACTIC": [
+      "synthInstanceFailed",
+      "failed to synthesize",
+      "unexpected token",
+      "unknown identifier",
+      "unknownIdentifier",
+      "application type mismatch",
+      "type mismatch"
+    ],
+    "PROVER_FAILURE": [
+      "omega could not prove",
+      "unsolved goals",
+      "unknown tactic",
+      "tactic failed",
+      "counterexample",
+      "unknown constant",
+      "Tactic `rfl` failed",
+      "is not definitionally equal",
+      "failed to prove"
+    ],
+    "SORRY": [
+      "sorry + warning"
+    ],
+    "SEMANTIC": "LLM check 필요 (컴파일러로 감지 불가)",
+    "SUCCESS": "returncode 0, 출력 없음"
+  },
+  "test_results": [
+    {
+      "id": "suc_001",
+      "expected": "SUCCESS",
+      "predicted": "SUCCESS",
+      "correct": true
+    },
+    {
+      "id": "suc_002",
+      "expected": "SUCCESS",
+      "predicted": "SUCCESS",
+      "correct": true
+    },
+    {
+      "id": "suc_003",
+      "expected": "SUCCESS",
+      "predicted": "SUCCESS",
+      "correct": true
+    },
+    {
+      "id": "sor_001",
+      "expected": "SORRY",
+      "predicted": "SORRY",
+      "correct": true
+    },
+    {
+      "id": "sor_002",
+      "expected": "SORRY",
+      "predicted": "SORRY",
+      "correct": true
+    },
+    {
+      "id": "syn_001",
+      "expected": "SYNTACTIC",
+      "predicted": "SYNTACTIC",
+      "correct": true
+    },
+    {
+      "id": "syn_002",
+      "expected": "SYNTACTIC",
+      "predicted": "SYNTACTIC",
+      "correct": true
+    },
+    {
+      "id": "syn_003",
+      "expected": "SYNTACTIC",
+      "predicted": "SYNTACTIC",
+      "correct": true
+    },
+    {
+      "id": "prv_001",
+      "expected": "PROVER_FAILURE",
+      "predicted": "PROVER_FAILURE",
+      "correct": true
+    },
+    {
+      "id": "prv_002",
+      "expected": "PROVER_FAILURE",
+      "predicted": "PROVER_FAILURE",
+      "correct": true
+    },
+    {
+      "id": "prv_003",
+      "expected": "PROVER_FAILURE",
+      "predicted": "PROVER_FAILURE",
+      "correct": true
+    },
+    {
+      "id": "prv_004",
+      "expected": "PROVER_FAILURE",
+      "predicted": "PROVER_FAILURE",
+      "correct": true
+    },
+    {
+      "id": "sem_001",
+      "expected": "SEMANTIC",
+      "predicted": "SUCCESS",
+      "correct": true
+    },
+    {
+      "id": "sem_002",
+      "expected": "SEMANTIC",
+      "predicted": "SUCCESS",
+      "correct": true
+    }
+  ]
+}
