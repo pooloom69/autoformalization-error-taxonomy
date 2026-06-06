@@ -3,15 +3,18 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from datasets import load_dataset
 from collections import Counter
 
-# GitHub 설정
+# GitHub configuration
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 GITHUB_USER = "pooloom069"
 GITHUB_REPO = "autoformalization-error-taxonomy"
 REPO_PATH = "/tmp/mathlib_test/autoformalization-error-taxonomy"
 
+# Auto-create results directory
+os.makedirs(f"{REPO_PATH}/results", exist_ok=True)
+
 def git_push(message="Update results"):
     if not GITHUB_TOKEN:
-        print("GITHUB_TOKEN 없음, push 스킵")
+        print("No GITHUB_TOKEN found, skipping push")
         return
     subprocess.run(
         f'cd {REPO_PATH} && '
@@ -21,9 +24,9 @@ def git_push(message="Update results"):
         f'git push origin mathlib',
         shell=True, capture_output=True
     )
-    print(f"GitHub push 완료: {message}")
+    print(f"GitHub push complete: {message}")
 
-print("모델 로딩 중...")
+print("Loading model...")
 model_path = "/tmp/kimina-prover-1.7b"
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 model = AutoModelForCausalLM.from_pretrained(
@@ -31,7 +34,7 @@ model = AutoModelForCausalLM.from_pretrained(
     dtype=torch.float16,
     device_map="auto"
 )
-print(f"완료! Device: {next(model.parameters()).device}")
+print(f"Model loaded! Device: {next(model.parameters()).device}")
 
 ds = load_dataset('cat-searcher/minif2f-lean4')
 
@@ -42,6 +45,7 @@ open Nat
 open Topology"""
 
 def fix_statement(code):
+    # Fix deprecated Lean 4 syntax
     code = code.replace('∑ x in ', '∑ x ∈ ')
     code = code.replace('∑ i in ', '∑ i ∈ ')
     code = code.replace('∏ x in ', '∏ x ∈ ')
@@ -49,6 +53,7 @@ def fix_statement(code):
     return code
 
 def extract_proof(generated):
+    # Extract only the tactic proof, removing natural language explanation
     lines = generated.split('\n')
     proof_lines = []
     for line in lines:
@@ -61,6 +66,7 @@ def extract_proof(generated):
     return '\n'.join(proof_lines).strip()
 
 def generate_proof(nl_problem, fl_statement):
+    # Generate Lean 4 proof using the model
     prompt = f"Problem: {nl_problem}\nFormal:\n{fl_statement}"
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
     with torch.no_grad():
@@ -76,6 +82,7 @@ def generate_proof(nl_problem, fl_statement):
     return extract_proof(raw)
 
 def run_lean_mathlib(code, timeout=120):
+    # Run Lean 4 with Mathlib and return output
     lean_file = "/tmp/mathlib_test/test_pipeline.lean"
     with open(lean_file, "w") as f:
         f.write(code)
@@ -91,6 +98,7 @@ def run_lean_mathlib(code, timeout=120):
         return {"stdout": "", "stderr": "TIMEOUT", "returncode": -1}
 
 def classify_error(output):
+    # Classify Lean output into error taxonomy
     if output["stderr"] == "TIMEOUT":
         return "PROVER_FAILURE_timeout"
     msg = output["stdout"] + output["stderr"]
@@ -100,11 +108,14 @@ def classify_error(output):
         return "SORRY"
     if output["returncode"] == 0:
         return "SUCCESS"
+
+    # Syntactic error patterns
     syntactic = [
         "synthInstanceFailed", "failed to synthesize",
         "unexpected token", "unknown identifier", "unknownIdentifier",
         "application type mismatch", "type mismatch",
     ]
+    # Prover failure patterns
     prover = [
         "omega could not prove", "unsolved goals",
         "unknown tactic", "tactic failed",
@@ -119,16 +130,24 @@ def classify_error(output):
         return "PROVER_FAILURE"
     return "UNKNOWN"
 
+# Run pipeline on full MiniF2F test set (244 problems)
 results = []
 for i, sample in enumerate(ds['test']):
     print(f"\n[{i+1}/244] {sample['id']}")
+
+    # Prepare formal statement
     fl_statement = fix_statement(sample['formal_statement']).replace(':= sorry', ':= by')
+
+    # Generate proof with model
     proof = generate_proof(sample['informal_stmt'], fl_statement)
     print(f"proof: {proof[:80]}")
+
+    # Run Lean verification
     full_code = NEW_HEADER + '\n\n' + fl_statement + '\n  ' + proof
     lean_out = run_lean_mathlib(full_code, timeout=120)
     error_type = classify_error(lean_out)
-    print(f"결과: {error_type}")
+    print(f"result: {error_type}")
+
     results.append({
         "id": sample['id'],
         "nl": sample['informal_stmt'],
@@ -138,25 +157,26 @@ for i, sample in enumerate(ds['test']):
         "lean_output": (lean_out['stdout'] + lean_out['stderr'])[:300]
     })
 
-    # 10개마다 저장 + push
+    # Save and push every 10 problems
     if (i + 1) % 10 == 0:
         with open(f"{REPO_PATH}/results/results_full.json", "w") as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
         git_push(f"Update results [{i+1}/244]")
-        
-        # 중간 통계
-        counter = Counter(r['error_type'] for r in results)
-        print(f"\n--- [{i+1}/244] 중간 통계 ---")
-        for k, v in sorted(counter.items(), key=lambda x: -x[1]):
-            print(f"  {k}: {v}개")
 
-# 최종 저장 + push
+        # Print intermediate statistics
+        counter = Counter(r['error_type'] for r in results)
+        print(f"\n--- Intermediate stats [{i+1}/244] ---")
+        for k, v in sorted(counter.items(), key=lambda x: -x[1]):
+            print(f"  {k}: {v}")
+
+# Final save and push
 with open(f"{REPO_PATH}/results/results_full.json", "w") as f:
     json.dump(results, f, indent=2, ensure_ascii=False)
 git_push("Final results 244/244")
 
+# Print final statistics
 counter = Counter(r['error_type'] for r in results)
-print("\n===== 최종 통계 =====")
+print("\n===== Final Statistics =====")
 for k, v in sorted(counter.items(), key=lambda x: -x[1]):
-    print(f"{k}: {v}개 ({v/len(results)*100:.1f}%)")
-print(f"\n총 {len(results)}개 처리 완료!")
+    print(f"{k}: {v} ({v/len(results)*100:.1f}%)")
+print(f"\nTotal: {len(results)} problems processed!")
