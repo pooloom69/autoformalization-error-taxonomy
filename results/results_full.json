@@ -398,5 +398,85 @@
     "generated_proof": "rw [h₀]\n  norm_num",
     "error_type": "SUCCESS",
     "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_227",
+    "nl": "One morning each member of Angela's family drank an 8-ounce mixture of coffee with milk. The amounts of coffee and milk varied from cup to cup, but were never zero. Angela drank a quarter of the total amount of milk and a sixth of the total amount of coffee. How many people are in the family? Show that it is 5.",
+    "fl_statement": "theorem mathd_numbertheory_227\n  (x y n : ℕ+)\n  (h₀ : ↑x / (4:ℝ) + y / 6 = (x + y) / n) :\n  n = 5 := by",
+    "generated_proof": "have h1 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h2 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h3 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h4 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h5 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h6 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h7 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h8 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h9 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h10 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h11 : (x : ℝ",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:31:19: error: unexpected end of input; expected ')'\n/tmp/mathlib_test/test_pipeline.lean:10:11: error: unsolved goals\ncase h11\nx y n : ℕ+\nh₀ h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 : ↑↑x / 4 + ↑↑y / 6 = (↑↑x + ↑↑y) / ↑↑n\n⊢ (_ : ℝ) ×' sorry\n\nx y n : ℕ+\nh₀ h1 h2 h3 h4 h5 h6"
+  },
+  {
+    "id": "mathd_algebra_188",
+    "nl": "Suppose $f(x)$ is an invertible function, and suppose that $f(2)=f^{-1}(2)=4$.\n\nWhat is the value of $f(f(2))$? Show that it is 2.",
+    "fl_statement": "theorem mathd_algebra_188\n  (σ : Equiv ℝ ℝ)\n  (h : σ.1 2 = σ.2 2) :\n  σ.1 (σ.1 2) = 2 := by",
+    "generated_proof": "have h1 : σ.1 2 = 4 := by\n    have h2 : σ.1 2 = σ.2 2 := h\n    have h3 : σ.2 2 = 4 := by\n      have h4 : σ.1 2 = σ.2 2 := h2\n      have h5 : σ.1 2 = 4 := by\n        have h6 : σ.1 2 = σ.2 2 := h4\n        have h7 : σ.2 2 = 4 := by\n          apply σ.right_inv\n          all_goals norm_num\n        rw [h7] at h6\n        linarith\n      linarith\n    rw [h3] at h2\n    linarith\n  rw [h1]\n  apply σ.left_inv\n  all_goals norm_num",
+    "error_type": "UNKNOWN",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:18:10: error: Tactic `apply` failed: could not unify the conclusion of `σ.right_inv`\n  σ.toFun (σ.invFun ?x) = ?x\nwith the goal\n  σ.invFun 2 = 4\n\nNote: The full type of `σ.right_inv` is\n  Function.RightInverse σ.invFun σ.toFun\n\nσ : ℝ ≃ ℝ\nh h2 h4 h6 : σ.toFun 2 = "
+  },
+  {
+    "id": "mathd_numbertheory_765",
+    "nl": "What is the largest negative integer $x$ satisfying $$24x \\equiv 15 \\pmod{1199}~?$$ Show that it is -449.",
+    "fl_statement": "theorem mathd_numbertheory_765\n  (x : ℤ)\n  (h₀ : x < 0)\n  (h₁ : (24 * x) % 1199 = 15) :\n  x ≤ -449 := by",
+    "generated_proof": "omega",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "imo_1959_p1",
+    "nl": "Prove that the fraction $\\frac{21n+4}{14n+3}$ is irreducible for every natural number $n$.",
+    "fl_statement": "theorem imo_1959_p1\n  (n : ℕ)\n  (h₀ : 0 < n) :\n  Nat.gcd (21*n + 4) (14*n + 3) = 1 := by",
+    "generated_proof": "have h1 : Nat.gcd (21 * n + 4) (14 * n + 3) ∣ (21 * n + 4) := by\n    exact Nat.gcd_dvd_left (21 * n + 4) (14 * n + 3)\n  have h2 : Nat.gcd (21 * n + 4) (14 * n + 3) ∣ (14 * n + 3) := by\n    exact Nat.gcd_dvd_right (21 * n + 4) (14 * n + 3)\n  have h3 : Nat.gcd (21 * n + 4) (14 * n + 3) ∣ (21 * n + 4 - 3 * (14 * n + 3)) := by\n    apply Nat.dvd_sub'\n    · exact h1\n    · exact h2\n    all_goals omega\n  have h4 : (21 * n + 4 - 3 * (14 * n + 3)) = 1 := by\n    omega\n  rw [h4] at h3\n  have h5 : Nat.gcd (21 * n + 4) (14 * n + 3) ∣ 1 := by\n    exact h3\n  have h6 : Nat.gcd (21 * n + 4) (14 * n + 3) ≤ 1 := by\n    exact Nat.le_of_dvd (show 0 < 1 by norm_num) h5\n  interval_cases h : Nat.gcd (21 * n + 4) (14 * n + 3) <;> omega",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:10: error(lean.unknownIdentifier): Unknown constant `Nat.dvd_sub'`\n/tmp/mathlib_test/test_pipeline.lean:17:4: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:21:4: error: omega could not prove the goal:\na possible counterexample may satisfy t"
+  },
+  {
+    "id": "mathd_numbertheory_175",
+    "nl": "What is the units digit of $2^{2010}$? Show that it is 4.",
+    "fl_statement": "theorem mathd_numbertheory_175 :\n  (2^2010) % 10 = 4 := by",
+    "generated_proof": "norm_num",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:23: error: unsolved goals\n⊢ 2 ^ 2010 % 10 = 4\n"
+  },
+  {
+    "id": "numbertheory_fxeq4powxp6powxp9powx_f2powmdvdf2pown",
+    "nl": "Let $f(x) = 4^x + 6^x + 9^x$. Show that if $m$ and $n$ are positive integers with $m \\leq n$, then $f(2^m)$ divides $f(2^n)$.",
+    "fl_statement": "theorem numbertheory_fxeq4powxp6powxp9powx_f2powmdvdf2pown\n  (m n : ℕ)\n  (f : ℕ → ℕ)\n  (h₀ : ∀ x, f x = 4^x + 6^x + 9^x)\n  (h₁ : 0 < m ∧ 0 < n)\n  (h₂ : m ≤ n) :\n  f (2^m)∣f (2^n) := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:21: error: unsolved goals\nm n : ℕ\nf : ℕ → ℕ\nh₀ : ∀ (x : ℕ), f x = 4 ^ x + 6 ^ x + 9 ^ x\nh₁ : 0 < m ∧ 0 < n\nh₂ : m ≤ n\n⊢ f (2 ^ m) ∣ f (2 ^ n)\n"
+  },
+  {
+    "id": "imo_1992_p1",
+    "nl": "Let $p, q, r$ be integers with $1 < p < q < r$. Show that if $(p - 1) (q - 1) (r - 1)$ divides $pqr - 1$, then $(p, q, r) = (2, 4, 8)$ or $(p, q, r) = (3, 5, 15)$.",
+    "fl_statement": "theorem imo_1992_p1\n  (p q r : ℤ)\n  (h₀ : 1 < p ∧ p < q ∧ q < r)\n  (h₁ : (p - 1) * (q - 1) * (r - 1)∣(p * q * r - 1)) :\n  (p, q, r) = (2, 4, 8) ∨ (p, q, r) = (3, 5, 15) := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:52: error: unsolved goals\np q r : ℤ\nh₀ : 1 < p ∧ p < q ∧ q < r\nh₁ : (p - 1) * (q - 1) * (r - 1) ∣ p * q * r - 1\n⊢ (p, q, r) = (2, 4, 8) ∨ (p, q, r) = (3, 5, 15)\n"
+  },
+  {
+    "id": "imo_1982_p1",
+    "nl": "The function $f(n)$ is defined on the positive integers and takes non-negative integer values. $f(2)=0,f(3)>0,f(9999)=3333$ and for all $m,n:$$ f(m+n)-f(m)-f(n)=0 \\text{ or } 1. $Determine $f(1982)$. Show that it is 660.",
+    "fl_statement": "theorem imo_1982_p1\n  (f : ℕ → ℕ)\n  (h₀ : ∀ m n, (0 < m ∧ 0 < n) → f (m + n) - f m - f n = 0 ∨ f (m + n) - f m - f n = 1)\n  (h₁ : f 2 = 0)\n  (h₂ : 0 < f 3)\n  (h₃ : f 9999 = 3333) :\n  f 1982 = 660 := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:18: error: unsolved goals\nf : ℕ → ℕ\nh₀ : ∀ (m n : ℕ), 0 < m ∧ 0 < n → f (m + n) - f m - f n = 0 ∨ f (m + n) - f m - f n = 1\nh₁ : f 2 = 0\nh₂ : 0 < f 3\nh₃ : f 9999 = 3333\n⊢ f"
+  },
+  {
+    "id": "aime_1987_p5",
+    "nl": "Find $3x^2 y^2$ if $x$ and $y$ are [[integer]]s such that $y^2 + 3x^2 y^2 = 30x^2 + 517$. Show that it is 588.",
+    "fl_statement": "theorem aime_1987_p5\n  (x y : ℤ)\n  (h₀ : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517):\n  3 * (x^2 * y^2) = 588 := by",
+    "generated_proof": "have h1 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h2 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h3 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h4 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h5 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h6 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h7 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h8 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h9 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h10 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h11 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h12 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h13 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h14 : y^2 + 3 *",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:24:22: error: unexpected end of input\n/tmp/mathlib_test/test_pipeline.lean:24:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  HAdd ℤ ℕ (Sort ?u.5077.34547)\n\nHint: Type class instance resolution failures can be inspected with the"
+  },
+  {
+    "id": "mathd_algebra_346",
+    "nl": "Let $f(x) = 2x-3$ and $g(x) = x+1$. What is the value of $g(f(5)-1)$? Show that it is 7.",
+    "fl_statement": "theorem mathd_algebra_346\n  (f g : ℝ → ℝ)\n  (h₀ : ∀ x, f x = 2 * x - 3)\n  (h₁ : ∀ x, g x = x + 1) :\n  g (f 5 - 1) = 7 := by",
+    "generated_proof": "rw [h₀, h₁]\n  norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
   }
 ]
