@@ -1118,5 +1118,85 @@
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
     "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:12: error: unsolved goals\nn : ℕ\nh₀✝ : 0 < n\nh₀ : (1 / 2 + 1 / 3 + 1 / 7 + 1 / ↑n).den = 1\n⊢ n = 42\n"
+  },
+  {
+    "id": "amc12a_2002_p6",
+    "nl": "For how many positive integers $m$ does there exist at least one positive integer n such that $m \\cdot n \\le m + n$?\n\n$ \\textbf{(A) } 4\\qquad \\textbf{(B) } 6\\qquad \\textbf{(C) } 9\\qquad \\textbf{(D) } 12\\qquad \\textbf{(E) } \\text{infinitely many} $ Show that it is \\textbf{(E) } \\text{infinitely many}.",
+    "fl_statement": "theorem amc12a_2002_p6\n  (n : ℕ)\n  (h₀ : 0 < n) :\n  ∃ m, (m > n ∧ ∃ p, m * p ≤ m + p) := by",
+    "generated_proof": "use n + 1\n  constructor\n  · -- Show that m > n\n    omega\n  · -- Show that there exists a positive integer p such that m * p ≤ m + p\n    use 1\n    all_goals\n      omega",
+    "error_type": "SUCCESS",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:3: warning: unused variable `h₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  },
+  {
+    "id": "amc12a_2003_p23",
+    "nl": "How many perfect squares are divisors of the product $1! \\cdot 2! \\cdot 3! \\cdot \\hdots \\cdot 9!$?\n\n$ \\textbf{(A)}\\ 504\\qquad\\textbf{(B)}\\ 672\\qquad\\textbf{(C)}\\ 864\\qquad\\textbf{(D)}\\ 936\\qquad\\textbf{(E)}\\ 1008 $ Show that it is \\mathrm{(B)}.",
+    "fl_statement": "theorem amc12a_2003_p23\n  (S : Finset ℕ)\n  (h₀ : ∀ (k : ℕ), k ∈ S ↔ 0 < k ∧ ((k * k) : ℕ) ∣ (∏ i ∈ (Finset.Icc 1 9), i!)) :\n  S.card = 672 := by",
+    "generated_proof": "have h1 : S = Finset.filter (fun k => 0 < k ∧ k * k ∣ ∏ i ∈ (Finset.Icc 1 9), i!) (Finset.Icc 1 9) := by\n    ext k\n    simp\n    intro hk1 hk2\n    constructor\n    · -- Show that k is in the set\n      intro h\n      rcases h with ⟨hk_pos, hk_div⟩\n      have h3 : k ≤ 9 := by\n        by_contra h\n        push_neg at h\n        have h4 : k * k > ∏ i ∈ (Finset.Icc 1 9), i! := by\n          have h5 : k ≥ 10 := by linarith\n          have h6 : k * k ≥ 100 := by nlinarith\n          have h7 : ∏ i ∈ (Finset.Icc 1 9), i! ≤ 9! := by\n            apply Finset.prod_le_prod_of_subset\n            · -- Show that {1, ..., 9} ⊆ {1, ..., 9}\n              intro i hi\n              simp at hi ⊢\n              all_goals omega\n            · -- Show that {1, ..., 9} ⊆ {1, ..., 9}\n              intro i hi\n              simp at hi ⊢\n              all_goals omega\n            all_goals\n              simp [Finset.prod_const, Finset.card_range, Nat.factorial]\n              <;> try { native_decide }\n          nlinarith [show ∏ i ∈ (Finset.Icc 1 9), i! ≤ 9! by\n            apply Finset.prod_le_prod_of_subset\n            · -- Show that {1, ..., 9} ⊆ {1, ..., 9}\n              intro i hi\n              simp at hi ⊢\n              all_goals omega\n            · -- Show that {1, ..., 9} ⊆ {1, ..., 9}\n              intro i hi\n              simp at hi ⊢\n              all_goals omega\n            all_goals\n              simp [Finset.prod_const, Finset.card_range, Nat.factorial]\n              <;> try { native_decide }\n          ]\n        linarith\n      interval_cases k <;> norm_num at *\n      <;> try { tauto }\n    · -- Show that k is in the set",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:55:34: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:14:10: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce\n\ncase h\ni! : ℕ\nS : Finset ℕ\nh₀ : ∀ (k : ℕ), k ∈ S ↔ 0 < k ∧ k"
+  },
+  {
+    "id": "mathd_algebra_129",
+    "nl": "Solve for $a$: $\\dfrac{8^{-1}}{4^{-1}}-a^{-1}=1$. Show that it is -2.",
+    "fl_statement": "theorem mathd_algebra_129\n  (a : ℝ)\n  (h₀ : a ≠ 0)\n  (h₁ : 8⁻¹ / 4⁻¹ - a⁻¹ = 1) :\n  a = -2 := by",
+    "generated_proof": "field_simp at h₁\n  nlinarith",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "amc12b_2021_p18",
+    "nl": "Let $z$ be a complex number satisfying $12|z|^2=2|z+2|^2+|z^2+1|^2+31.$ What is the value of $z+\\frac 6z?$\n\n$\\textbf{(A) }-2 \\qquad \\textbf{(B) }-1 \\qquad \\textbf{(C) }\\frac12\\qquad \\textbf{(D) }1 \\qquad \\textbf{(E) }4$ Show that it is \\textbf{(A) }-2.",
+    "fl_statement": "theorem amc12b_2021_p18\n  (z : ℂ)\n  (h₀ : 12 * Complex.normSq z = 2 * Complex.normSq (z + 2) + Complex.normSq (z^2 + 1) + 31) :\n  z + 6 / z = -2 := by",
+    "generated_proof": "have h1 : z ≠ 0 := by\n    by_contra h\n    rw [h] at h₀\n    norm_num at h₀\n  have h2 : z.re ^ 2 + z.im ^ 2 = 12 * (z.re + 2) ^ 2 + 2 * (z.re + 2 * z.im) ^ 2 + (z.im ^ 2 + 1) ^ 2 + 31 := by\n    have hz : z = z.re + z.im * Complex.I := by\n      simp [Complex.ext_iff]\n    rw [hz] at h₀\n    simp [Complex.normSq, pow_two, Complex.add_re, Complex.add_im, Complex.mul_re, Complex.mul_im, Complex.I_re, Complex.I_im] at h₀\n    ring_nf at h₀ ⊢\n    <;> nlinarith\n  have h3 : (z.re + 2) ^ 2 + (z.im) ^ 2 = 12 * (z.re + 2) ^ 2 + 2 * (z.re + 2 * z.im) ^ 2 + (z.im ^ 2 + 1) ^ 2 + 31 := by\n    nlinarith\n  have h4 : z.re ^ 2 + z.im ^ 2 = 12 * (z.re + 2) ^ 2 + 2 * (z.re + 2 * z.im) ^ 2 + (z.im ^ 2 + 1) ^ 2 + 31 := by\n    nlinarith\n  have h5 : (z.re + 2) ^ 2 + (z.im) ^ 2 = 12 * (z.re + 2) ^ 2 + 2 * (z.re + 2 * z.im) ^ 2 + (z.im ^ 2 + 1) ^ 2 + 31 := by\n    nlinarith\n  have h6 : z.re ^ 2 + z.im ^ 2 = 12 * (z.re + 2) ^ 2 + 2 * (z.re + 2 * z.im) ^ 2 + (z.im ^ 2 + 1) ^ 2 + 31 := by\n    nlinarith\n  have h7 : (z.re +",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:30:19: error: unexpected end of input\n/tmp/mathlib_test/test_pipeline.lean:21:8: error: linarith failed to find a contradiction\ncase h1.h\nz : ℂ\nh1 : z ≠ 0\nhz : z = ↑z.re + ↑z.im * Complex.I\nh₀ : z.re ^ 2 * 12 + z.im ^ 2 * 12 = 40 + z.re * 8 + z.re ^ 2 * 4 + z.re "
+  },
+  {
+    "id": "mathd_algebra_484",
+    "nl": "Evaluate $\\log_327$. Show that it is 3.",
+    "fl_statement": "-- Error: Real.log\n-- theorem mathd_algebra_484 :\n--   Real.log 27 / Real.log 3 = 3 := by",
+    "generated_proof": "--   rw [show (27 : ℝ) = 3 ^ 3 by norm_num]\n--   rw [Real.log_pow]\n--   simp\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;>",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_551",
+    "nl": "Determine the remainder of 1529 (mod 6). Show that it is 5.",
+    "fl_statement": "theorem mathd_numbertheory_551 :\n  1529 % 6 = 5 := by",
+    "generated_proof": "norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_304",
+    "nl": "Compute $91^2$ in your head. Show that it is 8281.",
+    "fl_statement": "theorem mathd_algebra_304 :\n  91^2 = 8281 := by",
+    "generated_proof": "norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "amc12a_2021_p8",
+    "nl": "A sequence of numbers is defined by $D_0=0,D_1=0,D_2=1$ and $D_n=D_{n-1}+D_{n-3}$ for $n\\ge 3$. What are the parities (evenness or oddness) of the triple of numbers $(D_{2021},D_{2022},D_{2023})$, where $E$ denotes even and $O$ denotes odd?\n\n$\\textbf{(A) }(O,E,O) \\qquad \\textbf{(B) }(E,E,O) \\qquad \\textbf{(C) }(E,O,E) \\qquad \\textbf{(D) }(O,O,E) \\qquad \\textbf{(E) }(O,O,O)$ Show that it is \\textbf{(C) }(E,O,E).",
+    "fl_statement": "theorem amc12a_2021_p8\n  (d : ℕ → ℕ)\n  (h₀ : d 0 = 0)\n  (h₁ : d 1 = 0)\n  (h₂ : d 2 = 1)\n  (h₃ : ∀ n≥3, d n = d (n - 1) + d (n - 3)) :\n  Even (d 2021) ∧ Odd (d 2022) ∧ Even (d 2023) := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:50: error: unsolved goals\nd : ℕ → ℕ\nh₀ : d 0 = 0\nh₁ : d 1 = 0\nh₂ : d 2 = 1\nh₃ : ∀ n ≥ 3, d n = d (n - 1) + d (n - 3)\n⊢ Even (d 2021) ∧ Odd (d 2022) ∧ Even (d 2023)\n"
+  },
+  {
+    "id": "algebra_ineq_nto1onlt2m1on",
+    "nl": "Let $n$ be a positive natural number. Show that $n^{1/n} \\leq 2 - 1/n$.",
+    "fl_statement": "theorem algebra_ineq_nto1onlt2m1on\n  (n : ℕ) :\n  n^(1 / n) < 2 - 1 / n := by",
+    "generated_proof": "have h1 : (n : ℝ) > 0 := by\n    exact_mod_cast show (n : ℕ) > 0 by linarith\n  have h2 : (n : ℝ) ≥ 1 := by\n    have hn : (n : ℝ) ≥ 1 := by\n      have hn1 : (n : ℝ) ≥ 1 := by\n        have hn2 : (n : ℝ) ≥ 1 := by\n          exact_mod_cast show (n : ℕ) ≥ 1 by linarith\n        linarith\n      linarith\n    linarith\n  have h3 : (n : ℝ) ^ (1 / n : ℝ) < 2 - 1 / n := by\n    have h4 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n      have h5 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n        have h6 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n          have h7 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n            have h8 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n              have h9 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n                have h10 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n                  have h11 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n                    have h12 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n                      have h13 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n                        have h",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:39: error: linarith failed to find a contradiction\ncase h\nn : ℕ\na✝ : n ≤ 0\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipeline.lean:16:45: error: linarith failed to find a contradiction\ncase h\nn : ℕ\nh1 : ↑n > 0\na✝ : n < 1\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipel"
+  },
+  {
+    "id": "amc12b_2002_p19",
+    "nl": "If $a,b,$ and $c$ are positive [[real number]]s such that $a(b+c) = 152, b(c+a) = 162,$ and $c(a+b) = 170$, then $abc$ is\n\n$\\mathrm{(A)}\\ 672\n\\qquad\\mathrm{(B)}\\ 688\n\\qquad\\mathrm{(C)}\\ 704\n\\qquad\\mathrm{(D)}\\ 720\n\\qquad\\mathrm{(E)}\\ 750$ Show that it is 720.",
+    "fl_statement": "theorem amc12b_2002_p19\n  (a b c: ℝ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c)\n  (h₁ : a * (b + c) = 152)\n  (h₂ : b * (c + a) = 162)\n  (h₃ : c * (a + b) = 170) :\n  a * b * c = 720 := by",
+    "generated_proof": "nlinarith [sq_nonneg (a - b), sq_nonneg (b - c), sq_nonneg (c - a),\n    mul_pos (h₀.1) (h₀.2.1), mul_pos (h₀.2.1) (h₀.2.2), mul_pos (h₀.2.2) (h₀.1)]",
+    "error_type": "SUCCESS",
+    "lean_output": ""
   }
 ]
