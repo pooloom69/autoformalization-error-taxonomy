@@ -78,5 +78,85 @@
     "generated_proof": "interval_cases n <;> norm_num at h₁ <;> omega",
     "error_type": "SUCCESS",
     "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:38: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n"
+  },
+  {
+    "id": "imo_1983_p6",
+    "nl": "Let $a$, $b$ and $c$ be the lengths of the sides of a triangle. Prove that\n\n$a^2 b(a-b) + b^2 c(b-c) + c^2 a(c-a) \\geq 0$.\n\nDetermine when equality occurs.",
+    "fl_statement": "theorem imo_1983_p6\n  (a b c : ℝ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c)\n  (h₁ : c < a + b)\n  (h₂ : b < a + c)\n  (h₃ : a < b + c) :\n  0 ≤ a^2 * b * (a - b) + b^2 * c * (b - c) + c^2 * a * (c - a) := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:67: error: unsolved goals\na b c : ℝ\nh₀ : 0 < a ∧ 0 < b ∧ 0 < c\nh₁ : c < a + b\nh₂ : b < a + c\nh₃ : a < b + c\n⊢ 0 ≤ a ^ 2 * b * (a - b) + b ^ 2 * c * (b - c) + c ^ 2 * a * (c"
+  },
+  {
+    "id": "mathd_numbertheory_237",
+    "nl": "What is the modulo $6$ remainder of the sum $1+2+3+4+\\dots+98+99+100?$ Show that it is 4.",
+    "fl_statement": "theorem mathd_numbertheory_237 :\n  (∑ k in (Finset.range 101), k) % 6 = 4 := by",
+    "generated_proof": "native_decide",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:6: error: unexpected token 'in'; expected ','\n"
+  },
+  {
+    "id": "mathd_algebra_33",
+    "nl": "If $2x = 5y$ and $7y = 10z$, what is the value of $\\frac{z}{x}$ expressed as a common fraction? Show that it is \\frac{7}{25}.",
+    "fl_statement": "theorem mathd_algebra_33\n  (x y z : ℝ)\n  (h₀ : x ≠ 0)\n  (h₁ : 2 * x = 5 * y)\n  (h₂ : 7 * y = 10 * z) :\n  z / x = 7 / 25 := by",
+    "generated_proof": "have h₃ : y = 2 / 5 * x := by\n    linarith\n  have h₄ : z = 7 / 10 * y := by\n    linarith\n  rw [h₃] at h₄\n  have h₅ : z = 7 / 10 * (2 / 5 * x) := h₄\n  have h₆ : z = 7 / 25 * x := by\n    linarith\n  have h₇ : z / x = 7 / 25 := by\n    field_simp [h₀]\n    linarith\n  exact h₇",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "amc12b_2021_p3",
+    "nl": "Suppose$2+\\frac{1}{1+\\frac{1}{2+\\frac{2}{3+x}}}=\\frac{144}{53}.$What is the value of $x?$\n\n$\\textbf{(A) }\\frac34 \\qquad \\textbf{(B) }\\frac78 \\qquad \\textbf{(C) }\\frac{14}{15} \\qquad \\textbf{(D) }\\frac{37}{38} \\qquad \\textbf{(E) }\\frac{52}{53}$ Show that it is \\text{A}.",
+    "fl_statement": "theorem amc12b_2021_p3\n  (x : ℝ)\n  (h₀ : 2 + 1 / (1 + 1 / (2 + 2 / (3 + x))) = 144 / 53) :\n  x = 3 / 4 := by",
+    "generated_proof": "have h1 : 2 + 2 / (3 + x) = (2 * (3 + x) + 2) / (3 + x) := by\n    field_simp\n    <;> ring\n  have h2 : 2 + 1 / (1 + 1 / (2 + 2 / (3 + x))) = 144 / 53 := h₀\n  rw [h1] at h2\n  have h3 : 1 + 1 / ((2 * (3 + x) + 2) / (3 + x)) = ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) := by\n    field_simp\n    <;> ring\n  rw [h3] at h2\n  have h4 : 2 + 1 / (( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2)) = ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) + 2 := by\n    field_simp\n    <;> ring\n  rw [h4] at h2\n  have h5 : ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) + 2 = 144 / 53 := by\n    linarith\n  have h6 : ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) = 144 / 53 - 2 := by\n    linarith\n  have h7 : ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) = ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) := by\n    rfl\n  have h8 : ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) = ( (2 * (3 + x) + 2",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:30:78: error: unexpected end of input; expected ')', ',' or ':'\nTry this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a nonco"
+  },
+  {
+    "id": "mathd_numbertheory_299",
+    "nl": "What is the ones digit of $1 \\cdot 3 \\cdot 5 \\cdot 7 \\cdot 9 \\cdot 11 \\cdot 13$? Show that it is 5.",
+    "fl_statement": "theorem mathd_numbertheory_299 :\n  (1 * 3 * 5 * 7 * 9 * 11 * 13) % 10 = 5 := by",
+    "generated_proof": "norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "amc12b_2020_p2",
+    "nl": "What is the value of the following expression?\n\n$\\frac{100^2-7^2}{70^2-11^2} \\cdot \\frac{(70-11)(70+11)}{(100-7)(100+7)}$\n\n$\\textbf{(A) } 1 \\qquad \\textbf{(B) } \\frac{9951}{9950} \\qquad \\textbf{(C) } \\frac{4780}{4779} \\qquad \\textbf{(D) } \\frac{108}{107} \\qquad \\textbf{(E) } \\frac{81}{80} $ Show that it is \\textbf{(A) } 1.",
+    "fl_statement": "theorem amc12b_2020_p2 :\n  ((100 ^ 2 - 7 ^ 2):ℝ) / (70 ^ 2 - 11 ^ 2) * ((70 - 11) * (70 + 11) / ((100 - 7) * (100 + 7))) = 1 := by",
+    "generated_proof": "norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "algebra_sqineq_unitcircatbpabsamblt1",
+    "nl": "Let $a$ and $b$ be real numbers such that $a^2+b^2=1$. Show that $ab+\\lvert a-b\\rvert \\leq 1$.",
+    "fl_statement": "theorem algebra_sqineq_unitcircatbpabsamblt1\n  (a b: ℝ)\n  (h₀ : a^2 + b^2 = 1) :\n  a * b + |a - b| ≤ 1 := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:10:25: error: unsolved goals\na b : ℝ\nh₀ : a ^ 2 + b ^ 2 = 1\n⊢ a * b + |a - b| ≤ 1\n"
+  },
+  {
+    "id": "imo_1977_p6",
+    "nl": "Let $f(n)$ be a function $f: \\mathbb{N}^{+}\\to\\mathbb{N}^{+}$. Prove that if $ f(n+1) > f(f(n)) $ for each positive integer $n$, then $f(n)=n$.",
+    "fl_statement": "theorem imo_1977_p6\n  (f : ℕ → ℕ)\n  (h₀ : ∀ n, 0 < f n)\n  (h₁ : ∀ n, 0 < n → f (f n) < f (n + 1)) :\n  ∀ n, 0 < n → f n = n := by",
+    "generated_proof": "intro n hn\n  have h2 : ∀ n, 0 < n → f n = n := by\n    intro n hn\n    induction n with\n    | zero =>\n      exfalso\n      linarith\n    | succ n ih =>\n      cases n with\n      | zero =>\n        simp [h₀]\n      | succ n =>\n        have h3 := ih (by linarith)\n        simp [h₀] at h3 ⊢\n        have h4 := h₁ (n + 1) (by linarith)\n        simp [h3] at h4 ⊢\n        all_goals linarith\n  specialize h2 n hn\n  simpa using h2",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:21:13: error: unsolved goals\ncase succ.zero\nf : ℕ → ℕ\nh₀ : ∀ (n : ℕ), 0 < f n\nh₁ : ∀ (n : ℕ), 0 < n → f (f n) < f (n + 1)\nn : ℕ\nhn✝ : 0 < n\nih : 0 < 0 → f 0 = 0\nhn : 0 < 0 + 1\n⊢ f 1 = 1\n/tmp/mathlib_test/test_pipeline.lean:28:18: error: linarith failed to find a "
+  },
+  {
+    "id": "mathd_algebra_419",
+    "nl": "What is the value of $-a-b^2+3ab$ if $a=-1$ and $b=5$? Show that it is -39.",
+    "fl_statement": "theorem mathd_algebra_419\n  (a b : ℝ)\n  (h₀ : a = -1)\n  (h₁ : b = 5) :\n  -a - b^2 + 3 * (a * b) = -39 := by",
+    "generated_proof": "rw [h₀, h₁]\n  norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "amc12a_2020_p10",
+    "nl": "There is a unique positive integer $n$ such that$\\log_2{(\\log_{16}{n})} = \\log_4{(\\log_4{n})}.$What is the sum of the digits of $n?$\n\n$\\textbf{(A) } 4 \\qquad \\textbf{(B) } 7 \\qquad \\textbf{(C) } 8 \\qquad \\textbf{(D) } 11 \\qquad \\textbf{(E) } 13$ Show that it is \\textbf{(E) } 13.",
+    "fl_statement": "-- Error: Real.log\n-- theorem amc12a_2020_p10\n--   (n : ℕ)\n--   (h₀ : 0 < n)\n--   (h₁ : Real.logb 2 (Real.logb 16 n) = Real.logb 4 (Real.logb 4 n)) :\n--   (Nat.digits 10 n).sum = 13 := by",
+    "generated_proof": "-- Error 1: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 2 (Real.logb 16 n)`\n-- Error 2: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 3: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 4: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 5: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 6: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 7: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 8: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 9: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 10: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 11: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 12: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 13: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 14: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n--",
+    "error_type": "SUCCESS",
+    "lean_output": ""
   }
 ]
