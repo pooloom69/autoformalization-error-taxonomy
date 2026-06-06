@@ -878,5 +878,85 @@
     "generated_proof": "have h2 : 0 < a * b := by nlinarith\n  have h3 : Real.sqrt (a * b) = Real.sqrt a * Real.sqrt b := by\n    rw [Real.sqrt_mul]\n    all_goals nlinarith\n  have h4 : Real.sqrt a ≥ Real.sqrt b := by\n    apply Real.sqrt_le_sqrt\n    linarith\n  have h5 : (a + b) / 2 - Real.sqrt (a * b) ≤ (a - b)^2 / (8 * b) := by\n    have h6 : (a + b) / 2 - Real.sqrt (a * b) = ((a + b) ^ 2 - 4 * a * b) / (2 * (2 * Real.sqrt a * Real.sqrt b)) := by\n      field_simp\n      <;> nlinarith [Real.sqrt_nonneg (a * b), Real.sqrt_nonneg a, Real.sqrt_nonneg b, Real.sq_sqrt (show 0 ≤ a by linarith), Real.sq_sqrt (show 0 ≤ b by linarith)]\n    rw [h6]\n    have h7 : ((a + b) ^ 2 - 4 * a * b) / (2 * (2 * Real.sqrt a * Real.sqrt b)) ≤ (a - b)^2 / (8 * b) := by\n      apply (div_le_div_iff (by positivity) (by positivity)).mpr\n      nlinarith [sq_nonneg (a - b), sq_nonneg (Real.sqrt a - Real.sqrt b), sq_nonneg (a + b - 2 * Real.sqrt a * Real.sqrt b), sq_nonneg (a - 2 * Real.sqrt a * Real.sqrt b + b), sq_nonneg (a + b - 2 * Real.sqrt a * Real.sqrt b), Real.sqrt_nonneg a, Real.sqrt_nonneg b, Real.sq_sqrt (show 0 ≤ a by linarith), Real.sq_sqrt (show 0 ≤ b by linarith), mul_nonneg (Real.sqrt_nonneg a) (Real.sqrt_nonneg b), sq_nonneg (a - b), sq_nonneg (Real.sqrt a - Real.sqrt b), Real.sqrt_nonneg a, Real.sqrt_nonneg b, mul_nonneg (Real.sqrt_nonneg a) (Real.sqrt_nonneg b)]\n    linarith\n  linarith",
     "error_type": "SYNTACTIC",
     "lean_output": "/tmp/mathlib_test/test_pipeline.lean:22:10: error: linarith failed to find a contradiction\ncase h1.h\na b : ℝ\nh₀ : 0 < a ∧ 0 < b\nh₁ : b ≤ a\nh2 : 0 < a * b\nh3 : √(a * b) = √a * √b\nh4 : √a ≥ √b\na✝ : 2 * (a + b - 2 * √(a * b)) < ((a + b) ^ 2 - a * b * 4) / (√a * √b)\n⊢ False\nfailed\n/tmp/mathlib_test/test"
+  },
+  {
+    "id": "mathd_algebra_276",
+    "nl": "The expression $10x^2-x-24$ can be written as $(Ax-8)(Bx+3),$ where $A$ and $B$ are integers. What is $AB + B$? Show that it is 12.",
+    "fl_statement": "theorem mathd_algebra_276\n  (a b : ℤ)\n  (h₀ : ∀ x : ℝ, 10 * x^2 - x - 24 = (a * x - 8) * (b * x + 3)) :\n  a * b + b = 12 := by",
+    "generated_proof": "have h1 := h₀ 0\n  have h2 := h₀ 1\n  have h3 := h₀ (-1)\n  have h4 := h₀ (1 / 10 : ℝ)\n  norm_num at h1 h2 h3 h4\n  ring_nf at h1 h2 h3 h4\n  have h5 : a = 10 := by\n    nlinarith\n  have h6 : b = 2 := by\n    nlinarith\n  rw [h5, h6]\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num",
+    "error_type": "UNKNOWN",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:2: error: `ring_nf` made no progress at `h1`\n"
+  },
+  {
+    "id": "amc12a_2021_p14",
+    "nl": "What is the value of $\\left(\\sum_{k=1}^{20} \\log_{5^k} 3^{k^2}\\right)\\cdot\\left(\\sum_{k=1}^{100} \\log_{9^k} 25^k\\right)?$\n\n$\\textbf{(A) }21 \\qquad \\textbf{(B) }100\\log_5 3 \\qquad \\textbf{(C) }200\\log_3 5 \\qquad \\textbf{(D) }2{,}200\\qquad \\textbf{(E) }21{,}000$ Show that it is \\textbf{(E) }21{,}000.",
+    "fl_statement": "-- Error: Real.log\n-- theorem amc12a_2021_p14 :\n--   (∑ k in (Finset.Icc 1 20), (Real.logb (5^k) (3^(k^2)))) * (∑ k in (Finset.Icc 1 100), (Real.logb (9^k) (25^k))) = 21000 := by",
+    "generated_proof": "--   sorry\n-- Error 2: Real.logb\n-- theorem amc12a_2021_p14 :\n--   (∑ k in (Finset.Icc 1 20), (Real.logb (5^k) (3^(k^2)))) * (∑ k in (Finset.Icc 1 100), (Real.logb (9^k) (25^k))) = 21000 := by\n--   sorry\n-- Error 3: Real.log\n-- theorem amc12a_2021_p14 :\n--   (∑ k in (Finset.Icc 1 20), (Real.logb (5^k) (3^(k^2)))) * (∑ k in (Finset.Icc 1 100), (Real.logb (9^k) (25^k))) = 21000 := by\n--   sorry",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "algebra_sum1onsqrt2to1onsqrt10000lt198",
+    "nl": "Show that $\\sum_{k=2}^{10000} \\frac{1}{\\sqrt{k}} < 198$.",
+    "fl_statement": "theorem algebra_sum1onsqrt2to1onsqrt10000lt198 :\n  ∑ k in (Finset.Icc (2 : ℕ) 10000), (1 / Real.sqrt k) < 198 := by",
+    "generated_proof": "have h1 : ∀ n : ℕ, ∑ k in (Finset.Icc (2 : ℕ) n), (1 / Real.sqrt k) < 198 := by\n    intro n\n    induction n with\n    | zero =>\n      simp\n    | succ n ih =>\n      rw [Finset.sum_Icc_succ_top (by linarith)]\n      rw [show (n + 1 : ℝ) = (n : ℝ) + 1 by simp]\n      have h2 : ∑ k in (Finset.Icc (2 : ℕ) (n + 1 : ℕ)), (1 / Real.sqrt k) < 198 := by\n        have h3 : ∑ k in (Finset.Icc (2 : ℕ) (n + 1 : ℕ)), (1 / Real.sqrt k) = ∑ k in (Finset.Icc (2 : ℕ) (n : ℕ)), (1 / Real.sqrt k) + (1 / Real.sqrt (n + 1 : ℕ)) := by\n          rw [Finset.sum_Icc_succ_top (by linarith)]\n        rw [h3]\n        linarith [ih]\n      linarith\n  specialize h1 10000\n  simpa using h1",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:5: error: unexpected token 'in'; expected ','\n"
+  },
+  {
+    "id": "mathd_numbertheory_618",
+    "nl": "Euler discovered that the polynomial $p(n) = n^2 - n + 41$ yields prime numbers for many small positive integer values of $n$. What is the smallest positive integer $n$ for which $p(n)$ and $p(n+1)$ share a common factor greater than $1$? Show that it is 41.",
+    "fl_statement": "theorem mathd_numbertheory_618\n  (n : ℕ)\n  (p : ℕ → ℕ)\n  (h₀ : ∀ x, p x = x^2 - x + 41)\n  (h₁ : 1 < Nat.gcd (p n) (p (n+1))) :\n  41 ≤ n := by",
+    "generated_proof": "by_contra h\n  push_neg at h\n  have h2 : n < 41 := by linarith\n  have h3 : n ≤ 40 := by omega\n  interval_cases n <;> norm_num [h₀] at h₁ ⊢ <;> try { contradiction }\n  <;> try { omega }",
+    "error_type": "UNKNOWN",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n "
+  },
+  {
+    "id": "amc12a_2020_p4",
+    "nl": "How many $4$-digit positive integers (that is, integers between $1000$ and $9999$, inclusive) having only even digits are divisible by $5?$\n\n$\\textbf{(A) } 80 \\qquad \\textbf{(B) } 100 \\qquad \\textbf{(C) } 125 \\qquad \\textbf{(D) } 200 \\qquad \\textbf{(E) } 500$ Show that it is \\textbf{(B) } 100.",
+    "fl_statement": "theorem amc12a_2020_p4\n  (S : Finset ℕ)\n  (h₀ : ∀ (n : ℕ), n ∈ S ↔ 1000 ≤ n ∧ n ≤ 9999 ∧ (∀ (d : ℕ), d ∈ Nat.digits 10 n → Even d) ∧ 5 ∣ n) :\n  S.card = 100 := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:10:18: error: unsolved goals\nS : Finset ℕ\nh₀ : ∀ (n : ℕ), n ∈ S ↔ 1000 ≤ n ∧ n ≤ 9999 ∧ (∀ d ∈ Nat.digits 10 n, Even d) ∧ 5 ∣ n\n⊢ S.card = 100\n"
+  },
+  {
+    "id": "amc12b_2020_p6",
+    "nl": "For all integers $n \\geq 9,$ the value of\n$\\frac{(n+2)!-(n+1)!}{n!}$is always which of the following?\n\n$\\textbf{(A) } \\text{a multiple of 4} \\qquad \\textbf{(B) } \\text{a multiple of 10} \\qquad \\textbf{(C) } \\text{a prime number} \\qquad \\textbf{(D) } \\text{a perfect square} \\qquad \\textbf{(E) } \\text{a perfect cube}$ Show that it is \\textbf{(D) } \\text{a perfect square}.",
+    "fl_statement": "theorem amc12b_2020_p6\n  (n : ℕ)\n  (h₀ : 9 ≤ n) :\n  ∃ (x : ℕ), (x : ℝ)^2 = ((n + 2)! - (n + 1)!) / n! := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:10:55: error: unsolved goals\nn! : ℝ\nn : ℕ\nh₀ : 9 ≤ n\n⊢ ∃ x, ↑x ^ 2 = (↑(n + 2)! - ↑(n + 1)!) / n!\n"
+  },
+  {
+    "id": "mathd_numbertheory_435",
+    "nl": "Find the smallest positive integer $k$ such that, for every positive integer $n$, $6n+k$ is relatively prime to each of $6n+3$, $6n+2$, and $6n+1$. Show that it is 5.",
+    "fl_statement": "theorem mathd_numbertheory_435\n  (k : ℕ)\n  (h₀ : 0 < k)\n  (h₁ : ∀ n, Nat.gcd (6 * n + k) (6 * n + 3) = 1)\n  (h₂ : ∀ n, Nat.gcd (6 * n + k) (6 * n + 2) = 1)\n  (h₃ : ∀ n, Nat.gcd (6 * n + k) (6 * n + 1) = 1) :\n  5 ≤ k := by",
+    "generated_proof": "have h4 := h₁ 0\n  have h5 := h₂ 0\n  have h6 := h₃ 0\n  norm_num at h4 h5 h6\n  omega",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:18:2: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  1 ≤ a ≤ 4\nwhere\n a := ↑k\n"
+  },
+  {
+    "id": "algebra_others_exirrpowirrrat",
+    "nl": "Show that there exist real numbers $a$ and $b$ such that $a$ is irrational, $b$ is irrational, and $a^b$ is rational.",
+    "fl_statement": "-- Error: irrational\n-- theorem algebra_others_exirrpowirrrat :\n--   ∃ a b, irrational a ∧ irrational b ∧ ¬ irrational (a^b) := by",
+    "generated_proof": "--   use Real.sqrt 2\n--   use (Real.log 2) / 2\n--   constructor\n--   · -- Show that sqrt 2 is irrational\n--     native_decide\n--   constructor\n--   · -- Show that log 2 / 2 is irrational\n--     native_decide\n--   · -- Show that (sqrt 2)^(log 2 / 2) is rational\n--     have h1 : Real.sqrt 2 ^ ((Real.log 2) / 2) = Real.sqrt 2 ^ (Real.log 2 / 2) := by rfl\n--     rw [h1]\n--     have h2 : Real.sqrt 2 ^ (Real.log 2 / 2) = (2 : ℝ) := by\n--       have h3 : Real.sqrt 2 = (2 : ℝ) ^ (1 / 2 : ℝ) := by\n--         rw [Real.sqrt_eq_rpow]\n--       rw [h3]\n--       have h4 : ((2 : ℝ) ^ (1 / 2 : ℝ)) ^ (Real.log 2 / 2) = (2 : ℝ) ^ (1 / 2 * (Real.log 2 / 2) : ℝ) := by\n--         rw [← Real.rpow_mul]\n--         ring_nf\n--         all_goals linarith\n--       rw [h4]\n--       have h5 : (2 : ℝ) ^ (1 / 2 * (Real.log 2 / 2) : ℝ) = (2 : ℝ) := by\n--         have h6 : 1 / 2 * (Real.log 2 / 2) = (1 / 2) * (Real.log 2) / 2 := by ring\n--         rw [h6]\n--         have h7 : (2 : ℝ) ^ ((1 / 2) * (Real.log 2) / 2 : ℝ) = (2 : ℝ) ^ (Real.log 2 / 2 : ℝ) := by\n--           ring_nf\n--         rw [h7]\n--         have h8 : (2 : ℝ) ^ (Real.log 2 / 2 : ℝ) = (2 : ℝ) := by\n--           rw [Real.rpow_logb]\n--           all_goals norm_num\n--         rw [h8]\n--       rw [h",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_427",
+    "nl": "Given the equations $3x+y=17,5y+z=14$ and $3x+5z=41$, what is the value of the sum $x+y+z$? Show that it is 12.",
+    "fl_statement": "theorem mathd_algebra_427\n  (x y z : ℝ)\n  (h₀ : 3 * x + y = 17)\n  (h₁ : 5 * y + z = 14)\n  (h₂ : 3 * x + 5 * z = 41) :\n  x + y + z = 12 := by",
+    "generated_proof": "linarith",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_76",
+    "nl": "For integers $n$, let \\[f(n) = \\left\\{\n\\begin{array}{cl}\nn^2 & \\text{ if }n\\text{ is odd}, \\\\\nn^2 - 4n - 1 & \\text{ if }n\\text{ is even}.\n\\end{array}\n\\right.\\]Find $f(f(f(f(f(4)))))$. Show that it is 1.",
+    "fl_statement": "theorem mathd_algebra_76\n  (f : ℤ → ℤ)\n  (h₀ : ∀n, Odd n → f n = n^2)\n  (h₁ : ∀ n, Even n → f n = n^2 - 4*n -1) :\n  f 4 = -1 := by",
+    "generated_proof": "have h2 : Even 4 := by\n    exact ⟨2, by norm_num⟩\n  have h3 : f 4 = 4^2 - 4 * 4 - 1 := by\n    apply h₁ 4\n    exact h2\n  norm_num at h3 ⊢\n  exact h3",
+    "error_type": "UNKNOWN",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:4: error: Type mismatch\n  h2\nhas type\n  Even (4 : ℕ)\nbut is expected to have type\n  Even (4 : ℤ)\n"
   }
 ]
