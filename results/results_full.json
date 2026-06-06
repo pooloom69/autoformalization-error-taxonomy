@@ -238,5 +238,85 @@
     "generated_proof": "have h1 : (x : ℝ) = (598 : ℝ) * (100 : ℝ) / (104 : ℝ) := by\n    linarith\n  have h2 : (x : ℝ) = (575 : ℝ) := by\n    rw [h1]\n    norm_num\n  have h3 : x = 575 := by\n    exact_mod_cast h2\n  exact h3",
     "error_type": "SUCCESS",
     "lean_output": ""
+  },
+  {
+    "id": "imo_1997_p5",
+    "nl": "Show that if $x$ and $y$ are positive integers such that $x^{y^2} = y^x$, then $(x, y)$ is equal to $(1, 1)$, $(16, 2)$, or $(27, 3)$.",
+    "fl_statement": "theorem imo_1997_p5\n  (x y : ℕ)\n  (h₀ : 0 < x ∧ 0 < y)\n  (h₁ : x^(y^2) = y^x) :\n  (x, y) = (1, 1) ∨ (x, y) = (16, 2) ∨ (x, y) = (27, 3) := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:59: error: unsolved goals\nx y : ℕ\nh₀ : 0 < x ∧ 0 < y\nh₁ : x ^ y ^ 2 = y ^ x\n⊢ (x, y) = (1, 1) ∨ (x, y) = (16, 2) ∨ (x, y) = (27, 3)\n"
+  },
+  {
+    "id": "mathd_numbertheory_277",
+    "nl": "The greatest common divisor of positive integers $m$ and $n$ is 6. The least common multiple of $m$ and $n$ is 126. What is the least possible value of $m+n$? Show that it is 60.",
+    "fl_statement": "theorem mathd_numbertheory_277\n  (m n : ℕ)\n  (h₀ : Nat.gcd m n = 6)\n  (h₁ : Nat.lcm m n = 126) :\n  60 ≤ m + n := by",
+    "generated_proof": "by_contra h\n  push_neg at h\n  have h2 : m ≤ 126 := by\n    have h3 : m ∣ Nat.lcm m n := by\n      exact Nat.dvd_lcm_left m n\n    rw [h₁] at h3\n    have h4 : m ≤ 126 := by\n      exact Nat.le_of_dvd (by norm_num) h3\n    linarith\n  have h3 : n ≤ 126 := by\n    have h4 : n ∣ Nat.lcm m n := by\n      exact Nat.dvd_lcm_right m n\n    rw [h₁] at h4\n    have h5 : n ≤ 126 := by\n      exact Nat.le_of_dvd (by norm_num) h4\n    linarith\n  interval_cases m <;> interval_cases n\n  <;> norm_num [Nat.gcd, Nat.lcm] at h₀ h₁ ⊢\n  <;> omega",
+    "error_type": "UNKNOWN",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n "
+  },
+  {
+    "id": "mathd_numbertheory_559",
+    "nl": "A positive integer $X$ is 2 more than a multiple of 3. Its units digit is the same as the units digit of a number that is 4 more than a multiple of 5. What is the smallest possible value of $X$? Show that it is 14.",
+    "fl_statement": "theorem mathd_numbertheory_559\n  (x y : ℕ)\n  (h₀ : x % 3 = 2)\n  (h₁ : y % 5 = 4)\n  (h₂ : x % 10 = y % 10) :\n  14 ≤ x := by",
+    "generated_proof": "omega",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_160",
+    "nl": "For each plumbing repair job, Mr. Wrench charges $N$ dollars for coming out to the house plus $x$ dollars per hour that he works at the house. He charged $\\$97$ for a one-hour repair job and $\\$265$ for a five-hour repair job. What is his charge for a two-hour repair job? Show that it is \\$ 139.",
+    "fl_statement": "theorem mathd_algebra_160\n  (n x : ℝ)\n  (h₀ : n + x = 97)\n  (h₁ : n + 5 * x = 265) :\n  n + 2 * x = 139 := by",
+    "generated_proof": "linarith",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_24",
+    "nl": "If a snack-size tin of peaches has $40$ calories and is $2\\%$ of a person's daily caloric requirement, how many calories fulfill a person's daily caloric requirement? Show that it is 2000.",
+    "fl_statement": "theorem mathd_algebra_24\n  (x : ℝ)\n  (h₀ : x / 50 = 40) :\n  x = 2000 := by",
+    "generated_proof": "field_simp at h₀\n  linarith",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_176",
+    "nl": "Expand the product $(x+1)^2 \\cdot x$. Show that it is x^3 + 2x^2 + x.",
+    "fl_statement": "theorem mathd_algebra_176\n  (x : ℝ) :\n  (x + 1)^2 * x = x^3 + 2 * x^2 + x := by",
+    "generated_proof": "ring",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "induction_nfactltnexpnm1ngt3",
+    "nl": "Show that for any integer $n \\geq 3$, we have $n! < n^{n-1}$.",
+    "fl_statement": "theorem induction_nfactltnexpnm1ngt3\n  (n : ℕ)\n  (h₀ : 3 ≤ n) :\n  n! < n^(n - 1) := by",
+    "generated_proof": "have h1 : ∀ n : ℕ, 3 ≤ n → n! < n^(n - 1) := by\n    intro n hn\n    have h2 : n ≥ 3 := by linarith\n    have h3 : n! < n^(n - 1) := by\n      have h4 : n ≥ 3 := by linarith\n      have h5 : n! = 1 * 2 * 3 * 4 * ... * (n - 1) * (n) := by\n        simp [Nat.factorial]\n        <;> ring_nf\n      have h6 : n^(n - 1) = n * n * n * ... * (n) := by\n        have h7 : n - 1 ≥ 2 := by\n          omega\n        have h8 : n^(n - 1) = n * (n ^ (n - 2)) := by\n          ring_nf\n        have h9 : n ^ (n - 2) = n * n * ... * (n) := by\n          have h10 : n - 2 ≥ 1 := by\n            omega\n          have h11 : n ^ (n - 2) = n * (n ^ (n - 3)) := by\n            ring_nf\n          -- ... (this part is getting complicated, let's try a different approach)\n          -- We need to show n! < n^(n-1)\n          -- Let's use induction on n starting from 3\n          -- Base case n = 3: 3! = 6, 3^(3-1) = 3^2 = 9. 6 < 9.\n          -- Inductive step: Assume for some k ≥ 3, k! < k^(k-1)\n          -- Show (k+1)! < (k+1)^(k)\n          -- (k+1)! = (k+1) * k!\n          -- (k+1)^(k) = (k+1) * (k+1)^(k-1)\n          -- We need to show (k+1) * k! < (k+1) * (k+1)^(k-1)\n          -- This is equivalent to k! < (k+1)^(k-1) (since k+1 > 0)\n          -- From the",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:36: error: unexpected token '...'; expected term\n/tmp/mathlib_test/test_pipeline.lean:14:32: error: unsolved goals\ncase h5\nn! n✝ : ℕ\nh₀ : 3 ≤ n✝\nn : ℕ\nhn : 3 ≤ n\nh2 h4 : n ≥ 3\n⊢ n! = 1 * 2 * 3 * 4 * sorry\n\nn! n✝ : ℕ\nh₀ : 3 ≤ n✝\nn : ℕ\nhn : 3 ≤ n\nh2 h4 : n ≥ 3\nh"
+  },
+  {
+    "id": "mathd_algebra_208",
+    "nl": "What is the value of $\\sqrt{1,\\!000,\\!000} - \\sqrt[3]{1,\\!000,\\!000}$? Show that it is 900.",
+    "fl_statement": "theorem mathd_algebra_208 :\n  Real.sqrt 1000000 - 1000000^(1/3) = 900 := by",
+    "generated_proof": "have h1 : Real.sqrt 1000000 = 1000 := by\n    rw [Real.sqrt_eq_iff_sq_eq] <;> norm_num\n  have h2 : (1000000 : ℝ) ^ (1 / 3 : ℝ) = 100 := by\n    have h3 : (1000000 : ℝ) = (100 : ℝ) ^ (3 : ℝ) := by norm_num\n    rw [h3]\n    rw [← Real.rpow_mul]\n    norm_num\n    all_goals norm_num\n  rw [h1, h2]\n  all_goals norm_num",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:8: error(lean.unknownIdentifier): Unknown constant `Real.sqrt_eq_iff_sq_eq`\n/tmp/mathlib_test/test_pipeline.lean:17:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  1000000 ^ (1 / 3)\nin the target expression\n  1000 - 1000000 ^ (1"
+  },
+  {
+    "id": "mathd_numbertheory_353",
+    "nl": "Let $S = 2010 + 2011 + \\cdots + 4018$. Compute the residue of $S$, modulo 2009. Show that it is 0.",
+    "fl_statement": "theorem mathd_numbertheory_353\n  (s : ℕ)\n  (h₀ : s = ∑ k in Finset.Icc 2010 4018, k) :\n  s % 2009 = 0 := by",
+    "generated_proof": "rw [h₀]\n  native_decide",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:15: error: unexpected token 'in'; expected ','\n"
+  },
+  {
+    "id": "numbertheory_notequiv2i2jasqbsqdiv8",
+    "nl": "Let $a$ and $b$ be two integer numbers. Show that the following statement is false: $a$ and $b$ are both even iff $8 \\mid a^2 + b^2$.",
+    "fl_statement": "theorem numbertheory_notEquiv2i2jasqbsqdiv8 :\n  ¬ (∀ a b : ℤ, (∃ i j, a = 2*i ∧ b=2*j) ↔ (∃ k, a^2 + b^2 = 8*k)) := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:8:70: error: unsolved goals\n⊢ ¬∀ (a b : ℤ), (∃ i j, a = 2 * i ∧ b = 2 * j) ↔ ∃ k, a ^ 2 + b ^ 2 = 8 * k\n"
   }
 ]
