@@ -123,6 +123,12 @@ def classify_error(output):
         "Tactic `rfl` failed", "is not definitionally equal",
         "failed to prove", "Tactic `rewrite` failed",
         "Did not find an occurrence", "unexpected end of input",
+        "linarith failed", "push_neg` has been deprecated",
+        "Tactic `apply` failed", "ring_nf` made no progress",
+        "No goals to be solved",
+    ]
+    syntactic_extra = [
+        "Type mismatch", "Ambiguous term",
     ]
     if any(p in msg for p in syntactic):
         return "SYNTACTIC"
@@ -131,9 +137,19 @@ def classify_error(output):
     return "UNKNOWN"
 
 # Run pipeline on full MiniF2F test set (244 problems)
-results = []
+results_path = f"{REPO_PATH}/results/results_full.json"
+if os.path.exists(results_path):
+    with open(results_path) as f:
+        results = json.load(f)
+    start_idx = len(results)
+    print(f"Resuming from {start_idx}/244...")
+else:
+    results = []
+    start_idx = 0
+    print("Starting fresh...")
 for i, sample in enumerate(ds['test']):
-    print(f"\n[{i+1}/244] {sample['id']}")
+    if i < start_idx:
+        continue
 
     # Prepare formal statement
     fl_statement = fix_statement(sample['formal_statement']).replace(':= sorry', ':= by')
