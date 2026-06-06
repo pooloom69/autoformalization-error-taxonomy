@@ -558,5 +558,85 @@
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
     "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:19: error: unsolved goals\na : ℕ → ℝ\nh₀ : ∀ (n : ℕ), a (n + 2) - a (n + 1) = a (n + 1) - a n\nh₁ : a 1 = 2 / 3\nh₂ : a 9 = 4 / 5\n⊢ a 5 = 11 / 15\n"
+  },
+  {
+    "id": "mathd_numbertheory_5",
+    "nl": "What is the smallest integer greater than 10 that is both a perfect square and a perfect cube? Show that it is 64.",
+    "fl_statement": "theorem mathd_numbertheory_5\n  (n : ℕ)\n  (h₀ : 10 ≤ n)\n  (h₁ : ∃ x, x^2 = n)\n  (h₂ : ∃ t, t^3 = n) :\n  64 ≤ n := by",
+    "generated_proof": "rcases h₁ with ⟨x, hx⟩\n  rcases h₂ with ⟨t, ht⟩\n  have h3 : x^2 = t^3 := by\n    linarith\n  have h4 : x^2 = t^3 := h3\n  have h5 : x^2 = t^3 := h3\n  have h6 : x^2 = t^3 := h3\n  have h7 : x^2 = t^3 := h3\n  have h8 : x^2 = t^3 := h3\n  have h9 : x^2 = t^3 := h3\n  have h10 : x^2 = t^3 := h3\n  have h11 : x^2 = t^3 := h3\n  have h12 : x^2 = t^3 := h3\n  have h13 : x^2 = t^3 := h3\n  have h14 : x^2 = t^3 := h3\n  have h15 : x^2 = t^3 := h3\n  have h16 : x^2 = t^3 := h3\n  have h17 : x^2 = t^3 := h3\n  have h18 : x^2 = t^3 := h3\n  have h19 : x^2 = t^3 := h3\n  have h20 : x^2 = t^3 := h3\n  have h21 : x^2 = t^3 := h3\n  have h22 : x^2 = t^3 := h3\n  have h23 : x^2 = t^3 := h3\n  have h24 : x^2 = t^3 := h3\n  have h25 : x^2 = t^3 := h3\n  have h26 : x^2 = t^3 := h3\n  have h27 : x^2 = t^3 := h3\n  have h28 : x^2 = t^3 := h3\n  have h29 : x^2 = t^3 := h3\n  have h30 : x^2 = t^3 := h3\n  have h31 : x^2 = t^3 := h",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:44:26: error(lean.unknownIdentifier): Unknown identifier `h`\n/tmp/mathlib_test/test_pipeline.lean:12:12: error: unsolved goals\nn : ℕ\nh₀ : 10 ≤ n\nx : ℕ\nhx : x ^ 2 = n\nt : ℕ\nht : t ^ 3 = n\nh3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 h17 h18 h19 h20 h21 h22 h23"
+  },
+  {
+    "id": "mathd_numbertheory_207",
+    "nl": "Convert $852_9$ to base 10. Show that it is 695.",
+    "fl_statement": "theorem mathd_numbertheory_207 :\n  8 * 9^2 + 5 * 9 + 2 = 695 := by",
+    "generated_proof": "norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_342",
+    "nl": "Determine the remainder of 54 (mod 6). Show that it is 0.",
+    "fl_statement": "theorem mathd_numbertheory_342 :\n  54 % 6 = 0 := by",
+    "generated_proof": "norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_483",
+    "nl": "The Fibonacci sequence is the sequence 1, 1, 2, 3, 5, $\\ldots$ where each term is the sum of the previous two terms. What is the remainder when the $100^{\\mathrm{th}}$ term of the sequence is divided by 4? Show that it is 3.",
+    "fl_statement": "theorem mathd_numbertheory_483\n  (a : ℕ → ℕ)\n  (h₀ : a 1 = 1)\n  (h₁ : a 2 = 1)\n  (h₂ : ∀ n, a (n + 2) = a (n + 1) + a n) :\n  (a 100) % 4 = 3 := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:21: error: unsolved goals\na : ℕ → ℕ\nh₀ : a 1 = 1\nh₁ : a 2 = 1\nh₂ : ∀ (n : ℕ), a (n + 2) = a (n + 1) + a n\n⊢ a 100 % 4 = 3\n"
+  },
+  {
+    "id": "amc12b_2020_p21",
+    "nl": "How many positive integers $n$ satisfy $\\dfrac{n+1000}{70} = \\lfloor \\sqrt{n} \\rfloor?$(Recall that $\\lfloor x\\rfloor$ is the greatest integer not exceeding $x$.)\n\n$\\textbf{(A) } 2 \\qquad\\textbf{(B) } 4 \\qquad\\textbf{(C) } 6 \\qquad\\textbf{(D) } 30 \\qquad\\textbf{(E) } 32$ Show that it is \\textbf{(C) }6.",
+    "fl_statement": "theorem amc12b_2020_p21\n  (S : Finset ℕ)\n  (h₀ : ∀ (n : ℕ), n ∈ S ↔ 0 < n ∧ (↑n + (1000 : ℝ)) / 70 = Int.floor (Real.sqrt n)) :\n  S.card = 6 := by",
+    "generated_proof": "have h1 : S = {1, 2, 3, 4, 5, 6} := by\n    ext n\n    simp [h₀]\n    constructor\n    · -- Assume n ∈ S, prove n ∈ {1, 2, 3, 4, 5, 6}\n      intro h\n      rcases h with ⟨hn_pos, h_eq⟩\n      have h2 : n ≤ 6 := by\n        by_contra h\n        push_neg at h\n        have h3 : (↑n + (1000 : ℝ)) / 70 < (↑n : ℝ) / 70 := by\n          linarith\n        have h4 : Int.floor (Real.sqrt n) < (↑n : ℝ) / 70 := by\n          have h5 : Real.sqrt n > (↑n : ℝ) / 70 := by\n            nlinarith [Real.sqrt_nonneg (n : ℝ), Real.sq_sqrt (show (0 : ℝ) ≤ (n : ℝ) by linarith), sq_nonneg ((↑n : ℝ) / 70 - Real.sqrt n)]\n          have h6 : Int.floor (Real.sqrt n) < (↑n : ℝ) / 70 := by\n            have h7 : Real.sqrt n > (↑n : ℝ) / 70 := h5\n            have h8 : Int.floor (Real.sqrt n) ≥ (↑n : ℝ) / 70 - 1 := by\n              have h9 : Real.sqrt n > (↑n : ℝ) / 70 := h7\n              have h10 : Int.floor (Real.sqrt n) ≥ (↑n : ℝ) / 70 - 1 := by\n                have h11 : Real.sqrt n > (↑n : ℝ) / 70 := h9\n                have h12 : Int.floor (Real.sqrt n) ≥ (↑n : ℝ) / 70 - 1 := by\n                  have h13 : Real.sqrt n > (↑n : ℝ) / 70 := h11\n                  have h14 : Int.floor (Real.sqrt n) ≥ (↑n : ℝ) / 70 - 1 := by\n                    have h15 : Real.sqrt n > (↑n : ℝ) / 70",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:20:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n "
+  },
+  {
+    "id": "amc12a_2003_p5",
+    "nl": "The sum of the two 5-digit numbers $AMC10$ and $AMC12$ is $123422$. What is $A+M+C$? \n\n$ \\mathrm{(A) \\ } 10\\qquad \\mathrm{(B) \\ } 11\\qquad \\mathrm{(C) \\ } 12\\qquad \\mathrm{(D) \\ } 13\\qquad \\mathrm{(E) \\ } 14 $ Show that it is \\mathrm{(E)}\\ 14.",
+    "fl_statement": "theorem amc12a_2003_p5\n  (A M C : ℕ)\n  (h₀ : A ≤ 9 ∧ M ≤ 9 ∧ C ≤ 9)\n  (h₁ : Nat.ofDigits 10 [0,1,C,M,A] + Nat.ofDigits 10 [2,1,C,M,A] = 123422) :\n  A + M + C = 14 := by",
+    "generated_proof": "simp [Nat.ofDigits] at h₁\n  rcases h₀ with ⟨hA, hM, hC⟩\n  have h2 : A ≤ 9 := hA\n  have h3 : M ≤ 9 := hM\n  have h4 : C ≤ 9 := hC\n  interval_cases A <;> interval_cases M <;> omega",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_495",
+    "nl": "Suppose $a$ and $b$ are positive integers such that the units digit of $a$ is $2$, the units digit of $b$ is $4$, and the greatest common divisor of $a$ and $b$ is $6$.\n\nWhat is the smallest possible value of the least common multiple of $a$ and $b$? Show that it is 108.",
+    "fl_statement": "theorem mathd_numbertheory_495\n  (a b : ℕ)\n  (h₀ : 0 < a ∧ 0 < b)\n  (h₁ : a % 10 = 2)\n  (h₂ : b % 10 = 4)\n  (h₃ : Nat.gcd a b = 6) :\n  108 ≤ Nat.lcm a b := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:23: error: unsolved goals\na b : ℕ\nh₀ : 0 < a ∧ 0 < b\nh₁ : a % 10 = 2\nh₂ : b % 10 = 4\nh₃ : a.gcd b = 6\n⊢ 108 ≤ a.lcm b\n"
+  },
+  {
+    "id": "mathd_algebra_296",
+    "nl": "A $3491$ by $3491$ square has its length decreased by $60$ and its width increased by $60$.  By how much does its area change? Show that it is 3600.",
+    "fl_statement": "theorem mathd_algebra_296 :\n  abs (((3491 - 60) * (3491 + 60) - 3491^2):ℤ) = 3600 := by",
+    "generated_proof": "norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "algebra_abpbcpcageq3_sumaonsqrtapbgeq3onsqrt2",
+    "nl": "For positive real numbers a, b, c, such that $3 \\leq ab+bc+ca$, show that $3/\\sqrt{2} \\leq a/\\sqrt{a+b} + b/\\sqrt{b+c} + c/\\sqrt{c+a}$.",
+    "fl_statement": "theorem algebra_abpbcpcageq3_sumaonsqrtapbgeq3onsqrt2\n  (a b c : ℝ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c)\n  (h₁ : 3 ≤ a * b + b * c + c * a) :\n  3 / Real.sqrt 2 ≤ a / Real.sqrt (a + b) + b / Real.sqrt (b + c) + c / Real.sqrt (c + a) := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:93: error: unsolved goals\na b c : ℝ\nh₀ : 0 < a ∧ 0 < b ∧ 0 < c\nh₁ : 3 ≤ a * b + b * c + c * a\n⊢ 3 / √2 ≤ a / √(a + b) + b / √(b + c) + c / √(c + a)\n"
+  },
+  {
+    "id": "algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7",
+    "nl": "Given that $f + 3z = 11$ and $3(f - 1) - 5z = -68$, show that $f = -10$ and $z = 7$.",
+    "fl_statement": "theorem algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7\n  (f z: ℂ)\n  (h₀ : f + 3*z = 11)\n  (h₁ : 3*(f - 1) - 5*z = -68) :\n  f = -10 ∧ z = 7 := by",
+    "generated_proof": "have h2 : f = -10 := by\n    have eq1 := h₀\n    have eq2 := h₁\n    simp [Complex.ext_iff] at eq1 eq2 ⊢\n    constructor\n    · ring_nf at eq1 eq2 ⊢\n      linarith\n    · ring_nf at eq1 eq2 ⊢\n      linarith\n  have h3 : z = 7 := by\n    rw [h2] at h₀\n    simp [Complex.ext_iff] at h₀ ⊢\n    constructor\n    · ring_nf at h₀ ⊢\n      linarith\n    · ring_nf at h₀ ⊢\n      linarith\n  exact ⟨h2, h3⟩",
+    "error_type": "SUCCESS",
+    "lean_output": ""
   }
 ]
