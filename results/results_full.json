@@ -798,5 +798,85 @@
     "generated_proof": "induction n with\n  | zero =>\n    simp\n  | succ n ih =>\n    rw [Finset.sum_range_succ, ih]\n    ring_nf\n    <;> omega",
     "error_type": "SYNTACTIC",
     "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:5: error: unexpected token 'in'; expected ','\n"
+  },
+  {
+    "id": "imo_1981_p6",
+    "nl": "The function $f(x,y)$ satisfies\n\n(1) $f(0,y)=y+1, $\n\n(2) $f(x+1,0)=f(x,1), $\n\n(3) $f(x+1,y+1)=f(x,f(x+1,y)), $\n\nfor all non-negative integers $x,y $. Determine $f(4,1981) $.",
+    "fl_statement": "theorem imo_1981_p6\n  (f : ℕ → ℕ → ℕ)\n  (h₀ : ∀ y, f 0 y = y + 1)\n  (h₁ : ∀ x, f (x + 1) 0 = f x 1)\n  (h₂ : ∀ x y, f (x + 1) (y + 1) = f x (f (x + 1) y)) :\n  ∀ y, f 4 (y + 1) = 2^(f 4 y + 3) - 3 := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:42: error: unsolved goals\nf : ℕ → ℕ → ℕ\nh₀ : ∀ (y : ℕ), f 0 y = y + 1\nh₁ : ∀ (x : ℕ), f (x + 1) 0 = f x 1\nh₂ : ∀ (x y : ℕ), f (x + 1) (y + 1) = f x (f (x + 1) y)\n⊢ ∀ (y : ℕ"
+  },
+  {
+    "id": "mathd_algebra_263",
+    "nl": "Find $y$: $\\sqrt{19+3y} = 7$. Show that it is 10.",
+    "fl_statement": "theorem mathd_algebra_263\n  (y : ℝ)\n  (h₀ : 0 ≤ 19 + 3 * y)\n  (h₁ : Real.sqrt (19 + 3 * y) = 7) :\n  y = 10 := by",
+    "generated_proof": "have h2 : 19 + 3 * y = 49 := by\n    calc\n      19 + 3 * y = (Real.sqrt (19 + 3 * y)) ^ 2 := by\n        rw [Real.sq_sqrt]\n        linarith\n      _ = 7 ^ 2 := by\n        rw [h₁]\n      _ = 49 := by\n        norm_num\n  linarith",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_34",
+    "nl": "Find $9^{-1} \\pmod{100}$, as a residue modulo 100.  (Give an answer between 0 and 99, inclusive.) Show that it is 89.",
+    "fl_statement": "theorem mathd_numbertheory_34\n  (x: ℕ)\n  (h₀ : x < 100)\n  (h₁ : x*9 % 100 = 1) :\n  x = 89 := by",
+    "generated_proof": "omega",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_764",
+    "nl": "Given that $p\\ge 7$ is a prime number, evaluate $$1^{-1} \\cdot 2^{-1} + 2^{-1} \\cdot 3^{-1} + 3^{-1} \\cdot 4^{-1} + \\cdots + (p-2)^{-1} \\cdot (p-1)^{-1} \\pmod{p}.$$ Show that it is 2.",
+    "fl_statement": "theorem mathd_numbertheory_764\n  (p : ℕ)\n  (h₀ : Nat.Prime p)\n  (h₁ : 7 ≤ p) :\n  ∑ k in Finset.Icc 1 (p-2), ((k: ZMod p)⁻¹ * ((k: ZMod p) + 1)⁻¹) = 2 := by",
+    "generated_proof": "have h2 : Fact p.Prime := ⟨h₀⟩\n  have h3 : Fact p.Prime := ⟨h₀⟩\n  have h4 : Fact p.Prime := ⟨h₀⟩\n  have h5 : Fact p.Prime := ⟨h₀⟩\n  have h6 : Fact p.Prime := ⟨h₀⟩\n  have h7 : Fact p.Prime := ⟨h₀⟩\n  have h8 : Fact p.Prime := ⟨h₀⟩\n  have h9 : Fact p.Prime := ⟨h₀⟩\n  have h10 : Fact p.Prime := ⟨h₀⟩\n  have h11 : Fact p.Prime := ⟨h₀⟩\n  have h12 : Fact p.Prime := ⟨h₀⟩\n  have h13 : Fact p.Prime := ⟨h₀⟩\n  have h14 : Fact p.Prime := ⟨h₀⟩\n  have h15 : Fact p.Prime := ⟨h₀⟩\n  have h16 : Fact p.Prime := ⟨h₀⟩\n  have h17 : Fact p.Prime := ⟨h₀⟩\n  have h18 : Fact p.Prime := ⟨h₀⟩\n  have h19 : Fact p.Prime := ⟨h₀⟩\n  have h20 : Fact p.Prime := ⟨h₀⟩\n  have h21 : Fact p.Prime := ⟨h₀⟩\n  have h22 : Fact p.Prime := ⟨h₀⟩\n  have h23 : Fact p.Prime := ⟨h₀⟩\n  have h24 : Fact p.Prime := ⟨h₀⟩\n  have h25 : Fact p.Prime := ⟨h₀⟩\n  have h26 : Fact p.Prime := ⟨h₀⟩\n  have h27 : Fact p.Prime := ⟨h₀⟩\n  have h28 : Fact p.Prime := ⟨h₀⟩\n  have h29 : Fact p.Prime := ⟨h₀⟩\n  have h30 : Fact p.Prime := ⟨h₀⟩\n  have h31 : Fact p.Prime := ⟨h₀⟩\n  have h32 : Fact p.Prime := ⟨h₀⟩\n  have h33 : Fact p.Prime := ⟨h₀⟩\n  have h34 : Fact",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:5: error: unexpected token 'in'; expected ','\n"
+  },
+  {
+    "id": "amc12b_2021_p4",
+    "nl": "Ms. Blackwell gives an exam to two classes. The mean of the scores of the students in the morning class is $84$, and the afternoon class's mean score is $70$. The ratio of the number of students in the morning class to the number of students in the afternoon class is $\\frac{3}{4}$. What is the mean of the scores of all the students?\n\n$\\textbf{(A)} ~74 \\qquad\\textbf{(B)} ~75 \\qquad\\textbf{(C)} ~76 \\qquad\\textbf{(D)} ~77 \\qquad\\textbf{(E)} Show that it is \\textbf{(C)} ~76.",
+    "fl_statement": "theorem amc12b_2021_p4\n  (m a : ℕ)\n  (h₀ : 0 < m ∧ 0 < a)\n  (h₁ : ↑m / ↑a = (3:ℝ) / 4) :\n  (84 * ↑m + 70 * ↑a) / (↑m + ↑a) = (76:ℝ) := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:46: error: unsolved goals\nm a : ℕ\nh₀ : 0 < m ∧ 0 < a\nh₁ : ↑m / ↑a = 3 / 4\n⊢ (84 * ↑m + 70 * ↑a) / (↑m + ↑a) = 76\n"
+  },
+  {
+    "id": "imo_1962_p2",
+    "nl": "Determine all real numbers $x$ which satisfy the inequality:\n\n<center>\n$\\sqrt{\\sqrt{3-x}-\\sqrt{x+1}}>\\dfrac{1}{2}$\n</center> Show that it is \\left[ ~ -1,\\quad 1-\\dfrac{\\sqrt{127}}{32} ~ \\right).",
+    "fl_statement": "theorem imo_1962_p2\n  (x : ℝ)\n  (h₀ : 0 ≤ 3 - x)\n  (h₁ : 0 ≤ x + 1)\n  (h₂ : 1 / 2 < Real.sqrt (3 - x) - Real.sqrt (x + 1)) :\n  -1 ≤ x ∧ x < 1 - Real.sqrt 31 / 8 := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:39: error: unsolved goals\nx : ℝ\nh₀ : 0 ≤ 3 - x\nh₁ : 0 ≤ x + 1\nh₂ : 1 / 2 < √(3 - x) - √(x + 1)\n⊢ -1 ≤ x ∧ x < 1 - √31 / 8\n"
+  },
+  {
+    "id": "mathd_algebra_170",
+    "nl": "How many integers are in the solution set of $|x-2|\\leq5.6$ ? Show that it is 11.",
+    "fl_statement": "theorem mathd_algebra_170\n  (S : Finset ℤ)\n  (h₀ : ∀ (n : ℤ), n ∈ S ↔ abs (n - 2) ≤ 5 + 6 / 10) :\n  S.card = 11 := by",
+    "generated_proof": "have h1 : S = Finset.Icc (2 - 5 - 6 / 10 : ℤ) (2 + 5 + 6 / 10 : ℤ) := by\n    ext n\n    simp [h₀]\n    constructor\n    · -- Assume |n - 2| ≤ 5 + 6 / 10, prove n ∈ Finset.Icc (2 - 5 - 6 / 10 : ℤ) (2 + 5 + 6 / 10 : ℤ)\n      intro h\n      have h2 : (n : ℝ) ≥ (2 - 5 - 6 / 10 : ℝ) := by\n        cases' abs_le.mp h with h3 h4\n        linarith\n      have h3 : (n : ℝ) ≤ (2 + 5 + 6 / 10 : ℝ) := by\n        cases' abs_le.mp h with h3 h4\n        linarith\n      have h4 : n ≥ (2 - 5 - 6 / 10 : ℤ) := by\n        exact_mod_cast h2\n      have h5 : n ≤ (2 + 5 + 6 / 10 : ℤ) := by\n        exact_mod_cast h3\n      simp [Finset.mem_Icc]\n      all_goals omega\n    · -- Assume n ∈ Finset.Icc (2 - 5 - 6 / 10 : ℤ) (2 + 5 + 6 / 10 : ℤ), prove |n - 2| ≤ 5 + 6 / 10\n      rintro ⟨h1, h2⟩\n      have h3 : (n : ℝ) ≥ (2 - 5 - 6 / 10 : ℝ) := by\n        exact_mod_cast h1\n      have h4 : (n : ℝ) ≤ (2 + 5 + 6 / 10 : ℝ) := by\n        exact_mod_cast h2\n      have h5 : abs ((n : ℝ) - 2) ≤ (5 + 6 / 10 : ℝ) := by\n        apply abs_le.mpr\n        constructor <;> linarith\n      exact_mod_cast h5\n  rw [h1]\n  native_decide",
+    "error_type": "UNKNOWN",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:19:8: error: linarith failed to find a contradiction\ncase intro.h\nS : Finset ℤ\nh₀ : ∀ (n : ℤ), n ∈ S ↔ |n - 2| ≤ 5 + 6 / 10\nn : ℤ\nh : |n - 2| ≤ 5\nh3 : -5 ≤ n - 2\nh4 : n - 2 ≤ 5\na✝ : ↑n < 2 - 5 - 6 / 10\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipeline.lean:22:8: err"
+  },
+  {
+    "id": "mathd_algebra_432",
+    "nl": "Expand $(x+3)(2x-6)$. Show that it is 2x^2-18.",
+    "fl_statement": "theorem mathd_algebra_432\n  (x : ℝ) :\n  (x + 3) * (2 * x - 6) = 2 * x^2 - 18 := by",
+    "generated_proof": "ring",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_598",
+    "nl": "Suppose that  $4^{a}=5$, $5^{b}=6$, $6^{c}=7,$ and  $7^{d}=8$. What is $a\\cdot b\\cdot c\\cdot d$? Show that it is \\frac{3}{2}.",
+    "fl_statement": "-- Error: Real^Real\n-- theorem mathd_algebra_598\n--   (a b c d : ℝ)\n--   (h₁ : ((4:ℝ)^a) = 5)\n--   (h₂ : ((5:ℝ)^b) = 6)\n--   (h₃ : ((6:ℝ)^c) = 7)\n--   (h₄ : ((7:ℝ)^d) = 8) :\n--   a * b * c * d = 3 / 2 := by",
+    "generated_proof": "-- Error 1: `invalid type`\n--   `h₁ : ((4:ℝ)^a) = 5`\n--   `h₂ : ((5:ℝ)^b) = 6`\n--   `h₃ : ((6:ℝ)^c) = 7`\n--   `h₄ : ((7:ℝ)^d) = 8`\n-- Error 2: `invalid operation`\n--   `^` is not a field of `Real`\n--   `h₁ : ((4:ℝ)^a) = 5`\n--   `h₂ : ((5:ℝ)^b) = 6`\n--   `h₃ : ((6:ℝ)^c) = 7`\n--   `h₄ : ((7:ℝ)^d) = 8`\n-- Error 3: `invalid operation`\n--   `^` is not a field of `Real`\n--   `h₁ : ((4:ℝ)^a) = 5`\n--   `h₂ : ((5:ℝ)^b) = 6`\n--   `h₃ : ((6:ℝ)^c) = 7`\n--   `h₄ : ((7:ℝ)^d) = 8`\n-- Error 4: `invalid operation`\n--   `^` is not a field of `Real`\n--   `h₁ : ((4:ℝ)^a) = 5`\n--   `h₂ : ((5:ℝ)^b) = 6`\n--   `h₃ : ((6:ℝ)^c) = 7`\n--   `h₄ : ((7:ℝ)^d) = 8`\n-- Error 5: `invalid operation`\n--   `^` is not a field of `Real`\n--   `h₁ : ((4:ℝ)^a) = 5`\n--   `h₂ : ((5:ℝ)^b) = 6`\n--   `h₃ : ((6:ℝ)^c) = 7`\n--   `h₄ : ((7:ℝ)^d) = 8`\n-- Error 6: `invalid operation`\n--   `^` is not a field of `Real`\n--   `h₁ : ((4:ℝ)^a) = 5`\n--   `h₂ : ((5:ℝ)^b) = 6`\n--   `h₃ : ((",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "algebra_bleqa_apbon2msqrtableqambsqon8b",
+    "nl": "Let $a$ and $b$ be positive real numbers such that $b \\leq a$. Show that $\\frac{a+b}{2} - \\sqrt{ab} \\leq \\frac{(a-b)^2}{8b}$.",
+    "fl_statement": "theorem algebra_bleqa_apbon2msqrtableqambsqon8b\n  (a b : ℝ)\n  (h₀ : 0 < a ∧ 0 < b)\n  (h₁ : b ≤ a) :\n  (a + b) / 2 - Real.sqrt (a * b) ≤ (a - b)^2 / (8 * b) := by",
+    "generated_proof": "have h2 : 0 < a * b := by nlinarith\n  have h3 : Real.sqrt (a * b) = Real.sqrt a * Real.sqrt b := by\n    rw [Real.sqrt_mul]\n    all_goals nlinarith\n  have h4 : Real.sqrt a ≥ Real.sqrt b := by\n    apply Real.sqrt_le_sqrt\n    linarith\n  have h5 : (a + b) / 2 - Real.sqrt (a * b) ≤ (a - b)^2 / (8 * b) := by\n    have h6 : (a + b) / 2 - Real.sqrt (a * b) = ((a + b) ^ 2 - 4 * a * b) / (2 * (2 * Real.sqrt a * Real.sqrt b)) := by\n      field_simp\n      <;> nlinarith [Real.sqrt_nonneg (a * b), Real.sqrt_nonneg a, Real.sqrt_nonneg b, Real.sq_sqrt (show 0 ≤ a by linarith), Real.sq_sqrt (show 0 ≤ b by linarith)]\n    rw [h6]\n    have h7 : ((a + b) ^ 2 - 4 * a * b) / (2 * (2 * Real.sqrt a * Real.sqrt b)) ≤ (a - b)^2 / (8 * b) := by\n      apply (div_le_div_iff (by positivity) (by positivity)).mpr\n      nlinarith [sq_nonneg (a - b), sq_nonneg (Real.sqrt a - Real.sqrt b), sq_nonneg (a + b - 2 * Real.sqrt a * Real.sqrt b), sq_nonneg (a - 2 * Real.sqrt a * Real.sqrt b + b), sq_nonneg (a + b - 2 * Real.sqrt a * Real.sqrt b), Real.sqrt_nonneg a, Real.sqrt_nonneg b, Real.sq_sqrt (show 0 ≤ a by linarith), Real.sq_sqrt (show 0 ≤ b by linarith), mul_nonneg (Real.sqrt_nonneg a) (Real.sqrt_nonneg b), sq_nonneg (a - b), sq_nonneg (Real.sqrt a - Real.sqrt b), Real.sqrt_nonneg a, Real.sqrt_nonneg b, mul_nonneg (Real.sqrt_nonneg a) (Real.sqrt_nonneg b)]\n    linarith\n  linarith",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:22:10: error: linarith failed to find a contradiction\ncase h1.h\na b : ℝ\nh₀ : 0 < a ∧ 0 < b\nh₁ : b ≤ a\nh2 : 0 < a * b\nh3 : √(a * b) = √a * √b\nh4 : √a ≥ √b\na✝ : 2 * (a + b - 2 * √(a * b)) < ((a + b) ^ 2 - a * b * 4) / (√a * √b)\n⊢ False\nfailed\n/tmp/mathlib_test/test"
   }
 ]
