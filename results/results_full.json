@@ -158,5 +158,85 @@
     "generated_proof": "-- Error 1: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 2 (Real.logb 16 n)`\n-- Error 2: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 3: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 4: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 5: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 6: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 7: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 8: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 9: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 10: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 11: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 12: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 13: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 14: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n--",
     "error_type": "SUCCESS",
     "lean_output": ""
+  },
+  {
+    "id": "imo_1960_p2",
+    "nl": "For what values of the variable $x$ does the following inequality hold:\n\n$\\dfrac{4x^2}{(1 - \\sqrt {2x + 1})^2} < 2x + 9 \\ ?$",
+    "fl_statement": "theorem imo_1960_p2\n  (x : ℝ)\n  (h₀ : 0 ≤ 1 + 2 * x)\n  (h₁ : (1 - Real.sqrt (1 + 2 * x))^2 ≠ 0)\n  (h₂ : (4 * x^2) / (1 - Real.sqrt (1 + 2*x))^2 < 2*x + 9) :\n  -(1 / 2) ≤ x ∧ x < 45 / 8 := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:31: error: unsolved goals\nx : ℝ\nh₀ : 0 ≤ 1 + 2 * x\nh₁ : (1 - √(1 + 2 * x)) ^ 2 ≠ 0\nh₂ : 4 * x ^ 2 / (1 - √(1 + 2 * x)) ^ 2 < 2 * x + 9\n⊢ -(1 / 2) ≤ x ∧ x < 45 / 8\n"
+  },
+  {
+    "id": "mathd_numbertheory_427",
+    "nl": "If $A$ is the sum of the positive divisors of $500$, what is the sum of the distinct prime divisors of $A$? Show that it is 25.",
+    "fl_statement": "theorem mathd_numbertheory_427\n  (a : ℕ)\n  (h₀ : a = (∑ k in (Nat.divisors 500), k)) :\n  ∑ k in Finset.filter (λ x => Nat.Prime x) (Nat.divisors a), k = 25 := by",
+    "generated_proof": "rw [h₀]\n  native_decide",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:16: error: unexpected token 'in'; expected ','\n"
+  },
+  {
+    "id": "numbertheory_x5neqy2p4",
+    "nl": "Show that for any two integers $x$ and $y$, $x^5 \\ne y^2 + 4$.",
+    "fl_statement": "theorem numbertheory_x5neqy2p4\n  (x y : ℤ) :\n  x^5 ≠ y^2 + 4 := by",
+    "generated_proof": "rintro h\n  have h1 : x^5 % 11 = y^2 % 11 := by\n    have h2 : x^5 % 11 = y^2 % 11 := by\n      have h3 : x^5 % 11 = y^2 % 11 := by\n        have h4 : x^5 % 11 = y^2 % 11 := by\n          have h5 : x^5 % 11 = y^2 % 11 := by\n            omega\n          omega\n        omega\n      omega\n    omega\n  have h2 : x % 11 = 0 ∨ x % 11 = 1 ∨ x % 11 = 2 ∨ x % 11 = 3 ∨ x % 11 = 4 ∨ x % 11 = 5 ∨ x % 11 = 6 ∨ x % 11 = 7 ∨ x % 11 = 8 ∨ x % 11 = 9 ∨ x % 11 = 10 := by\n    omega\n  rcases h2 with (h2 | h2 | h2 | h2 | h2 | h2 | h2 | h2 | h2 | h2 | h2) <;> simp [h2, pow_succ, Int.add_emod, Int.mul_emod, Int.sub_emod, Int.ofNat] at h1 <;> try { \n    omega \n  } <;> try { \n    have h3 : x % 11 = 0 := by \n      omega \n    have h4 : x % 11 = 0 := by \n      omega \n    have h5 : x % 11 = 0 := by \n      omega \n    have h6 : x % 11 = 0 := by \n      omega \n    have h7 : x % 11 = 0 := by \n      omega \n    have h8 : x % 11 = 0 := by \n      omega \n    have h9 : x % 11 = 0 := by \n      omega \n    have h10 : x % 11 = 0 := by \n      omega \n    have h11 : x % 11 =",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:42:23: error: unexpected end of input\n/tmp/mathlib_test/test_pipeline.lean:16:12: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  b - c ≤ -1\n  0 ≤ a - 11*b ≤ 10\n  -4 ≤ a - 11*c ≤ 6\nwhere\n a := y ^ 2\n b := y ^ 2 / 11\n"
+  },
+  {
+    "id": "mathd_algebra_398",
+    "nl": "On planet Larky, 7 ligs = 4 lags, and 9 lags = 20 lugs. How many ligs are equivalent to 80 lugs? Show that it is 63.",
+    "fl_statement": "theorem mathd_algebra_398\n  (a b c : ℝ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c)\n  (h₁ : 9 * b = 20 * c)\n  (h₂ : 7 * a = 4 * b) :\n  63 * a = 80 * c := by",
+    "generated_proof": "have h₃ : 7 * a = 4 * b := h₂\n  have h₄ : 9 * b = 20 * c := h₁\n  have h₅ : 63 * a = 80 * c := by\n    linarith\n  exact h₅",
+    "error_type": "SUCCESS",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:3: warning: unused variable `h₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  },
+  {
+    "id": "imo_1963_p5",
+    "nl": "Prove that $\\cos{\\frac{\\pi}{7}}-\\cos{\\frac{2\\pi}{7}}+\\cos{\\frac{3\\pi}{7}}=\\frac{1}{2}$.",
+    "fl_statement": "theorem imo_1963_p5 :\n  Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by",
+    "generated_proof": "have h1 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n    have h2 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n      have h3 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n        have h4 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n          have h5 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n            have h6 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n              have h7 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n                have h8 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n                  have h9 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n                    have h10 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n                      have h11 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n                        have h12 : Real.cos (π / 7) - Real.cos (2 * π / 7)",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:20:35: error: Type mismatch\n  cos (π / 7) - cos (2 * π / 7)\nhas type\n  ℝ\nbut is expected to have type\n  Prop\n/tmp/mathlib_test/test_pipeline.lean:19:107: error: unsolved goals\ncase h12\n⊢ sorry\n\nh12 : sorry\n⊢ cos (π / 7) - cos (2 * π / 7) + cos (3 * π / 7) = 1 / 2"
+  },
+  {
+    "id": "mathd_numbertheory_430",
+    "nl": "If $A$, $B$, and $C$ represent three distinct digits from 1 to 9 and they satisfy the following equations, what is the value of the sum $A+B+C$? (In the equation below, $AA$ represents a two-digit number both of whose digits are $A$.) $$A+B=C$$$$AA-B=2\\times C$$$$C\\times B=AA+A$$ Show that it is 8.",
+    "fl_statement": "theorem mathd_numbertheory_430\n  (a b c : ℕ)\n  (h₀ : 1 ≤ a ∧ a ≤ 9)\n  (h₁ : 1 ≤ b ∧ b ≤ 9)\n  (h₂ : 1 ≤ c ∧ c ≤ 9)\n  (h₃ : a ≠ b)\n  (h₄ : a ≠ c)\n  (h₅ : b ≠ c)\n  (h₆ : a + b = c)\n  (h₇ : 10 * a + a - b = 2 * c)\n  (h₈ : c * b = 10 * a + a + a) :\n  a + b + c = 8 := by",
+    "generated_proof": "have h9 : a ≤ 9 := by linarith\n  have h10 : b ≤ 9 := by linarith\n  have h11 : c ≤ 9 := by linarith\n  interval_cases a <;> interval_cases b <;> omega",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_459",
+    "nl": "Anna, Bertram, Carli, and David have a competition to see which of them can hold their breath for the longest time period, in minutes. If Bertram, Carli, and David add their times together, the resulting sum is three times the length of time that Anna can hold her breath. Similarly, if Anna, Carli, and David sum their times, the result is four times Bertram's time period, and if Anna, Bertram, and David sum their times, the result is twice Carli's time. Finally, eight times Anna's time plus ten times Bertram's time plus six times Carli's time equals two fifths of an hour. If the length of time that David can hold his breath is expressed in minutes as a simplified fraction, what is the sum of the numerator and the denominator? Show that it is 28.",
+    "fl_statement": "theorem mathd_algebra_459\n  (a b c d : ℚ)\n  (h₀ : 3 * a = b + c + d)\n  (h₁ : 4 * b = a + c + d)\n  (h₂ : 2 * c = a + b + d)\n  (h₃ : 8 * a + 10 * b + 6 * c = 24) :\n  ↑d.den + d.num = 28 := by",
+    "generated_proof": "have h4 : d = 14 / 9 := by\n    linarith\n  rw [h4]\n  native_decide",
+    "error_type": "UNKNOWN",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:4: error: linarith failed to find a contradiction\ncase h1.h\na b c d : ℚ\nh₀ : 3 * a = b + c + d\nh₁ : 4 * b = a + c + d\nh₂ : 2 * c = a + b + d\nh₃ : 8 * a + 10 * b + 6 * c = 24\na✝ : d < 14 / 9\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipeline.lean:17:2: error: Tacti"
+  },
+  {
+    "id": "induction_12dvd4expnp1p20",
+    "nl": "Show that for any natural number $n$, 12 divides $4^{n+1} + 20$.",
+    "fl_statement": "theorem induction_12dvd4expnp1p20\n  (n : ℕ) :\n  12 ∣ 4^(n+1) + 20 := by",
+    "generated_proof": "induction n with\n  | zero =>\n    norm_num\n  | succ n ih =>\n    simp [pow_succ, pow_zero, Nat.mul_add, Nat.add_mul] at ih ⊢\n    omega",
+    "error_type": "SUCCESS",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:20: warning: This simp argument is unused:\n  pow_zero\n\nHint: Omit it from the simp argument list.\n  simp [pow_succ, p̵o̵w̵_̵z̵e̵r̵o̵,̵ ̵Nat.mul_add, Nat.add_mul] at ih ⊢\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n/tmp/math"
+  },
+  {
+    "id": "mathd_algebra_320",
+    "nl": "Let $x$ be a positive number such that $2x^2 = 4x + 9.$ If $x$ can be written in simplified form as $\\dfrac{a + \\sqrt{b}}{c}$ such that $a,$ $b,$ and $c$ are positive integers, what is $a + b + c$? Show that it is 26.",
+    "fl_statement": "theorem mathd_algebra_320\n  (x : ℝ)\n  (a b c : ℕ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 ≤ x)\n  (h₁ : 2 * x^2 = 4 * x + 9)\n  (h₂ : x = (a + Real.sqrt b) / c)\n  (h₃ : c = 2) :\n  a + b + c = 26 := by",
+    "generated_proof": "have h4 : (a : ℝ) = (a : ℝ) := by rfl\n  have h5 : (b : ℝ) = (b : ℝ) := by rfl\n  have h6 : (c : ℝ) = (c : ℝ) := by rfl\n  have h7 : (a : ℝ) = (a : ℝ) := by rfl\n  have h8 : (b : ℝ) = (b : ℝ) := by rfl\n  have h9 : (c : ℝ) = (c : ℝ) := by rfl\n  have h10 : (a : ℝ) = (a : ℝ) := by rfl\n  have h11 : (b : ℝ) = (b : ℝ) := by rfl\n  have h12 : (c : ℝ) = (c : ℝ) := by rfl\n  have h13 : (a : ℝ) = (a : ℝ) := by rfl\n  have h14 : (b : ℝ) = (b : ℝ) := by rfl\n  have h15 : (c : ℝ) = (c : ℝ) := by rfl\n  have h16 : (a : ℝ) = (a : ℝ) := by rfl\n  have h17 : (b : ℝ) = (b : ℝ) := by rfl\n  have h18 : (c : ℝ) = (c : ℝ) := by rfl\n  have h19 : (a : ℝ) = (a : ℝ) := by rfl\n  have h20 : (b : ℝ) = (b : ℝ) := by rfl\n  have h21 : (c : ℝ) = (c : ℝ) := by rfl\n  have h22 : (a : ℝ) = (a : ℝ) := by rfl\n  have h23 : (b : ℝ) = (b : ℝ) := by rfl\n  have h24 : (c : ℝ) = (c : ℝ) := by rfl\n  have h25 : (a : ℝ) = (a : ℝ) := by rfl\n  have h26 : (b : ℝ) = (b : ℝ) := by rfl\n  have h27 : (c : ℝ) = (c : ℝ) := by rfl\n  have h28 : (a : ℝ) = (",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:39:24: error: unexpected end of input; expected ')', '↑', '↥' or '⇑'\n/tmp/mathlib_test/test_pipeline.lean:39:23: error: (↥) must have a function type, not\n  ℝ\n/tmp/mathlib_test/test_pipeline.lean:14:20: error: unsolved goals\ncase h28\nx : ℝ\na b c : ℕ\nh₀ : 0 < a ∧ "
+  },
+  {
+    "id": "mathd_algebra_137",
+    "nl": "Because of redistricting, Liberty Middle School's enrollment increased to 598 students. This is an increase of $4\\%$ over last year's enrollment. What was last year's enrollment? Show that it is 575\\text{ students}.",
+    "fl_statement": "theorem mathd_algebra_137\n  (x : ℕ)\n  (h₀ : ↑x + (4:ℝ) / (100:ℝ) * ↑x = 598) :\n  x = 575 := by",
+    "generated_proof": "have h1 : (x : ℝ) = (598 : ℝ) * (100 : ℝ) / (104 : ℝ) := by\n    linarith\n  have h2 : (x : ℝ) = (575 : ℝ) := by\n    rw [h1]\n    norm_num\n  have h3 : x = 575 := by\n    exact_mod_cast h2\n  exact h3",
+    "error_type": "SUCCESS",
+    "lean_output": ""
   }
 ]
