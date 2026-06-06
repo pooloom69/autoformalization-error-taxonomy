@@ -1,7 +1,27 @@
-import subprocess, json, torch
+import subprocess, json, torch, os
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from datasets import load_dataset
 from collections import Counter
+
+# GitHub 설정
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
+GITHUB_USER = "pooloom069"
+GITHUB_REPO = "autoformalization-error-taxonomy"
+REPO_PATH = "/tmp/mathlib_test/autoformalization-error-taxonomy"
+
+def git_push(message="Update results"):
+    if not GITHUB_TOKEN:
+        print("GITHUB_TOKEN 없음, push 스킵")
+        return
+    subprocess.run(
+        f'cd {REPO_PATH} && '
+        f'git remote set-url origin https://{GITHUB_USER}:{GITHUB_TOKEN}@github.com/{GITHUB_USER}/{GITHUB_REPO}.git && '
+        f'git add results/ && '
+        f'git commit -m "{message}" && '
+        f'git push origin mathlib',
+        shell=True, capture_output=True
+    )
+    print(f"GitHub push 완료: {message}")
 
 print("모델 로딩 중...")
 model_path = "/tmp/kimina-prover-1.7b"
@@ -117,13 +137,23 @@ for i, sample in enumerate(ds['test']):
         "error_type": error_type,
         "lean_output": (lean_out['stdout'] + lean_out['stderr'])[:300]
     })
-    if (i + 1) % 10 == 0:
-        with open("/tmp/mathlib_test/results_full.json", "w") as f:
-            json.dump(results, f, indent=2, ensure_ascii=False)
-        print(f"--- {i+1}개 중간 저장 ---")
 
-with open("/tmp/mathlib_test/results_full.json", "w") as f:
+    # 10개마다 저장 + push
+    if (i + 1) % 10 == 0:
+        with open(f"{REPO_PATH}/results/results_full.json", "w") as f:
+            json.dump(results, f, indent=2, ensure_ascii=False)
+        git_push(f"Update results [{i+1}/244]")
+        
+        # 중간 통계
+        counter = Counter(r['error_type'] for r in results)
+        print(f"\n--- [{i+1}/244] 중간 통계 ---")
+        for k, v in sorted(counter.items(), key=lambda x: -x[1]):
+            print(f"  {k}: {v}개")
+
+# 최종 저장 + push
+with open(f"{REPO_PATH}/results/results_full.json", "w") as f:
     json.dump(results, f, indent=2, ensure_ascii=False)
+git_push("Final results 244/244")
 
 counter = Counter(r['error_type'] for r in results)
 print("\n===== 최종 통계 =====")
