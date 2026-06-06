@@ -478,5 +478,85 @@
     "generated_proof": "rw [h₀, h₁]\n  norm_num",
     "error_type": "SUCCESS",
     "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_487",
+    "nl": "What is the distance between the two intersections of $y=x^2$ and $x+y=1$? Show that it is \\sqrt{10}.",
+    "fl_statement": "theorem mathd_algebra_487\n  (a b c d : ℝ)\n  (h₀ : b = a^2)\n  (h₁ : a + b = 1)\n  (h₂ : d = c^2)\n  (h₃ : c + d = 1)\n  (h₄ : a ≠ c) :\n  Real.sqrt ((a - c)^2 + (b - d)^2)= Real.sqrt 10 := by",
+    "generated_proof": "have h5 : (a - c)^2 + (b - d)^2 = 10 := by\n    nlinarith [sq_pos_of_ne_zero (show a - c ≠ 0 by\n      intro h\n      apply h₄\n      linarith\n    ), sq_nonneg (a - c), sq_nonneg (b - d)]\n  rw [h5]\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith",
+    "error_type": "UNKNOWN",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:4: error: linarith failed to find a contradiction\ncase h1.h\na b c d : ℝ\nh₀ : b = a ^ 2\nh₁ : a + b = 1\nh₂ : d = c ^ 2\nh₃ : c + d = 1\nh₄ : a ≠ c\na✝ : (a - c) ^ 2 + (b - d) ^ 2 < 10\n⊢ False\nfailed\n"
+  },
+  {
+    "id": "mathd_numbertheory_728",
+    "nl": "Compute $29^{13} - 5^{13}$ modulo 7. Show that it is 3.",
+    "fl_statement": "theorem mathd_numbertheory_728 :\n  (29^13 - 5^13) % 7 = 3 := by",
+    "generated_proof": "norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_184",
+    "nl": "We have two geometric sequences of positive real numbers: $$6,a,b\\text{ and }\\frac{1}{b},a,54$$Solve for $a$. Show that it is 3\\sqrt{2}.",
+    "fl_statement": "theorem mathd_algebra_184\n  (a b : NNReal)\n  (h₀ : 0 < a ∧ 0 < b)\n  (h₁ : (a^2) = 6*b)\n  (h₂ : (a^2) = 54/b) :\n  a = 3 * NNReal.sqrt 2 := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:27: error: unsolved goals\na b : NNReal\nh₀ : 0 < a ∧ 0 < b\nh₁ : a ^ 2 = 6 * b\nh₂ : a ^ 2 = 54 / b\n⊢ a = 3 * NNReal.sqrt 2\n"
+  },
+  {
+    "id": "mathd_numbertheory_552",
+    "nl": "Let $f(x) = 12x+7$ and $g(x) = 5x+2$ whenever $x$ is a positive integer. Define $h(x)$ to be the greatest common divisor of $f(x)$ and $g(x)$. What is the sum of all possible values of $h(x)$? Show that it is 12.",
+    "fl_statement": "theorem mathd_numbertheory_552\n  (f g h : ℕ+ → ℕ)\n  (h₀ : ∀ x, f x = 12 * x + 7)\n  (h₁ : ∀ x, g x = 5 * x + 2)\n  (h₂ : ∀ x, h x = Nat.gcd (f x) (g x))\n  (h₃ : Fintype (Set.range h)) :\n  ∑ k in (Set.range h).toFinset, k = 12 := by",
+    "generated_proof": "have h4 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := by\n    intro x\n    rw [h₂ x, h₀ x, h₁ x]\n  have h5 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h6 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h7 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h8 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h9 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h10 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h11 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h12 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h13 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h14 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h15 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h16 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h17 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:5: error: unexpected token 'in'; expected ','\n"
+  },
+  {
+    "id": "amc12b_2021_p9",
+    "nl": "What is the value of$\\frac{\\log_2 80}{\\log_{40}2}-\\frac{\\log_2 160}{\\log_{20}2}?$$\\textbf{(A) }0 \\qquad \\textbf{(B) }1 \\qquad \\textbf{(C) }\\frac54 \\qquad \\textbf{(D) }2 \\qquad \\textbf{(E) }\\log_2 5$ Show that it is \\text{(D)}.",
+    "fl_statement": "-- Error: Real.log\n-- theorem amc12b_2021_p9 :\n--   (Real.log 80 / Real.log 2) / (Real.log 2 / Real.log 40) - (Real.log 160 / Real.log 2) / (Real.log 2 / Real.log 20) = 2 := by",
+    "generated_proof": "--   have h1 : Real.log 80 = Real.log (2^4 * 5) := by norm_num\n--   have h2 : Real.log 160 = Real.log (2^5 * 5) := by norm_num\n--   have h3 : Real.log 40 = Real.log (2^3 * 5) := by norm_num\n--   have h4 : Real.log 20 = Real.log (2^2 * 5) := by norm_num\n--   have h5 : Real.log 80 = 4 * Real.log 2 + Real.log 5 := by\n--     rw [h1]\n--     simp [Real.log_mul, Real.log_pow]\n--   have h6 : Real.log 160 = 5 * Real.log 2 + Real.log 5 := by\n--     rw [h2]\n--     simp [Real.log_mul, Real.log_pow]\n--   have h7 : Real.log 40 = 3 * Real.log 2 + Real.log 5 := by\n--     rw [h3]\n--     simp [Real.log_mul, Real.log_pow]\n--   have h8 : Real.log 20 = 2 * Real.log 2 + Real.log 5 := by\n--     rw [h4]\n--     simp [Real.log_mul, Real.log_pow]\n--   rw [h5, h6, h7, h8]\n--   field_simp\n--   ring_nf\n--   <;> field_simp\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;>",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "aime_1994_p3",
+    "nl": "The function $f_{}^{}$ has the property that, for each real number $x,\\,$\n<center>$f(x)+f(x-1) = x^2.\\,$</center>\nIf $f(19)=94,\\,$ what is the remainder when $f(94)\\,$ is divided by $1000$? Show that it is 561.",
+    "fl_statement": "theorem aime_1994_p3\n  (x : ℤ)\n  (f : ℤ → ℤ)\n  (h0 : f x + f (x-1) = x^2)\n  (h1 : f 19 = 94):\n  f (94) % 1000 = 561 := by",
+    "generated_proof": "have h2 : ∀ (x : ℤ), f x + f (x - 1) = x ^ 2 := by\n    intro x\n    exact h0 x\n  have h3 : ∀ (x : ℤ), f (x + 1) = f x + (x + 1) ^ 2 - x ^ 2 := by\n    intro x\n    have eq1 := h2 (x + 1)\n    have eq2 := h2 x\n    simp [show x + 1 - 1 = x by omega] at eq1\n    linarith\n  have h4 : ∀ (x : ℤ), f (x + 2) = f (x + 1) + (x + 2) ^ 2 - (x + 1) ^ 2 := by\n    intro x\n    have eq1 := h2 (x + 2)\n    have eq2 := h2 (x + 1)\n    simp [show x + 2 - 1 = x + 1 by omega] at eq1\n    linarith\n  have h5 : ∀ (x : ℤ), f (x + 3) = f (x + 2) + (x + 3) ^ 2 - (x + 2) ^ 2 := by\n    intro x\n    have eq1 := h2 (x + 3)\n    have eq2 := h2 (x + 2)\n    simp [show x + 3 - 1 = x + 2 by omega] at eq1\n    linarith\n  have h6 : ∀ (x : ℤ), f (x + 4) = f (x + 3) + (x + 4) ^ 2 - (x + 3) ^ 2 := by\n    intro x\n    have eq1 := h2 (x + 4)\n    have eq2 := h2 (x + 3)\n    simp [show x + 4 - 1 = x + 3 by omega] at eq1\n    linarith\n  have h7 : ∀ (x : ℤ), f (x + 5) = f (x + 4) + (x + 5) ^ 2 - (x + 4) ^ 2 := by\n    intro x\n    have eq1 := h",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:10: error: Function expected at\n  h0\nbut this term has type\n  f x✝ + f (x✝ - 1) = x✝ ^ 2\n\nNote: Expected a function because this term is being applied to the argument\n  x\n/tmp/mathlib_test/test_pipeline.lean:21:4: error: linarith failed to find a contradiction"
+  },
+  {
+    "id": "mathd_algebra_215",
+    "nl": "What is the sum of the two values of $x$ for which $(x+3)^2 = 121$? Show that it is -6.",
+    "fl_statement": "theorem mathd_algebra_215\n  (S : Finset ℝ)\n  (h₀ : ∀ (x : ℝ), x ∈ S ↔ (x + 3)^2 = 121) :\n  ∑ k in S, k = -6 := by",
+    "generated_proof": "have h1 : S = {-16, 20} := by\n    ext x\n    simp only [Finset.mem_insert, Finset.mem_singleton]\n    constructor\n    · -- Assume x ∈ S, so (x + 3)^2 = 121\n      intro h\n      have h2 : (x + 3)^2 = 121 := by\n        simpa using h\n      have h3 : x + 3 = 11 ∨ x + 3 = -11 := by\n        have h4 : (x + 3 - 11) * (x + 3 + 11) = 0 := by\n          nlinarith\n        cases (mul_eq_zero.mp h4) with\n        | inl h5 =>\n          left\n          linarith\n        | inr h6 =>\n          right\n          linarith\n      cases h3 with\n      | inl h4 =>\n        have h5 : x = 8 := by\n          linarith\n        rw [h5]\n        norm_num\n      | inr h4 =>\n        have h5 : x = -14 := by\n          linarith\n        rw [h5]\n        norm_num\n    · -- Assume x ∈ {-16, 20}, show (x + 3)^2 = 121\n      rintro (rfl | rfl)\n      · norm_num\n      · norm_num\n  rw [h1]\n  norm_num",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:5: error: unexpected token 'in'; expected ','\n"
+  },
+  {
+    "id": "mathd_numbertheory_293",
+    "nl": "What digit must be placed in the blank to make the four-digit integer $20\\_7$ a multiple of 11? Show that it is 5.",
+    "fl_statement": "theorem mathd_numbertheory_293\n  (n : ℕ)\n  (h₀ : n ≤ 9)\n  (h₁ : 11∣20 * 100 + 10 * n + 7) :\n  n = 5 := by",
+    "generated_proof": "omega",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_769",
+    "nl": "What is the remainder when $129^{34}+96^{38}$ is divided by $11$? Show that it is 9.",
+    "fl_statement": "theorem mathd_numbertheory_769 :\n  (129^34 + 96^38) % 11 = 9 := by",
+    "generated_proof": "norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_452",
+    "nl": "The first and ninth terms of an arithmetic sequence are $\\frac23$ and $\\frac45$, respectively. What is the fifth term? Show that it is \\frac{11}{15}.",
+    "fl_statement": "theorem mathd_algebra_452\n  (a : ℕ → ℝ)\n  (h₀ : ∀ n, a (n + 2) - a (n + 1) = a (n + 1) - a n)\n  (h₁ : a 1 = 2 / 3)\n  (h₂ : a 9 = 4 / 5) :\n  a 5 = 11 / 15 := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:19: error: unsolved goals\na : ℕ → ℝ\nh₀ : ∀ (n : ℕ), a (n + 2) - a (n + 1) = a (n + 1) - a n\nh₁ : a 1 = 2 / 3\nh₂ : a 9 = 4 / 5\n⊢ a 5 = 11 / 15\n"
   }
 ]
