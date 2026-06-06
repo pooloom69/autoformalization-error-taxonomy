@@ -1198,5 +1198,85 @@
     "generated_proof": "nlinarith [sq_nonneg (a - b), sq_nonneg (b - c), sq_nonneg (c - a),\n    mul_pos (h₀.1) (h₀.2.1), mul_pos (h₀.2.1) (h₀.2.2), mul_pos (h₀.2.2) (h₀.1)]",
     "error_type": "SUCCESS",
     "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_341",
+    "nl": "What is the sum of the final three digits of the integer representation of $5^{100}$? Show that it is 13.",
+    "fl_statement": "theorem mathd_numbertheory_341\n  (a b c : ℕ)\n  (h₀ : a ≤ 9 ∧ b ≤ 9 ∧ c ≤ 9)\n  (h₁ : Nat.digits 10 ((5^100) % 1000) = [c,b,a]) :\n  a + b + c = 13 := by",
+    "generated_proof": "have h2 : a = 1 := by\n    have h3 : c ≤ 9 := h₀.right.right\n    have h4 : b ≤ 9 := h₀.right.left\n    have h5 : a ≤ 9 := h₀.left\n    interval_cases a <;> interval_cases b <;> interval_cases c\n    <;> norm_num at h₁ ⊢\n    <;> omega\n  have h3 : b = 3 := by\n    have h4 : c ≤ 9 := h₀.right.right\n    have h5 : b ≤ 9 := h₀.right.left\n    have h6 : a ≤ 9 := h₀.left\n    interval_cases a <;> interval_cases b <;> interval_cases c\n    <;> norm_num at h₁ ⊢\n    <;> omega\n  have h4 : c = 7 := by\n    have h5 : c ≤ 9 := h₀.right.right\n    have h6 : b ≤ 9 := h₀.right.left\n    have h7 : a ≤ 9 := h₀.left\n    interval_cases a <;> interval_cases b <;> interval_cases c\n    <;> norm_num at h₁ ⊢\n    <;> omega\n  omega",
+    "error_type": "UNKNOWN",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:17:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:17:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:17:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:17:8: error: No goals to be solved\n/tmp/mathlib"
+  },
+  {
+    "id": "mathd_numbertheory_711",
+    "nl": "The greatest common divisor of positive integers $m$ and $n$ is 8. The least common multiple of $m$ and $n$ is 112. What is the least possible value of $m+n$? Show that it is 72.",
+    "fl_statement": "theorem mathd_numbertheory_711\n  (m n : ℕ)\n  (h₀ : 0 < m ∧ 0 < n)\n  (h₁ : Nat.gcd m n = 8)\n  (h₂ : lcm m n = 112) :\n  72 ≤ m + n := by",
+    "generated_proof": "have h₃ : m ∣ 112 := by\n    have h₄ : m ∣ lcm m n := by\n      exact Nat.dvd_lcm_left m n\n    rw [h₂] at h₄\n    exact h₄\n  have h₄ : n ∣ 112 := by\n    have h₅ : n ∣ lcm m n := by\n      exact Nat.dvd_lcm_right m n\n    rw [h₂] at h₅\n    exact h₅\n  have h₅ : m ≤ 112 := by\n    exact Nat.le_of_dvd (by norm_num) h₃\n  have h₆ : n ≤ 112 := by\n    exact Nat.le_of_dvd (by norm_num) h₄\n  interval_cases m <;> interval_cases n\n    <;> norm_num [Nat.lcm, Nat.gcd] at h₁ h₂ ⊢\n    <;> omega",
+    "error_type": "UNKNOWN",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:8: error: Ambiguous term\n  lcm\nPossible interpretations:\n  m.lcm n : ℕ\n  \n  GCDMonoid.lcm m n : ℕ\n/tmp/mathlib_test/test_pipeline.lean:14:18: error: Ambiguous term\n  lcm\nPossible interpretations:\n  m.lcm n : ℕ\n  \n  GCDMonoid.lcm m n : ℕ\n/tmp/mathlib_test/test_"
+  },
+  {
+    "id": "amc12b_2020_p22",
+    "nl": "What is the maximum value of $\\frac{(2^t-3t)t}{4^t}$ for real values of $t?$\n\n$\\textbf{(A)}\\ \\frac{1}{16} \\qquad\\textbf{(B)}\\ \\frac{1}{15} \\qquad\\textbf{(C)}\\ \\frac{1}{12} \\qquad\\textbf{(D)}\\ \\frac{1}{10} \\qquad\\textbf{(E)}\\ \\frac{1}{9}$ Show that it is \\textbf{(C)} \\frac{1}{12}.",
+    "fl_statement": "-- Error: Real^Real\n-- theorem amc12b_2020_p22\n--   (t : ℝ) :\n--   ((2^t - 3 * t) * t) / (4^t) ≤ 1 / 12 := by",
+    "generated_proof": "--     have h1 : (4 : ℝ) ^ t = (2 : ℝ) ^ (2 * t) := by\n--       rw [show (4 : ℝ) = 2 ^ (2 : ℝ) by norm_num]\n--       rw [← Real.rpow_mul]\n--       ring_nf\n--       all_goals linarith\n--     rw [h1]\n--     have h2 : (2 : ℝ) ^ (2 * t) = ((2 : ℝ) ^ t) ^ 2 := by\n--       rw [← Real.rpow_natCast]\n--       rw [← Real.rpow_mul]\n--       ring_nf\n--       all_goals linarith\n--     rw [h2]\n--     have h3 : ((2 : ℝ) ^ t) ^ 2 = (2 : ℝ) ^ (2 * t) := by\n--       rw [← Real.rpow_natCast]\n--       rw [← Real.rpow_mul]\n--       ring_nf\n--       all_goals linarith\n--     rw [h3]\n--     have h4 : (2 : ℝ) ^ t > 0 := by positivity\n--     have h5 : ((2 : ℝ) ^ t - 3 * t) * t ≤ 1 / 12 * (2 : ℝ) ^ (2 * t) := by\n--       nlinarith [sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 /",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_113",
+    "nl": "What value of $x$ will give the minimum value for $x^2- 14x + 3$? Show that it is 7.",
+    "fl_statement": "theorem mathd_algebra_113\n  (x : ℝ) :\n  x^2 - 14 * x + 3 ≥ 7^2 - 14 * 7 + 3 := by",
+    "generated_proof": "nlinarith [sq_nonneg (x - 7)]",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "amc12a_2020_p9",
+    "nl": "How many solutions does the equation $\\tan(2x)=\\cos(\\tfrac{x}{2})$ have on the interval $[0,2\\pi]?$\n\n$ \\textbf{(A)}\\ 1\\qquad\\textbf{(B)}\\ 2\\qquad\\textbf{(C)}\\ 3\\qquad\\textbf{(D)}\\ 4\\qquad\\textbf{(E)}\\ 5 $ Show that it is \\textbf{(E)}\\ 5.",
+    "fl_statement": "-- Error: Real.pi\n-- theorem amc12a_2020_p9\n--   (S : Finset ℝ)\n--   (h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 ≤ x ∧ x ≤ 2 * Real.pi ∧ Real.tan (2 * x) = Real.cos (x / 2)) :\n--   S.card = 5 := by",
+    "generated_proof": "-- Error 1: `linarith failed to find a contradiction`\n-- Error 2: `linarith failed to find a contradiction`\n-- Error 3: `linarith failed to find a contradiction`\n-- Error 4: `linarith failed to find a contradiction`\n-- Error 5: `linarith failed to find a contradiction`\n-- Error 6: `linarith failed to find a contradiction`\n-- Error 7: `linarith failed to find a contradiction`\n-- Error 8: `linarith failed to find a contradiction`\n-- Error 9: `linarith failed to find a contradiction`\n-- Error 10: `linarith failed to find a contradiction`\n-- Error 11: `linarith failed to find a contradiction`\n-- Error 12: `linarith failed to find a contradiction`\n-- Error 13: `linarith failed to find a contradiction`\n-- Error 14: `linarith failed to find a contradiction`\n-- Error 15: `linarith failed to find a contradiction`\n-- Error 16: `linarith failed to find a contradiction`\n-- Error 17: `linarith failed to find a contradiction`\n-- Error 18: `linarith failed to find a contradiction`\n-- Error 19: `linarith failed to find a contradiction`\n-- Error 20: `linarith failed to find a contradiction`\n-- Error 21: `linarith failed to find a contradiction`\n-- Error 22: `linarith failed to find a contradiction`\n-- Error 23: `linarith failed to find a contradiction`\n-- Error 24: `linarith failed to find a contradiction`\n-- Error 25: `linarith failed to find a contradiction`\n-- Error 26: `linarith failed to find a contradiction`\n-- Error 27: `linarith failed to find a contradiction`\n-- Error 28: `linarith failed to find a contradiction`\n-- Error 29: `linarith failed to find a contradiction`\n-- Error 30: `linarith failed to find a contradiction`\n-- Error 31: `linarith failed to find a contradiction`\n-- Error 32: `linarith failed to find a contradiction`\n-- Error 33: `linarith failed to find a contradiction`\n-- Error 34: `linarith failed to find a contradiction`\n-- Error 35: `linarith failed",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "amc12_2000_p1",
+    "nl": "In the year $2001$, the United States will host the [[International Mathematical Olympiad]].  Let $I,M,$ and $O$ be distinct [[positive integer]]s such that the product $I \\cdot M \\cdot O = 2001 $.  What is the largest possible value of the sum $I + M + O$?\n\n$\\textbf{(A)}\\ 23 \\qquad \\textbf{(B)}\\ 55 \\qquad \\textbf{(C)}\\ 99 \\qquad \\textbf{(D)}\\ 111 \\qquad \\textbf{(E)}\\ 671$ Show that it is \\text{(E)}.",
+    "fl_statement": "theorem amc12_2000_p1\n  (i m o : ℕ)\n  (h₀ : i ≠ m ∧ m ≠ o ∧ o ≠ i)\n  (h₁ : i*m*o = 2001) :\n  i+m+o ≤ 671 := by",
+    "generated_proof": "have h2 : i ∣ 2001 := by\n    use m * o\n    linarith\n  have h3 : m ∣ 2001 := by\n    use i * o\n    linarith\n  have h4 : o ∣ 2001 := by\n    use i * m\n    linarith\n  have h5 : i ≤ 2001 := by\n    exact Nat.le_of_dvd (by norm_num) h2\n  have h6 : m ≤ 2001 := by\n    exact Nat.le_of_dvd (by norm_num) h3\n  have h7 : o ≤ 2001 := by\n    exact Nat.le_of_dvd (by norm_num) h4\n  interval_cases i <;> omega",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:27:23: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  2 ≤ a ≤ 2001\n  a ≥ 671\nwhere\n a := ↑m\n/tmp/mathlib_test/test_pipeline.lean:27:23: error: omega could not prove the goal:\na possible counterexample may satisfy th"
+  },
+  {
+    "id": "amc12a_2021_p19",
+    "nl": "How many solutions does the equation $\\sin \\left( \\frac{\\pi}2 \\cos x\\right)=\\cos \\left( \\frac{\\pi}2 \\sin x\\right)$ have in the closed interval $[0,\\pi]$?\n\n$\\textbf{(A) }0 \\qquad \\textbf{(B) }1 \\qquad \\textbf{(C) }2 \\qquad \\textbf{(D) }3\\qquad \\textbf{(E) }4$ Show that it is \\textbf{(C) }2.",
+    "fl_statement": "-- Error: Real.pi\n-- theorem amc12a_2021_p19\n--   (S : Finset ℝ)\n--   (h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 ≤ x ∧ x ≤ Real.pi ∧ Real.sin (Real.pi / 2 * Real.cos x) = Real.cos (Real.pi / 2 * Real.sin x)) :\n--   S.card = 2 := by",
+    "generated_proof": "-- Error 1: `linarith failed to find a contradiction`\n-- Error 2: `linarith failed to find a contradiction`\n-- Error 3: `linarith failed to find a contradiction`\n-- Error 4: `linarith failed to find a contradiction`\n-- Error 5: `linarith failed to find a contradiction`\n-- Error 6: `linarith failed to find a contradiction`\n-- Error 7: `linarith failed to find a contradiction`\n-- Error 8: `linarith failed to find a contradiction`\n-- Error 9: `linarith failed to find a contradiction`\n-- Error 10: `linarith failed to find a contradiction`\n-- Error 11: `linarith failed to find a contradiction`\n-- Error 12: `linarith failed to find a contradiction`\n-- Error 13: `linarith failed to find a contradiction`\n-- Error 14: `linarith failed to find a contradiction`\n-- Error 15: `linarith failed to find a contradiction`\n-- Error 16: `linarith failed to find a contradiction`\n-- Error 17: `linarith failed to find a contradiction`\n-- Error 18: `linarith failed to find a contradiction`\n-- Error 19: `linarith failed to find a contradiction`\n-- Error 20: `linarith failed to find a contradiction`\n-- Error 21: `linarith failed to find a contradiction`\n-- Error 22: `linarith failed to find a contradiction`\n-- Error 23: `linarith failed to find a contradiction`\n-- Error 24: `linarith failed to find a contradiction`\n-- Error 25: `linarith failed to find a contradiction`\n-- Error 26: `linarith failed to find a contradiction`\n-- Error 27: `linarith failed to find a contradiction`\n-- Error 28: `linarith failed to find a contradiction`\n-- Error 29: `linarith failed to find a contradiction`\n-- Error 30: `linarith failed to find a contradiction`\n-- Error 31: `linarith failed to find a contradiction`\n-- Error 32: `linarith failed to find a contradiction`\n-- Error 33: `linarith failed to find a contradiction`\n-- Error 34: `linarith failed to find a contradiction`\n-- Error 35: `linarith failed",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "algebra_amgm_sumasqdivbgeqsuma",
+    "nl": "Let $a, b, c, d$ be positive real numbers. Show that $a^2 / b + b^2 / c + c^2 / d + d^2 / a \\geq a + b + c + d$.",
+    "fl_statement": "theorem algebra_amgm_sumasqdivbgeqsuma\n  (a b c d : ℝ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 < d) :\n  a^2 / b + b^2 / c + c^2 / d + d^2 / a ≥ a + b + c + d := by",
+    "generated_proof": "rcases h₀ with ⟨ha, hb, hc, hd⟩\n  have h1 : a^2 / b + b ≥ 2 * a := by\n    have h2 : a^2 / b + b - 2 * a ≥ 0 := by\n      have h3 : a^2 / b + b - 2 * a = (a^2 + b^2 - 2 * a * b) / b := by\n        field_simp\n        ring\n      rw [h3]\n      have h4 : a^2 + b^2 - 2 * a * b ≥ 0 := by\n        nlinarith [sq_nonneg (a - b)]\n      have h5 : (a^2 + b^2 - 2 * a * b) / b ≥ 0 := by\n        apply div_nonneg\n        linarith\n        linarith\n      linarith\n    linarith\n  have h2 : b^2 / c + c ≥ 2 * b := by\n    have h3 : b^2 / c + c - 2 * b ≥ 0 := by\n      have h4 : b^2 / c + c - 2 * b = (b^2 + c^2 - 2 * b * c) / c := by\n        field_simp\n        ring\n      rw [h4]\n      have h5 : b^2 + c^2 - 2 * b * c ≥ 0 := by\n        nlinarith [sq_nonneg (b - c)]\n      have h6 : (b^2 + c^2 - 2 * b * c) / c ≥ 0 := by\n        apply div_nonneg\n        linarith\n        linarith\n      linarith\n    linarith\n  have h3 : c^2 / d + d ≥ 2 * c := by\n    have h4 : c^2 / d + d - 2 * c ≥ 0 := by\n      have h5 : c^2 / d + d - 2 * c = (c^2 + d^2 - 2 * c * d) / d := by\n        field_simp\n        ring\n      rw [h5]\n      have h6 : c^2 + d^2 - 2 * c * d ≥ 0 := by\n        nlinarith",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:30:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:44:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:47:8: error: linarith failed to find a contradi"
+  },
+  {
+    "id": "mathd_numbertheory_212",
+    "nl": "Find the units digit of $16^{17} \\times 17^{18} \\times 18^{19}$. Show that it is 8.",
+    "fl_statement": "theorem mathd_numbertheory_212 :\n  (16^17 * 17^18 * 18^19) % 10 = 8 := by",
+    "generated_proof": "norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_320",
+    "nl": "What integer $n$ satisfies $0\\le n<{101}$ and $$123456\\equiv n\\pmod {101}~?$$ Show that it is 34.",
+    "fl_statement": "theorem mathd_numbertheory_320\n  (n : ℕ)\n  (h₀ : n < 101)\n  (h₁ : 101 ∣ (123456 - n)) :\n  n = 34 := by",
+    "generated_proof": "omega",
+    "error_type": "SUCCESS",
+    "lean_output": ""
   }
 ]
