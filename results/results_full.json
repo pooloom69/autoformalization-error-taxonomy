@@ -318,5 +318,85 @@
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
     "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:8:70: error: unsolved goals\n⊢ ¬∀ (a b : ℤ), (∃ i j, a = 2 * i ∧ b = 2 * j) ↔ ∃ k, a ^ 2 + b ^ 2 = 8 * k\n"
+  },
+  {
+    "id": "mathd_algebra_156",
+    "nl": "The graphs of $y=x^4$ and $y=5x^2-6$ intersect at four points with $x$-coordinates $\\pm \\sqrt{m}$ and $\\pm \\sqrt{n}$, where $m > n$. What is $m-n$? Show that it is 1.",
+    "fl_statement": "theorem mathd_algebra_156\n  (x y : ℝ)\n  (f g : ℝ → ℝ)\n  (h₀ : ∀t, f t = t^4)\n  (h₁ : ∀t, g t = 5 * t^2 - 6)\n  (h₂ : f x = g x)\n  (h₃ : f y = g y)\n  (h₄ : x^2 < y^2) :\n  y^2 - x^2 = 1 := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:15:19: error: unsolved goals\nx y : ℝ\nf g : ℝ → ℝ\nh₀ : ∀ (t : ℝ), f t = t ^ 4\nh₁ : ∀ (t : ℝ), g t = 5 * t ^ 2 - 6\nh₂ : f x = g x\nh₃ : f y = g y\nh₄ : x ^ 2 < y ^ 2\n⊢ y ^ 2 - x ^"
+  },
+  {
+    "id": "mathd_numbertheory_12",
+    "nl": "How many integers between 15 and 85 are divisible by 20? Show that it is 4.",
+    "fl_statement": "theorem mathd_numbertheory_12 :\n  Finset.card (Finset.filter (λ x => 20∣x) (Finset.Icc 15 85)) = 4 := by",
+    "generated_proof": "native_decide",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_345",
+    "nl": "What is the remainder when $2000+2001+2002+2003+2004+2005+2006$ is divided by $7$? Show that it is 0.",
+    "fl_statement": "theorem mathd_numbertheory_345 :\n  (2000 + 2001 + 2002 + 2003 + 2004 + 2005 + 2006) % 7 = 0 := by",
+    "generated_proof": "norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_447",
+    "nl": "What is the sum of the units digits of all the multiples of $3$ between $0$ and $50$? Show that it is 78.",
+    "fl_statement": "theorem mathd_numbertheory_447 :\n  ∑ k in Finset.filter (λ x => 3∣x) (Finset.Icc 1 49), (k % 10) = 78 := by",
+    "generated_proof": "rfl",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:5: error: unexpected token 'in'; expected ','\n"
+  },
+  {
+    "id": "mathd_numbertheory_328",
+    "nl": "What is the remainder when 5 to the 999,999th power is divided by 7? Show that it is 6.",
+    "fl_statement": "theorem mathd_numbertheory_328 :\n  (5^999999) % 7 = 6 := by",
+    "generated_proof": "norm_num",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:24: error: unsolved goals\n⊢ 5 ^ 999999 % 7 = 6\n"
+  },
+  {
+    "id": "mathd_numbertheory_451",
+    "nl": "A positive integer $n$ is nice if there is a positive integer $m$ with exactly four positive divisors (including $1$ and $m$) such that the sum of the four divisors is equal to $n.$ Find the sum of all the nice numbers in the set $\\{ 2010,2011,2012,\\dots,2019 \\}.$ Show that it is 2016.",
+    "fl_statement": "theorem mathd_numbertheory_451\n  (S : Finset ℕ)\n  (h₀ : ∀ (n : ℕ), n ∈ S ↔ 2010 ≤ n ∧ n ≤ 2019 ∧ ∃ m, ((Nat.divisors m).card = 4 ∧ ∑ p in (Nat.divisors m), p = n)) :\n  ∑ k in S, k = 2016 := by",
+    "generated_proof": "have h1 : S = Finset.filter (fun n => 2010 ≤ n ∧ n ≤ 2019 ∧ ∃ m, ((Nat.divisors m).card = 4 ∧ ∑ p in (Nat.divisors m), p = n)) (Finset.Icc 0 2019) := by\n    ext n\n    simp\n    intro h\n    have h2 : n ≤ 2019 := by linarith\n    tauto\n  rw [h1]\n  native_decide",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:86: error: unexpected token 'in'; expected ','\n"
+  },
+  {
+    "id": "aime_1997_p9",
+    "nl": "Given a [[nonnegative]] real number $x$, let $\\langle x\\rangle$ denote the fractional part of $x$; that is, $\\langle x\\rangle=x-\\lfloor x\\rfloor$, where $\\lfloor x\\rfloor$ denotes the [[greatest integer]] less than or equal to $x$. Suppose that $a$ is positive, $\\langle a^{-1}\\rangle=\\langle a^2\\rangle$, and $2<a^2<3$. Find the value of $a^{12}-144a^{-1}$. Show that it is 233.",
+    "fl_statement": "theorem aime_1997_p9\n  (a : ℝ)\n  (h₀ : 0 < a)\n  (h₁ : 1 / a - Int.floor (1 / a) = a^2 - Int.floor (a^2))\n  (h₂ : 2 < a^2)\n  (h₃ : a^2 < 3) :\n  a^12 - 144 * (1 / a) = 233 := by",
+    "generated_proof": "have h4 : Int.floor (1 / a) = 0 := by\n    have h5 : 0 < 1 / a := by\n      apply one_div_pos.mpr\n      linarith\n    have h6 : Int.floor (1 / a) ≥ 0 := by\n      apply Int.floor_nonneg.mpr\n      linarith\n    have h7 : Int.floor (1 / a) ≤ 0 := by\n      have h8 : 1 / a ≤ (0 : ℝ) := by\n        linarith\n      have h9 : Int.floor (1 / a) ≤ Int.floor (0 : ℝ) := by\n        apply Int.floor_le_floor\n        linarith\n      have h10 : Int.floor (0 : ℝ) = 0 := by\n        norm_num [Int.floor_zero]\n      linarith\n    linarith\n  have h5 : Int.floor (a^2) = 1 := by\n    have h6 : 2 < a^2 := h₂\n    have h7 : a^2 < 3 := h₃\n    have h8 : Int.floor (a^2) = 1 := by\n      rw [Int.floor_eq_iff]\n      constructor <;> (try norm_num) <;> nlinarith\n    exact h8\n  rw [h4] at h₁\n  rw [h5] at h₁\n  have h6 : a^2 = 2.9999999999999996 := by\n    nlinarith\n  have h7 : a = Real.sqrt (2.9999999999999996) := by\n    have h8 : a > 0 := h₀\n    have h9 : a = Real.sqrt (a^2) := by\n      rw [Real.sqrt_sq (show 0 ≤ a by linarith)]\n    rw [h9, h6]\n  have h8 : a^12 - 144 * (1 / a) = 233 := by\n    rw [h7]\n    field_simp\n    nlinarith [Real.sqrt_nonneg (2.9999999999999996), Real.sq_sqrt (show (0 : ℝ) ≤ (2.999",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:50:89: error: unexpected end of input; expected ')', ',' or ':'\n/tmp/mathlib_test/test_pipeline.lean:23:8: error: linarith failed to find a contradiction\ncase h\na : ℝ\nh₀ : 0 < a\nh₁ : 1 / a - ↑⌊1 / a⌋ = a ^ 2 - ↑⌊a ^ 2⌋\nh₂ : 2 < a ^ 2\nh₃ : a ^ 2 < 3\nh5 : 0 < 1 / a"
+  },
+  {
+    "id": "algebra_sqineq_at2malt1",
+    "nl": "Show that for any real number $a$, $a(2-a)\\leq 1$.",
+    "fl_statement": "theorem algebra_sqineq_at2malt1\n  (a : ℝ) :\n  a * (2 - a) ≤ 1 := by",
+    "generated_proof": "nlinarith [sq_nonneg (a - 1)]",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "algebra_apbmpcneq0_aeq0anbeq0anceq0",
+    "nl": "Assume that $m$ and $n$ are both positive reals, $m^3 = 2$, $n^3 = 4$, and $a + bm + cn = 0$ for rational numbers $a$, $b$, and $c$.\nShow that $a = b = c = 0$.",
+    "fl_statement": "theorem algebra_apbmpcneq0_aeq0anbeq0anceq0\n  (a b c : ℚ)\n  (m n : ℝ)\n  (h₀ : 0 < m ∧ 0 < n)\n  (h₁ : m^3 = 2)\n  (h₂ : n^3 = 4)\n  (h₃ : (a:ℝ) + b * m + c * n = 0) :\n  a = 0 ∧ b = 0 ∧ c = 0 := by",
+    "generated_proof": "",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:14:27: error: unsolved goals\na b c : ℚ\nm n : ℝ\nh₀ : 0 < m ∧ 0 < n\nh₁ : m ^ 3 = 2\nh₂ : n ^ 3 = 4\nh₃ : ↑a + ↑b * m + ↑c * n = 0\n⊢ a = 0 ∧ b = 0 ∧ c = 0\n"
+  },
+  {
+    "id": "mathd_algebra_171",
+    "nl": "Consider the function $f(x)=5x+4$.  What is $f(1)$? Show that it is 9.",
+    "fl_statement": "theorem mathd_algebra_171\n  (f : ℝ → ℝ)\n  (h₀ : ∀x, f x = 5 * x + 4) :\n  f 1 = 9 := by",
+    "generated_proof": "rw [h₀]\n  norm_num",
+    "error_type": "SUCCESS",
+    "lean_output": ""
   }
 ]
