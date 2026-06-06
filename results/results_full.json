@@ -718,5 +718,85 @@
     "generated_proof": "native_decide",
     "error_type": "SYNTACTIC",
     "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:6: error: unexpected token 'in'; expected ','\n"
+  },
+  {
+    "id": "mathd_algebra_756",
+    "nl": "Given $2^a = 32$ and $a^b = 125$ find $b^a$. Show that it is 243.",
+    "fl_statement": "-- Error: Real^Real\n-- theorem mathd_algebra_756\n--   (a b : ℝ)\n--   (h₀ : 2^a = 32)\n--   (h₁ : a^b = 125) :\n--   b^a = 243 := by",
+    "generated_proof": "-- Error 1: `type mismatch`\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 2: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 3: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 4: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 5: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 6: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 7: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 8: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 9: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 10: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 11: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 12: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "amc12b_2002_p7",
+    "nl": "The product of three consecutive positive integers is $8$ times their sum. What is the sum of their [[perfect square|squares]]?\n\n$\\mathrm{(A)}\\ 50\n\\qquad\\mathrm{(B)}\\ 77\n\\qquad\\mathrm{(C)}\\ 110\n\\qquad\\mathrm{(D)}\\ 149\n\\qquad\\mathrm{(E)}\\ 194$ Show that it is \\mathrm{ (B)}\\ 77.",
+    "fl_statement": "theorem amc12b_2002_p7\n  (a b c : ℕ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c)\n  (h₁ : b = a + 1)\n  (h₂ : c = b + 1)\n  (h₃ : a * b * c = 8 * (a + b + c)) :\n  a^2 + (b^2 + c^2) = 77 := by",
+    "generated_proof": "rw [h₁] at h₂\n  rw [h₁] at h₃\n  rw [h₂] at h₃\n  have h4 : a * (a + 1) * (a + 2) = 8 * (a + (a + 1) + (a + 2)) := by\n    nlinarith\n  have h5 : a ≤ 6 := by\n    by_contra h\n    push_neg at h\n    have h6 : a * (a + 1) * (a + 2) > 8 * (a + (a + 1) + (a + 2)) := by\n      nlinarith [sq_nonneg (a * (a + 1) * (a + 2) - 8 * (a + (a + 1) + (a + 2))), sq_nonneg (a - 6)]\n    nlinarith\n  interval_cases a <;> try { \n    omega\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:83:9: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:21:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```"
+  },
+  {
+    "id": "mathd_algebra_80",
+    "nl": "Solve  \\[\\frac{x-9}{x+1}=2\\]for $x$. Show that it is -11.",
+    "fl_statement": "theorem mathd_algebra_80\n  (x : ℝ)\n  (h₀ : x ≠ -1)\n  (h₁ : (x - 9) / (x + 1) = 2) :\n  x = -11 := by",
+    "generated_proof": "have h2 : x + 1 ≠ 0 := by\n    intro h\n    apply h₀\n    linarith\n  have h3 : x - 9 = 2 * (x + 1) := by\n    field_simp [h2] at h₁\n    linarith\n  linarith",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_457",
+    "nl": "What is the least positive integer $n$ such that $80325$ divides $n!$? Show that it is 17.",
+    "fl_statement": "theorem mathd_numbertheory_457\n  (n : ℕ)\n  (h₀ : 0 < n)\n  (h₁ : 80325∣(n!)) :\n  17 ≤ n := by",
+    "generated_proof": "by_contra h\n  push_neg at h\n  have h2 : n < 17 := by linarith\n  interval_cases n <;> norm_num [Nat.factorial] at h₁ ⊢ <;> omega",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n "
+  },
+  {
+    "id": "amc12_2000_p12",
+    "nl": "Let $A, M,$ and $C$ be [[nonnegative integer]]s such that $A + M + C=12$. What is the maximum value of $A \\cdot M \\cdot C + A \\cdot M + M \\cdot C + A \\cdot C$?\n\n$ \\mathrm{(A) \\ 62 } \\qquad \\mathrm{(B) \\ 72 } \\qquad \\mathrm{(C) \\ 92 } \\qquad \\mathrm{(D) \\ 102 } \\qquad \\mathrm{(E) \\ 112 }  $ Show that it is \\text{E}.",
+    "fl_statement": "theorem amc12_2000_p12\n  (a m c : ℕ)\n  (h₀ : a + m + c = 12) :\n  a*m*c + a*m + m*c + a*c ≤ 112 := by",
+    "generated_proof": "rcases a with a\n  rcases m with m\n  rcases c with c\n  have h1 : c = 12 - a - m := by\n    omega\n  rw [h1]\n  have h2 : a ≤ 12 := by\n    omega\n  have h3 : m ≤ 12 := by\n    omega\n  interval_cases a <;> interval_cases m\n  <;> omega",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_numbertheory_135",
+    "nl": "Let $n = 3^{17} + 3^{10}$. It is known that $11$ divides into $n+1$. If $n$ can be written in base $10$ as $ABCACCBAB$, where $A,B,C$ are distinct digits such that $A$ and $C$ are odd and $B$ is not divisible by $3$, find $100A + 10B + C$. Show that it is 129.",
+    "fl_statement": "theorem mathd_numbertheory_135\n  (n A B C : ℕ)\n  (h₀ : n = 3^17 + 3^10)\n  (h₁ : 11 ∣ (n + 1))\n  (h₂ : [A,B,C].Pairwise (·≠·))\n  (h₃ : {A,B,C} ⊂ Finset.Icc 0 9)\n  (h₄ : Odd A ∧ Odd C)\n  (h₅ : ¬ 3 ∣ B)\n  (h₆ : Nat.digits 10 n = [B,A,B,C,C,A,C,B,A]) :\n  100 * A + 10 * B + C = 129 := by",
+    "generated_proof": "-- We need to prove that 100A + 10B + C = 129\n  -- We have n = 3^17 + 3^10, and n = ABCACCBAB\n  -- We need to find the value of 100A + 10B + C\n  -- We know that 11 divides n + 1\n  -- We also know that A, B, C are distinct digits\n  -- A and C are odd, B is not divisible by 3\n  -- Let's compute n\n  -- n = 3^17 + 3^10 = 3^10 * (3^7 + 1)\n  -- 3^10 = 59049\n  -- 3^7 = 2187\n  -- 3^7 + 1 = 2188\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n",
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:53:20: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:16:32: error: unsolved goals\nn A B C : ℕ\nh₀ : n = 3 ^ 17 + 3 ^ 10\nh₁ : 11 ∣ n + 1\nh₂ : List.Pairwise (fun x1 x2 => x1 ≠ x2) [A, B, C]\nh₃ : {A, B, C} ⊂ Finset.Icc 0 9\nh₄ : Odd"
+  },
+  {
+    "id": "mathd_algebra_275",
+    "nl": "If $\\left(\\sqrt[4]{11}\\right)^{3x-3}=\\frac{1}{5}$, what is the value of $\\left(\\sqrt[4]{11}\\right)^{6x+2}$? Express your answer as a fraction. Show that it is \\frac{121}{25}.",
+    "fl_statement": "-- Error: Real^Real\n-- theorem mathd_algebra_275\n--   (x : ℝ)\n--   (h : ((11:ℝ)^(1 / 4))^(3 * x - 3) = 1 / 5) :\n--   ((11:ℝ)^(1 / 4))^(6 * x + 2) = 121 / 25 := by",
+    "generated_proof": "--   sorry",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "mathd_algebra_388",
+    "nl": "If\n\n\\begin{align*}\n3x+4y-12z&=10,\\\\\n-2x-3y+9z&=-4,\n\\end{align*}\n\ncompute $x$. Show that it is 14.",
+    "fl_statement": "theorem mathd_algebra_388\n  (x y z : ℝ)\n  (h₀ : 3 * x + 4 * y - 12 * z = 10)\n  (h₁ : -2 * x - 3 * y + 9 * z = -4) :\n  x = 14 := by",
+    "generated_proof": "linarith",
+    "error_type": "SUCCESS",
+    "lean_output": ""
+  },
+  {
+    "id": "amc12a_2020_p7",
+    "nl": "Seven cubes, whose volumes are $1$, $8$, $27$, $64$, $125$, $216$, and $343$ cubic units, are stacked vertically to form a tower in which the volumes of the cubes decrease from bottom to top. Except for the bottom cube, the bottom face of each cube lies completely on top of the cube below it. What is the total surface area of the tower (including the bottom) in square units?\n\n$ \\textbf{(A)}\\ 644\\qquad\\textbf{(B)}\\ 658\\qquad\\textbf{(C)}\\ 664\\qquad\\textbf{(D)}\\ 720\\qquad\\textbf{(E)}\\ 749 $ Show that it is \\textbf{(B) }658.",
+    "fl_statement": "theorem amc12a_2020_p7\n  (a : ℕ → ℕ)\n  (h₀ : (a 0)^3 = 1)\n  (h₁ : (a 1)^3 = 8)\n  (h₂ : (a 2)^3 = 27)\n  (h₃ : (a 3)^3 = 64)\n  (h₄ : (a 4)^3 = 125)\n  (h₅ : (a 5)^3 = 216)\n  (h₆ : (a 6)^3 = 343) :\n  ∑ k in Finset.range 7, (6 * (a k)^2) - ↑(2 * ∑ k in Finset.range 6, (a k)^2) = 658 := by",
+    "generated_proof": "have h7 : a 0 = 1 := by\n    have h8 : a 0 = 1 := by\n      have h9 : a 0 ^ 3 = 1 := h₀\n      have h10 : a 0 ≤ 1 := by\n        by_contra h\n        push_neg at h\n        have h11 : a 0 ^ 3 ≥ 8 := by\n          have h12 : a 0 ≥ 2 := by linarith\n          have h13 : a 0 ^ 3 ≥ 2^3 := by\n            apply Nat.pow_le_pow_of_le_left h12 3\n          norm_num at h13 ⊢\n          linarith\n        linarith\n      interval_cases a 0 <;> omega\n    exact h8\n  have h8 : a 1 = 2 := by\n    have h9 : a 1 = 2 := by\n      have h10 : a 1 ^ 3 = 8 := h₁\n      have h11 : a 1 ≤ 2 := by\n        by_contra h\n        push_neg at h\n        have h12 : a 1 ^ 3 ≥ 27 := by\n          have h13 : a 1 ≥ 3 := by linarith\n          have h14 : a 1 ^ 3 ≥ 3^3 := by\n            apply Nat.pow_le_pow_of_le_left h13 3\n          norm_num at h14 ⊢\n          linarith\n        linarith\n      interval_cases a 1 <;> omega\n    exact h9\n  have h9 : a 2 = 3 := by\n    have h10 : a 2 = 3 := by\n      have h11 : a 2 ^ 3 = 27 := h₂\n      have h12 : a 2 ≤ 3 := by\n        by_contra h\n        push_neg at h\n        have h13 : a 2 ^ 3 ≥ 27 := by\n          have h14 : a 2 ≥ 4 := by linarith\n          have h15 : a 2 ^ 3 ≥ 4^3 := by\n            apply Nat.pow_le_pow_of_le_left h14 3\n          norm_num at h15 �",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:5: error: unexpected token 'in'; expected ','\n"
+  },
+  {
+    "id": "induction_sumkexp3eqsumksq",
+    "nl": "Show that for all natural numbers $n$, we have $\\sum_{k=0}^{n-1}k^3 = \\left(\\sum_{k=0}^{n-1}k\\right)^2$.",
+    "fl_statement": "theorem induction_sumkexp3eqsumksq\n  (n : ℕ) :\n  ∑ k in Finset.range n, k^3 = (∑ k in Finset.range n, k)^2 := by",
+    "generated_proof": "induction n with\n  | zero =>\n    simp\n  | succ n ih =>\n    rw [Finset.sum_range_succ, ih]\n    ring_nf\n    <;> omega",
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:5: error: unexpected token 'in'; expected ','\n"
   }
 ]
