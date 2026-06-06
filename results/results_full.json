@@ -5,7 +5,9 @@
     "fl_statement": "theorem mathd_algebra_478\n  (b h v : ℝ)\n  (h₀ : 0 < b ∧ 0 < h ∧ 0 < v)\n  (h₁ : v = 1 / 3 * (b * h))\n  (h₂ : b = 30)\n  (h₃ : h = 13 / 2) :\n  v = 65 := by",
     "generated_proof": "rw [h₂, h₃] at h₁\n  linarith",
     "error_type": "SUCCESS",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:3: warning: unused variable `h₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:3: warning: unused variable `h₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "numbertheory_4x3m7y3neq2003",
@@ -13,7 +15,9 @@
     "fl_statement": "theorem numbertheory_4x3m7y3neq2003\n  (x y : ℤ) :\n  4 * x^3 - 7 * y^3 ≠ 2003 := by",
     "generated_proof": "rintro h\n  have h1 : (4 * x^3 - 7 * y^3 : ℤ) = 2003 := by\n    linarith\n  have h2 : (4 * x^3 - 7 * y^3 : ℤ) % 7 = 2003 % 7 := by\n    rw [h1]\n  have h3 : (4 * x^3 - 7 * y^3 : ℤ) % 7 = (4 * x^3 % 7 - 7 * y^3 % 7 + 7) % 7 := by\n    simp [Int.sub_emod, Int.add_emod, Int.mul_emod]\n  have h4 : (4 * x^3 % 7 - 7 * y^3 % 7 + 7) % 7 = (4 * x^3 % 7 - 7 * y^3 % 7) % 7 := by\n    simp [Int.add_emod]\n  have h5 : (4 * x^3 % 7 - 7 * y^3 % 7) % 7 = (4 * x^3 % 7 - 7 * y^3 % 7) % 7 := by\n    rfl\n  have h6 : (4 * x^3 % 7 - 7 * y^3 % 7) % 7 = (4 * x^3 % 7 - 7 * y^3 % 7) % 7 := by\n    rfl\n  have h7 : (4 * x^3 % 7 - 7 * y^3 % 7) % 7 = (4 * x^3 % 7 - 7 * y^3 % 7) % 7 := by\n    rfl\n  have h8 : (4 * x^3 % 7 - 7 * y^3 % 7) % 7 = (4 * x^3 % 7 - 7 * y^3 % 7) % 7 := by\n    rfl\n  have h9 : (4 * x^3 % 7 - 7 * y^3 % 7) % 7 = (4 * x^3 % 7 - 7 * y^3 % 7) % 7 := by\n    rfl",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:30: error: unsolved goals\nx y : ℤ\nh h1 : 4 * x ^ 3 - 7 * y ^ 3 = 2003\nh2 : (4 * x ^ 3 - 7 * y ^ 3) % 7 = 2003 % 7\nh3 : (4 * x ^ 3 - 7 * y ^ 3) % 7 = (4 * x ^ 3 % 7 - 7 * y ^ 3 % 7 + 7) % 7\nh4 : (4 * x ^ 3 % 7 - 7 * y ^ 3 % 7 + 7) % 7 = (4 * x ^ 3 % 7 - 7 * y ^ "
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:30: error: unsolved goals\nx y : ℤ\nh h1 : 4 * x ^ 3 - 7 * y ^ 3 = 2003\nh2 : (4 * x ^ 3 - 7 * y ^ 3) % 7 = 2003 % 7\nh3 : (4 * x ^ 3 - 7 * y ^ 3) % 7 = (4 * x ^ 3 % 7 - 7 * y ^ 3 % 7 + 7) % 7\nh4 : (4 * x ^ 3 % 7 - 7 * y ^ 3 % 7 + 7) % 7 = (4 * x ^ 3 % 7 - 7 * y ^ ",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "aime_1983_p1",
@@ -21,7 +25,9 @@
     "fl_statement": "theorem aime_1983_p1 (x y z w : ℕ) (ht : 1 < x ∧ 1 < y ∧ 1 < z) (hw : 0 ≤ w)\n    (h0 : Real.log w / Real.log x = 24) (h1 : Real.log w / Real.log y = 40)\n    (h2 : Real.log w / Real.log (x * y * z) = 12) : Real.log w / Real.log z = 60 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:9:84: error: unsolved goals\nx y z w : ℕ\nht : 1 < x ∧ 1 < y ∧ 1 < z\nhw : 0 ≤ w\nh0 : Real.log ↑w / Real.log ↑x = 24\nh1 : Real.log ↑w / Real.log ↑y = 40\nh2 : Real.log ↑w / Real.l"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:9:84: error: unsolved goals\nx y z w : ℕ\nht : 1 < x ∧ 1 < y ∧ 1 < z\nhw : 0 ≤ w\nh0 : Real.log ↑w / Real.log ↑x = 24\nh1 : Real.log ↑w / Real.log ↑y = 40\nh2 : Real.log ↑w / Real.l",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "amc12_2001_p5",
@@ -29,7 +35,9 @@
     "fl_statement": "theorem amc12_2001_p5 :\n  Finset.prod (Finset.filter (λ x => ¬ Even x) (Finset.range 10000)) (id : ℕ → ℕ) = (10000!) / ((2^5000) * 5000!) := by",
     "generated_proof": "native_decide",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_141",
@@ -37,7 +45,9 @@
     "fl_statement": "theorem mathd_algebra_141\n  (a b : ℝ)\n  (h₁ : (a * b)=180)\n  (h₂ : 2 * (a + b)=54) :\n  (a^2 + b^2) = 369 := by",
     "generated_proof": "nlinarith [sq_nonneg (a - b), sq_nonneg (a + b), sq_nonneg (a - 18), sq_nonneg (b - 18)]",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_3",
@@ -45,7 +55,9 @@
     "fl_statement": "theorem mathd_numbertheory_3 :\n  (∑ x ∈ Finset.range 10, ((x + 1)^2)) % 10 = 5 := by",
     "generated_proof": "native_decide",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "imo_1969_p2",
@@ -53,7 +65,9 @@
     "fl_statement": "theorem imo_1969_p2\n  (m n : ℝ)\n  (k : ℕ)\n  (a : ℕ → ℝ)\n  (y : ℝ → ℝ)\n  (h₀ : 0 < k)\n  (h₁ : ∀ x, y x = ∑ i ∈ Finset.range k, ((Real.cos (a i + x)) / (2^i)))\n  (h₂ : y m = 0)\n  (h₃ : y n = 0) :\n  ∃ t : ℤ, m - n = t * π := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:17:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:16:28: error: unsolved goals\nm n : ℝ\nk : ℕ\na : ℕ → ℝ\ny : ℝ → ℝ\nh₀ : 0 < k\nh₁ : ∀ (x : ℝ), y x = ∑ i ∈ Finset.range k, cos (a i + x) / 2 ^ i\nh₂ : y m = 0\nh₃ : y n = 0\n⊢ ∃ t, m "
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:17:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:16:28: error: unsolved goals\nm n : ℝ\nk : ℕ\na : ℕ → ℝ\ny : ℝ → ℝ\nh₀ : 0 < k\nh₁ : ∀ (x : ℝ), y x = ∑ i ∈ Finset.range k, cos (a i + x) / 2 ^ i\nh₂ : y m = 0\nh₃ : y n = 0\n⊢ ∃ t, m ",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_algebra_44",
@@ -61,7 +75,9 @@
     "fl_statement": "theorem mathd_algebra_44\n  (s t : ℝ)\n  (h₀ : s = 9 - 2 * t)\n  (h₁ : t = 3 * s + 1) :\n  s = 1 ∧ t = 4 := by",
     "generated_proof": "have h2 : s = 1 := by\n    linarith\n  have h3 : t = 4 := by\n    linarith\n  exact ⟨h2, h3⟩",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_209",
@@ -69,7 +85,9 @@
     "fl_statement": "theorem mathd_algebra_209\n  (σ : Equiv ℝ ℝ)\n  (h₀ : σ.2 2 = 10)\n  (h₁ : σ.2 10 = 1)\n  (h₂ : σ.2 1 = 2) :\n  σ.1 (σ.1 10) = 1 := by",
     "generated_proof": "rw [h₀] at h₁\n  rw [h₁] at h₂\n  rw [h₂] at h₀\n  rw [h₀] at *\n  all_goals linarith",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  σ.invFun 2\nin the target expression\n  σ.invFun 10 = 1\n\nσ : ℝ ≃ ℝ\nh₀ : σ.invFun 2 = 10\nh₁ : σ.invFun 10 = 1\nh₂ : σ.invFun 1 = 2\n⊢ σ.toFun (σ.toFun 10) = 1\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  σ.invFun 2\nin the target expression\n  σ.invFun 10 = 1\n\nσ : ℝ ≃ ℝ\nh₀ : σ.invFun 2 = 10\nh₁ : σ.invFun 10 = 1\nh₂ : σ.invFun 1 = 2\n⊢ σ.toFun (σ.toFun 10) = 1\n",
+    "error_reason": "Rewrite tactic failed, pattern not found",
+    "matched_pattern": "Tactic `rewrite` failed"
   },
   {
     "id": "mathd_numbertheory_1124",
@@ -77,7 +95,9 @@
     "fl_statement": "theorem mathd_numbertheory_1124\n  (n : ℕ)\n  (h₀ : n ≤ 9)\n  (h₁ : 18∣374 * 10 + n) :\n  n = 4 := by",
     "generated_proof": "interval_cases n <;> norm_num at h₁ <;> omega",
     "error_type": "SUCCESS",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:38: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:38: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "imo_1983_p6",
@@ -85,7 +105,9 @@
     "fl_statement": "theorem imo_1983_p6\n  (a b c : ℝ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c)\n  (h₁ : c < a + b)\n  (h₂ : b < a + c)\n  (h₃ : a < b + c) :\n  0 ≤ a^2 * b * (a - b) + b^2 * c * (b - c) + c^2 * a * (c - a) := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:67: error: unsolved goals\na b c : ℝ\nh₀ : 0 < a ∧ 0 < b ∧ 0 < c\nh₁ : c < a + b\nh₂ : b < a + c\nh₃ : a < b + c\n⊢ 0 ≤ a ^ 2 * b * (a - b) + b ^ 2 * c * (b - c) + c ^ 2 * a * (c"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:67: error: unsolved goals\na b c : ℝ\nh₀ : 0 < a ∧ 0 < b ∧ 0 < c\nh₁ : c < a + b\nh₂ : b < a + c\nh₃ : a < b + c\n⊢ 0 ≤ a ^ 2 * b * (a - b) + b ^ 2 * c * (b - c) + c ^ 2 * a * (c",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_numbertheory_237",
@@ -93,7 +115,9 @@
     "fl_statement": "theorem mathd_numbertheory_237 :\n  (∑ k in (Finset.range 101), k) % 6 = 4 := by",
     "generated_proof": "native_decide",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:6: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:6: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "mathd_algebra_33",
@@ -101,7 +125,9 @@
     "fl_statement": "theorem mathd_algebra_33\n  (x y z : ℝ)\n  (h₀ : x ≠ 0)\n  (h₁ : 2 * x = 5 * y)\n  (h₂ : 7 * y = 10 * z) :\n  z / x = 7 / 25 := by",
     "generated_proof": "have h₃ : y = 2 / 5 * x := by\n    linarith\n  have h₄ : z = 7 / 10 * y := by\n    linarith\n  rw [h₃] at h₄\n  have h₅ : z = 7 / 10 * (2 / 5 * x) := h₄\n  have h₆ : z = 7 / 25 * x := by\n    linarith\n  have h₇ : z / x = 7 / 25 := by\n    field_simp [h₀]\n    linarith\n  exact h₇",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "amc12b_2021_p3",
@@ -109,7 +135,9 @@
     "fl_statement": "theorem amc12b_2021_p3\n  (x : ℝ)\n  (h₀ : 2 + 1 / (1 + 1 / (2 + 2 / (3 + x))) = 144 / 53) :\n  x = 3 / 4 := by",
     "generated_proof": "have h1 : 2 + 2 / (3 + x) = (2 * (3 + x) + 2) / (3 + x) := by\n    field_simp\n    <;> ring\n  have h2 : 2 + 1 / (1 + 1 / (2 + 2 / (3 + x))) = 144 / 53 := h₀\n  rw [h1] at h2\n  have h3 : 1 + 1 / ((2 * (3 + x) + 2) / (3 + x)) = ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) := by\n    field_simp\n    <;> ring\n  rw [h3] at h2\n  have h4 : 2 + 1 / (( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2)) = ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) + 2 := by\n    field_simp\n    <;> ring\n  rw [h4] at h2\n  have h5 : ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) + 2 = 144 / 53 := by\n    linarith\n  have h6 : ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) = 144 / 53 - 2 := by\n    linarith\n  have h7 : ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) = ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) := by\n    rfl\n  have h8 : ( (2 * (3 + x) + 2) + 1 ) / (2 * (3 + x) + 2) = ( (2 * (3 + x) + 2",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:30:78: error: unexpected end of input; expected ')', ',' or ':'\nTry this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a nonco"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:30:78: error: unexpected end of input; expected ')', ',' or ':'\nTry this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a nonco",
+    "error_reason": "Proof incomplete, unexpected end",
+    "matched_pattern": "unexpected end of input"
   },
   {
     "id": "mathd_numbertheory_299",
@@ -117,7 +145,9 @@
     "fl_statement": "theorem mathd_numbertheory_299 :\n  (1 * 3 * 5 * 7 * 9 * 11 * 13) % 10 = 5 := by",
     "generated_proof": "norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "amc12b_2020_p2",
@@ -125,7 +155,9 @@
     "fl_statement": "theorem amc12b_2020_p2 :\n  ((100 ^ 2 - 7 ^ 2):ℝ) / (70 ^ 2 - 11 ^ 2) * ((70 - 11) * (70 + 11) / ((100 - 7) * (100 + 7))) = 1 := by",
     "generated_proof": "norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "algebra_sqineq_unitcircatbpabsamblt1",
@@ -133,7 +165,9 @@
     "fl_statement": "theorem algebra_sqineq_unitcircatbpabsamblt1\n  (a b: ℝ)\n  (h₀ : a^2 + b^2 = 1) :\n  a * b + |a - b| ≤ 1 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:10:25: error: unsolved goals\na b : ℝ\nh₀ : a ^ 2 + b ^ 2 = 1\n⊢ a * b + |a - b| ≤ 1\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:10:25: error: unsolved goals\na b : ℝ\nh₀ : a ^ 2 + b ^ 2 = 1\n⊢ a * b + |a - b| ≤ 1\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "imo_1977_p6",
@@ -141,7 +175,9 @@
     "fl_statement": "theorem imo_1977_p6\n  (f : ℕ → ℕ)\n  (h₀ : ∀ n, 0 < f n)\n  (h₁ : ∀ n, 0 < n → f (f n) < f (n + 1)) :\n  ∀ n, 0 < n → f n = n := by",
     "generated_proof": "intro n hn\n  have h2 : ∀ n, 0 < n → f n = n := by\n    intro n hn\n    induction n with\n    | zero =>\n      exfalso\n      linarith\n    | succ n ih =>\n      cases n with\n      | zero =>\n        simp [h₀]\n      | succ n =>\n        have h3 := ih (by linarith)\n        simp [h₀] at h3 ⊢\n        have h4 := h₁ (n + 1) (by linarith)\n        simp [h3] at h4 ⊢\n        all_goals linarith\n  specialize h2 n hn\n  simpa using h2",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:21:13: error: unsolved goals\ncase succ.zero\nf : ℕ → ℕ\nh₀ : ∀ (n : ℕ), 0 < f n\nh₁ : ∀ (n : ℕ), 0 < n → f (f n) < f (n + 1)\nn : ℕ\nhn✝ : 0 < n\nih : 0 < 0 → f 0 = 0\nhn : 0 < 0 + 1\n⊢ f 1 = 1\n/tmp/mathlib_test/test_pipeline.lean:28:18: error: linarith failed to find a "
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:21:13: error: unsolved goals\ncase succ.zero\nf : ℕ → ℕ\nh₀ : ∀ (n : ℕ), 0 < f n\nh₁ : ∀ (n : ℕ), 0 < n → f (f n) < f (n + 1)\nn : ℕ\nhn✝ : 0 < n\nih : 0 < 0 → f 0 = 0\nhn : 0 < 0 + 1\n⊢ f 1 = 1\n/tmp/mathlib_test/test_pipeline.lean:28:18: error: linarith failed to find a ",
+    "error_reason": "Linear arithmetic tactic could not find contradiction",
+    "matched_pattern": "linarith failed"
   },
   {
     "id": "mathd_algebra_419",
@@ -149,7 +185,9 @@
     "fl_statement": "theorem mathd_algebra_419\n  (a b : ℝ)\n  (h₀ : a = -1)\n  (h₁ : b = 5) :\n  -a - b^2 + 3 * (a * b) = -39 := by",
     "generated_proof": "rw [h₀, h₁]\n  norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "amc12a_2020_p10",
@@ -157,7 +195,9 @@
     "fl_statement": "-- Error: Real.log\n-- theorem amc12a_2020_p10\n--   (n : ℕ)\n--   (h₀ : 0 < n)\n--   (h₁ : Real.logb 2 (Real.logb 16 n) = Real.logb 4 (Real.logb 4 n)) :\n--   (Nat.digits 10 n).sum = 13 := by",
     "generated_proof": "-- Error 1: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 2 (Real.logb 16 n)`\n-- Error 2: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 3: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 4: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 5: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 6: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 7: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 8: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 9: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 10: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 11: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 12: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 13: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n-- Error 14: `type mismatch`\n--   `Real.log` is not a function\n--   `Real.logb 4 (Real.logb 4 n)`\n--",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "imo_1960_p2",
@@ -165,7 +205,9 @@
     "fl_statement": "theorem imo_1960_p2\n  (x : ℝ)\n  (h₀ : 0 ≤ 1 + 2 * x)\n  (h₁ : (1 - Real.sqrt (1 + 2 * x))^2 ≠ 0)\n  (h₂ : (4 * x^2) / (1 - Real.sqrt (1 + 2*x))^2 < 2*x + 9) :\n  -(1 / 2) ≤ x ∧ x < 45 / 8 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:31: error: unsolved goals\nx : ℝ\nh₀ : 0 ≤ 1 + 2 * x\nh₁ : (1 - √(1 + 2 * x)) ^ 2 ≠ 0\nh₂ : 4 * x ^ 2 / (1 - √(1 + 2 * x)) ^ 2 < 2 * x + 9\n⊢ -(1 / 2) ≤ x ∧ x < 45 / 8\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:31: error: unsolved goals\nx : ℝ\nh₀ : 0 ≤ 1 + 2 * x\nh₁ : (1 - √(1 + 2 * x)) ^ 2 ≠ 0\nh₂ : 4 * x ^ 2 / (1 - √(1 + 2 * x)) ^ 2 < 2 * x + 9\n⊢ -(1 / 2) ≤ x ∧ x < 45 / 8\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_numbertheory_427",
@@ -173,7 +215,9 @@
     "fl_statement": "theorem mathd_numbertheory_427\n  (a : ℕ)\n  (h₀ : a = (∑ k in (Nat.divisors 500), k)) :\n  ∑ k in Finset.filter (λ x => Nat.Prime x) (Nat.divisors a), k = 25 := by",
     "generated_proof": "rw [h₀]\n  native_decide",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:16: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:16: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "numbertheory_x5neqy2p4",
@@ -181,7 +225,9 @@
     "fl_statement": "theorem numbertheory_x5neqy2p4\n  (x y : ℤ) :\n  x^5 ≠ y^2 + 4 := by",
     "generated_proof": "rintro h\n  have h1 : x^5 % 11 = y^2 % 11 := by\n    have h2 : x^5 % 11 = y^2 % 11 := by\n      have h3 : x^5 % 11 = y^2 % 11 := by\n        have h4 : x^5 % 11 = y^2 % 11 := by\n          have h5 : x^5 % 11 = y^2 % 11 := by\n            omega\n          omega\n        omega\n      omega\n    omega\n  have h2 : x % 11 = 0 ∨ x % 11 = 1 ∨ x % 11 = 2 ∨ x % 11 = 3 ∨ x % 11 = 4 ∨ x % 11 = 5 ∨ x % 11 = 6 ∨ x % 11 = 7 ∨ x % 11 = 8 ∨ x % 11 = 9 ∨ x % 11 = 10 := by\n    omega\n  rcases h2 with (h2 | h2 | h2 | h2 | h2 | h2 | h2 | h2 | h2 | h2 | h2) <;> simp [h2, pow_succ, Int.add_emod, Int.mul_emod, Int.sub_emod, Int.ofNat] at h1 <;> try { \n    omega \n  } <;> try { \n    have h3 : x % 11 = 0 := by \n      omega \n    have h4 : x % 11 = 0 := by \n      omega \n    have h5 : x % 11 = 0 := by \n      omega \n    have h6 : x % 11 = 0 := by \n      omega \n    have h7 : x % 11 = 0 := by \n      omega \n    have h8 : x % 11 = 0 := by \n      omega \n    have h9 : x % 11 = 0 := by \n      omega \n    have h10 : x % 11 = 0 := by \n      omega \n    have h11 : x % 11 =",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:42:23: error: unexpected end of input\n/tmp/mathlib_test/test_pipeline.lean:16:12: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  b - c ≤ -1\n  0 ≤ a - 11*b ≤ 10\n  -4 ≤ a - 11*c ≤ 6\nwhere\n a := y ^ 2\n b := y ^ 2 / 11\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:42:23: error: unexpected end of input\n/tmp/mathlib_test/test_pipeline.lean:16:12: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  b - c ≤ -1\n  0 ≤ a - 11*b ≤ 10\n  -4 ≤ a - 11*c ≤ 6\nwhere\n a := y ^ 2\n b := y ^ 2 / 11\n",
+    "error_reason": "Integer arithmetic tactic failed",
+    "matched_pattern": "omega could not prove"
   },
   {
     "id": "mathd_algebra_398",
@@ -189,15 +235,19 @@
     "fl_statement": "theorem mathd_algebra_398\n  (a b c : ℝ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c)\n  (h₁ : 9 * b = 20 * c)\n  (h₂ : 7 * a = 4 * b) :\n  63 * a = 80 * c := by",
     "generated_proof": "have h₃ : 7 * a = 4 * b := h₂\n  have h₄ : 9 * b = 20 * c := h₁\n  have h₅ : 63 * a = 80 * c := by\n    linarith\n  exact h₅",
     "error_type": "SUCCESS",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:3: warning: unused variable `h₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:3: warning: unused variable `h₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "imo_1963_p5",
     "nl": "Prove that $\\cos{\\frac{\\pi}{7}}-\\cos{\\frac{2\\pi}{7}}+\\cos{\\frac{3\\pi}{7}}=\\frac{1}{2}$.",
     "fl_statement": "theorem imo_1963_p5 :\n  Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by",
     "generated_proof": "have h1 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n    have h2 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n      have h3 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n        have h4 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n          have h5 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n            have h6 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n              have h7 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n                have h8 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n                  have h9 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n                    have h10 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n                      have h11 : Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by\n                        have h12 : Real.cos (π / 7) - Real.cos (2 * π / 7)",
-    "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:20:35: error: Type mismatch\n  cos (π / 7) - cos (2 * π / 7)\nhas type\n  ℝ\nbut is expected to have type\n  Prop\n/tmp/mathlib_test/test_pipeline.lean:19:107: error: unsolved goals\ncase h12\n⊢ sorry\n\nh12 : sorry\n⊢ cos (π / 7) - cos (2 * π / 7) + cos (3 * π / 7) = 1 / 2"
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:20:35: error: Type mismatch\n  cos (π / 7) - cos (2 * π / 7)\nhas type\n  ℝ\nbut is expected to have type\n  Prop\n/tmp/mathlib_test/test_pipeline.lean:19:107: error: unsolved goals\ncase h12\n⊢ sorry\n\nh12 : sorry\n⊢ cos (π / 7) - cos (2 * π / 7) + cos (3 * π / 7) = 1 / 2",
+    "error_reason": "Type mismatch between expected and given type",
+    "matched_pattern": "Type mismatch"
   },
   {
     "id": "mathd_numbertheory_430",
@@ -205,15 +255,19 @@
     "fl_statement": "theorem mathd_numbertheory_430\n  (a b c : ℕ)\n  (h₀ : 1 ≤ a ∧ a ≤ 9)\n  (h₁ : 1 ≤ b ∧ b ≤ 9)\n  (h₂ : 1 ≤ c ∧ c ≤ 9)\n  (h₃ : a ≠ b)\n  (h₄ : a ≠ c)\n  (h₅ : b ≠ c)\n  (h₆ : a + b = c)\n  (h₇ : 10 * a + a - b = 2 * c)\n  (h₈ : c * b = 10 * a + a + a) :\n  a + b + c = 8 := by",
     "generated_proof": "have h9 : a ≤ 9 := by linarith\n  have h10 : b ≤ 9 := by linarith\n  have h11 : c ≤ 9 := by linarith\n  interval_cases a <;> interval_cases b <;> omega",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_459",
     "nl": "Anna, Bertram, Carli, and David have a competition to see which of them can hold their breath for the longest time period, in minutes. If Bertram, Carli, and David add their times together, the resulting sum is three times the length of time that Anna can hold her breath. Similarly, if Anna, Carli, and David sum their times, the result is four times Bertram's time period, and if Anna, Bertram, and David sum their times, the result is twice Carli's time. Finally, eight times Anna's time plus ten times Bertram's time plus six times Carli's time equals two fifths of an hour. If the length of time that David can hold his breath is expressed in minutes as a simplified fraction, what is the sum of the numerator and the denominator? Show that it is 28.",
     "fl_statement": "theorem mathd_algebra_459\n  (a b c d : ℚ)\n  (h₀ : 3 * a = b + c + d)\n  (h₁ : 4 * b = a + c + d)\n  (h₂ : 2 * c = a + b + d)\n  (h₃ : 8 * a + 10 * b + 6 * c = 24) :\n  ↑d.den + d.num = 28 := by",
     "generated_proof": "have h4 : d = 14 / 9 := by\n    linarith\n  rw [h4]\n  native_decide",
-    "error_type": "UNKNOWN",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:4: error: linarith failed to find a contradiction\ncase h1.h\na b c d : ℚ\nh₀ : 3 * a = b + c + d\nh₁ : 4 * b = a + c + d\nh₂ : 2 * c = a + b + d\nh₃ : 8 * a + 10 * b + 6 * c = 24\na✝ : d < 14 / 9\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipeline.lean:17:2: error: Tacti"
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:4: error: linarith failed to find a contradiction\ncase h1.h\na b c d : ℚ\nh₀ : 3 * a = b + c + d\nh₁ : 4 * b = a + c + d\nh₂ : 2 * c = a + b + d\nh₃ : 8 * a + 10 * b + 6 * c = 24\na✝ : d < 14 / 9\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipeline.lean:17:2: error: Tacti",
+    "error_reason": "Linear arithmetic tactic could not find contradiction",
+    "matched_pattern": "linarith failed"
   },
   {
     "id": "induction_12dvd4expnp1p20",
@@ -221,7 +275,9 @@
     "fl_statement": "theorem induction_12dvd4expnp1p20\n  (n : ℕ) :\n  12 ∣ 4^(n+1) + 20 := by",
     "generated_proof": "induction n with\n  | zero =>\n    norm_num\n  | succ n ih =>\n    simp [pow_succ, pow_zero, Nat.mul_add, Nat.add_mul] at ih ⊢\n    omega",
     "error_type": "SUCCESS",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:20: warning: This simp argument is unused:\n  pow_zero\n\nHint: Omit it from the simp argument list.\n  simp [pow_succ, p̵o̵w̵_̵z̵e̵r̵o̵,̵ ̵Nat.mul_add, Nat.add_mul] at ih ⊢\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n/tmp/math"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:20: warning: This simp argument is unused:\n  pow_zero\n\nHint: Omit it from the simp argument list.\n  simp [pow_succ, p̵o̵w̵_̵z̵e̵r̵o̵,̵ ̵Nat.mul_add, Nat.add_mul] at ih ⊢\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n/tmp/math",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_320",
@@ -229,7 +285,9 @@
     "fl_statement": "theorem mathd_algebra_320\n  (x : ℝ)\n  (a b c : ℕ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 ≤ x)\n  (h₁ : 2 * x^2 = 4 * x + 9)\n  (h₂ : x = (a + Real.sqrt b) / c)\n  (h₃ : c = 2) :\n  a + b + c = 26 := by",
     "generated_proof": "have h4 : (a : ℝ) = (a : ℝ) := by rfl\n  have h5 : (b : ℝ) = (b : ℝ) := by rfl\n  have h6 : (c : ℝ) = (c : ℝ) := by rfl\n  have h7 : (a : ℝ) = (a : ℝ) := by rfl\n  have h8 : (b : ℝ) = (b : ℝ) := by rfl\n  have h9 : (c : ℝ) = (c : ℝ) := by rfl\n  have h10 : (a : ℝ) = (a : ℝ) := by rfl\n  have h11 : (b : ℝ) = (b : ℝ) := by rfl\n  have h12 : (c : ℝ) = (c : ℝ) := by rfl\n  have h13 : (a : ℝ) = (a : ℝ) := by rfl\n  have h14 : (b : ℝ) = (b : ℝ) := by rfl\n  have h15 : (c : ℝ) = (c : ℝ) := by rfl\n  have h16 : (a : ℝ) = (a : ℝ) := by rfl\n  have h17 : (b : ℝ) = (b : ℝ) := by rfl\n  have h18 : (c : ℝ) = (c : ℝ) := by rfl\n  have h19 : (a : ℝ) = (a : ℝ) := by rfl\n  have h20 : (b : ℝ) = (b : ℝ) := by rfl\n  have h21 : (c : ℝ) = (c : ℝ) := by rfl\n  have h22 : (a : ℝ) = (a : ℝ) := by rfl\n  have h23 : (b : ℝ) = (b : ℝ) := by rfl\n  have h24 : (c : ℝ) = (c : ℝ) := by rfl\n  have h25 : (a : ℝ) = (a : ℝ) := by rfl\n  have h26 : (b : ℝ) = (b : ℝ) := by rfl\n  have h27 : (c : ℝ) = (c : ℝ) := by rfl\n  have h28 : (a : ℝ) = (",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:39:24: error: unexpected end of input; expected ')', '↑', '↥' or '⇑'\n/tmp/mathlib_test/test_pipeline.lean:39:23: error: (↥) must have a function type, not\n  ℝ\n/tmp/mathlib_test/test_pipeline.lean:14:20: error: unsolved goals\ncase h28\nx : ℝ\na b c : ℕ\nh₀ : 0 < a ∧ "
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:39:24: error: unexpected end of input; expected ')', '↑', '↥' or '⇑'\n/tmp/mathlib_test/test_pipeline.lean:39:23: error: (↥) must have a function type, not\n  ℝ\n/tmp/mathlib_test/test_pipeline.lean:14:20: error: unsolved goals\ncase h28\nx : ℝ\na b c : ℕ\nh₀ : 0 < a ∧ ",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_algebra_137",
@@ -237,7 +295,9 @@
     "fl_statement": "theorem mathd_algebra_137\n  (x : ℕ)\n  (h₀ : ↑x + (4:ℝ) / (100:ℝ) * ↑x = 598) :\n  x = 575 := by",
     "generated_proof": "have h1 : (x : ℝ) = (598 : ℝ) * (100 : ℝ) / (104 : ℝ) := by\n    linarith\n  have h2 : (x : ℝ) = (575 : ℝ) := by\n    rw [h1]\n    norm_num\n  have h3 : x = 575 := by\n    exact_mod_cast h2\n  exact h3",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "imo_1997_p5",
@@ -245,15 +305,19 @@
     "fl_statement": "theorem imo_1997_p5\n  (x y : ℕ)\n  (h₀ : 0 < x ∧ 0 < y)\n  (h₁ : x^(y^2) = y^x) :\n  (x, y) = (1, 1) ∨ (x, y) = (16, 2) ∨ (x, y) = (27, 3) := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:59: error: unsolved goals\nx y : ℕ\nh₀ : 0 < x ∧ 0 < y\nh₁ : x ^ y ^ 2 = y ^ x\n⊢ (x, y) = (1, 1) ∨ (x, y) = (16, 2) ∨ (x, y) = (27, 3)\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:59: error: unsolved goals\nx y : ℕ\nh₀ : 0 < x ∧ 0 < y\nh₁ : x ^ y ^ 2 = y ^ x\n⊢ (x, y) = (1, 1) ∨ (x, y) = (16, 2) ∨ (x, y) = (27, 3)\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_numbertheory_277",
     "nl": "The greatest common divisor of positive integers $m$ and $n$ is 6. The least common multiple of $m$ and $n$ is 126. What is the least possible value of $m+n$? Show that it is 60.",
     "fl_statement": "theorem mathd_numbertheory_277\n  (m n : ℕ)\n  (h₀ : Nat.gcd m n = 6)\n  (h₁ : Nat.lcm m n = 126) :\n  60 ≤ m + n := by",
     "generated_proof": "by_contra h\n  push_neg at h\n  have h2 : m ≤ 126 := by\n    have h3 : m ∣ Nat.lcm m n := by\n      exact Nat.dvd_lcm_left m n\n    rw [h₁] at h3\n    have h4 : m ≤ 126 := by\n      exact Nat.le_of_dvd (by norm_num) h3\n    linarith\n  have h3 : n ≤ 126 := by\n    have h4 : n ∣ Nat.lcm m n := by\n      exact Nat.dvd_lcm_right m n\n    rw [h₁] at h4\n    have h5 : n ≤ 126 := by\n      exact Nat.le_of_dvd (by norm_num) h4\n    linarith\n  interval_cases m <;> interval_cases n\n  <;> norm_num [Nat.gcd, Nat.lcm] at h₀ h₁ ⊢\n  <;> omega",
-    "error_type": "UNKNOWN",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n "
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n ",
+    "error_reason": "Deprecated tactic used (push_neg → push Not)",
+    "matched_pattern": "push_neg` has been deprecated"
   },
   {
     "id": "mathd_numbertheory_559",
@@ -261,7 +325,9 @@
     "fl_statement": "theorem mathd_numbertheory_559\n  (x y : ℕ)\n  (h₀ : x % 3 = 2)\n  (h₁ : y % 5 = 4)\n  (h₂ : x % 10 = y % 10) :\n  14 ≤ x := by",
     "generated_proof": "omega",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_160",
@@ -269,7 +335,9 @@
     "fl_statement": "theorem mathd_algebra_160\n  (n x : ℝ)\n  (h₀ : n + x = 97)\n  (h₁ : n + 5 * x = 265) :\n  n + 2 * x = 139 := by",
     "generated_proof": "linarith",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_24",
@@ -277,7 +345,9 @@
     "fl_statement": "theorem mathd_algebra_24\n  (x : ℝ)\n  (h₀ : x / 50 = 40) :\n  x = 2000 := by",
     "generated_proof": "field_simp at h₀\n  linarith",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_176",
@@ -285,7 +355,9 @@
     "fl_statement": "theorem mathd_algebra_176\n  (x : ℝ) :\n  (x + 1)^2 * x = x^3 + 2 * x^2 + x := by",
     "generated_proof": "ring",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "induction_nfactltnexpnm1ngt3",
@@ -293,7 +365,9 @@
     "fl_statement": "theorem induction_nfactltnexpnm1ngt3\n  (n : ℕ)\n  (h₀ : 3 ≤ n) :\n  n! < n^(n - 1) := by",
     "generated_proof": "have h1 : ∀ n : ℕ, 3 ≤ n → n! < n^(n - 1) := by\n    intro n hn\n    have h2 : n ≥ 3 := by linarith\n    have h3 : n! < n^(n - 1) := by\n      have h4 : n ≥ 3 := by linarith\n      have h5 : n! = 1 * 2 * 3 * 4 * ... * (n - 1) * (n) := by\n        simp [Nat.factorial]\n        <;> ring_nf\n      have h6 : n^(n - 1) = n * n * n * ... * (n) := by\n        have h7 : n - 1 ≥ 2 := by\n          omega\n        have h8 : n^(n - 1) = n * (n ^ (n - 2)) := by\n          ring_nf\n        have h9 : n ^ (n - 2) = n * n * ... * (n) := by\n          have h10 : n - 2 ≥ 1 := by\n            omega\n          have h11 : n ^ (n - 2) = n * (n ^ (n - 3)) := by\n            ring_nf\n          -- ... (this part is getting complicated, let's try a different approach)\n          -- We need to show n! < n^(n-1)\n          -- Let's use induction on n starting from 3\n          -- Base case n = 3: 3! = 6, 3^(3-1) = 3^2 = 9. 6 < 9.\n          -- Inductive step: Assume for some k ≥ 3, k! < k^(k-1)\n          -- Show (k+1)! < (k+1)^(k)\n          -- (k+1)! = (k+1) * k!\n          -- (k+1)^(k) = (k+1) * (k+1)^(k-1)\n          -- We need to show (k+1) * k! < (k+1) * (k+1)^(k-1)\n          -- This is equivalent to k! < (k+1)^(k-1) (since k+1 > 0)\n          -- From the",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:36: error: unexpected token '...'; expected term\n/tmp/mathlib_test/test_pipeline.lean:14:32: error: unsolved goals\ncase h5\nn! n✝ : ℕ\nh₀ : 3 ≤ n✝\nn : ℕ\nhn : 3 ≤ n\nh2 h4 : n ≥ 3\n⊢ n! = 1 * 2 * 3 * 4 * sorry\n\nn! n✝ : ℕ\nh₀ : 3 ≤ n✝\nn : ℕ\nhn : 3 ≤ n\nh2 h4 : n ≥ 3\nh"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:36: error: unexpected token '...'; expected term\n/tmp/mathlib_test/test_pipeline.lean:14:32: error: unsolved goals\ncase h5\nn! n✝ : ℕ\nh₀ : 3 ≤ n✝\nn : ℕ\nhn : 3 ≤ n\nh2 h4 : n ≥ 3\n⊢ n! = 1 * 2 * 3 * 4 * sorry\n\nn! n✝ : ℕ\nh₀ : 3 ≤ n✝\nn : ℕ\nhn : 3 ≤ n\nh2 h4 : n ≥ 3\nh",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "mathd_algebra_208",
@@ -301,7 +375,9 @@
     "fl_statement": "theorem mathd_algebra_208 :\n  Real.sqrt 1000000 - 1000000^(1/3) = 900 := by",
     "generated_proof": "have h1 : Real.sqrt 1000000 = 1000 := by\n    rw [Real.sqrt_eq_iff_sq_eq] <;> norm_num\n  have h2 : (1000000 : ℝ) ^ (1 / 3 : ℝ) = 100 := by\n    have h3 : (1000000 : ℝ) = (100 : ℝ) ^ (3 : ℝ) := by norm_num\n    rw [h3]\n    rw [← Real.rpow_mul]\n    norm_num\n    all_goals norm_num\n  rw [h1, h2]\n  all_goals norm_num",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:8: error(lean.unknownIdentifier): Unknown constant `Real.sqrt_eq_iff_sq_eq`\n/tmp/mathlib_test/test_pipeline.lean:17:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  1000000 ^ (1 / 3)\nin the target expression\n  1000 - 1000000 ^ (1"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:8: error(lean.unknownIdentifier): Unknown constant `Real.sqrt_eq_iff_sq_eq`\n/tmp/mathlib_test/test_pipeline.lean:17:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  1000000 ^ (1 / 3)\nin the target expression\n  1000 - 1000000 ^ (1",
+    "error_reason": "Identifier not found in scope",
+    "matched_pattern": "unknownIdentifier"
   },
   {
     "id": "mathd_numbertheory_353",
@@ -309,7 +385,9 @@
     "fl_statement": "theorem mathd_numbertheory_353\n  (s : ℕ)\n  (h₀ : s = ∑ k in Finset.Icc 2010 4018, k) :\n  s % 2009 = 0 := by",
     "generated_proof": "rw [h₀]\n  native_decide",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:15: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:15: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "numbertheory_notequiv2i2jasqbsqdiv8",
@@ -317,7 +395,9 @@
     "fl_statement": "theorem numbertheory_notEquiv2i2jasqbsqdiv8 :\n  ¬ (∀ a b : ℤ, (∃ i j, a = 2*i ∧ b=2*j) ↔ (∃ k, a^2 + b^2 = 8*k)) := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:8:70: error: unsolved goals\n⊢ ¬∀ (a b : ℤ), (∃ i j, a = 2 * i ∧ b = 2 * j) ↔ ∃ k, a ^ 2 + b ^ 2 = 8 * k\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:8:70: error: unsolved goals\n⊢ ¬∀ (a b : ℤ), (∃ i j, a = 2 * i ∧ b = 2 * j) ↔ ∃ k, a ^ 2 + b ^ 2 = 8 * k\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_algebra_156",
@@ -325,7 +405,9 @@
     "fl_statement": "theorem mathd_algebra_156\n  (x y : ℝ)\n  (f g : ℝ → ℝ)\n  (h₀ : ∀t, f t = t^4)\n  (h₁ : ∀t, g t = 5 * t^2 - 6)\n  (h₂ : f x = g x)\n  (h₃ : f y = g y)\n  (h₄ : x^2 < y^2) :\n  y^2 - x^2 = 1 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:15:19: error: unsolved goals\nx y : ℝ\nf g : ℝ → ℝ\nh₀ : ∀ (t : ℝ), f t = t ^ 4\nh₁ : ∀ (t : ℝ), g t = 5 * t ^ 2 - 6\nh₂ : f x = g x\nh₃ : f y = g y\nh₄ : x ^ 2 < y ^ 2\n⊢ y ^ 2 - x ^"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:15:19: error: unsolved goals\nx y : ℝ\nf g : ℝ → ℝ\nh₀ : ∀ (t : ℝ), f t = t ^ 4\nh₁ : ∀ (t : ℝ), g t = 5 * t ^ 2 - 6\nh₂ : f x = g x\nh₃ : f y = g y\nh₄ : x ^ 2 < y ^ 2\n⊢ y ^ 2 - x ^",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_numbertheory_12",
@@ -333,7 +415,9 @@
     "fl_statement": "theorem mathd_numbertheory_12 :\n  Finset.card (Finset.filter (λ x => 20∣x) (Finset.Icc 15 85)) = 4 := by",
     "generated_proof": "native_decide",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_345",
@@ -341,7 +425,9 @@
     "fl_statement": "theorem mathd_numbertheory_345 :\n  (2000 + 2001 + 2002 + 2003 + 2004 + 2005 + 2006) % 7 = 0 := by",
     "generated_proof": "norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_447",
@@ -349,7 +435,9 @@
     "fl_statement": "theorem mathd_numbertheory_447 :\n  ∑ k in Finset.filter (λ x => 3∣x) (Finset.Icc 1 49), (k % 10) = 78 := by",
     "generated_proof": "rfl",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:5: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:5: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "mathd_numbertheory_328",
@@ -357,7 +445,9 @@
     "fl_statement": "theorem mathd_numbertheory_328 :\n  (5^999999) % 7 = 6 := by",
     "generated_proof": "norm_num",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:24: error: unsolved goals\n⊢ 5 ^ 999999 % 7 = 6\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:24: error: unsolved goals\n⊢ 5 ^ 999999 % 7 = 6\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_numbertheory_451",
@@ -365,7 +455,9 @@
     "fl_statement": "theorem mathd_numbertheory_451\n  (S : Finset ℕ)\n  (h₀ : ∀ (n : ℕ), n ∈ S ↔ 2010 ≤ n ∧ n ≤ 2019 ∧ ∃ m, ((Nat.divisors m).card = 4 ∧ ∑ p in (Nat.divisors m), p = n)) :\n  ∑ k in S, k = 2016 := by",
     "generated_proof": "have h1 : S = Finset.filter (fun n => 2010 ≤ n ∧ n ≤ 2019 ∧ ∃ m, ((Nat.divisors m).card = 4 ∧ ∑ p in (Nat.divisors m), p = n)) (Finset.Icc 0 2019) := by\n    ext n\n    simp\n    intro h\n    have h2 : n ≤ 2019 := by linarith\n    tauto\n  rw [h1]\n  native_decide",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:86: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:86: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "aime_1997_p9",
@@ -373,7 +465,9 @@
     "fl_statement": "theorem aime_1997_p9\n  (a : ℝ)\n  (h₀ : 0 < a)\n  (h₁ : 1 / a - Int.floor (1 / a) = a^2 - Int.floor (a^2))\n  (h₂ : 2 < a^2)\n  (h₃ : a^2 < 3) :\n  a^12 - 144 * (1 / a) = 233 := by",
     "generated_proof": "have h4 : Int.floor (1 / a) = 0 := by\n    have h5 : 0 < 1 / a := by\n      apply one_div_pos.mpr\n      linarith\n    have h6 : Int.floor (1 / a) ≥ 0 := by\n      apply Int.floor_nonneg.mpr\n      linarith\n    have h7 : Int.floor (1 / a) ≤ 0 := by\n      have h8 : 1 / a ≤ (0 : ℝ) := by\n        linarith\n      have h9 : Int.floor (1 / a) ≤ Int.floor (0 : ℝ) := by\n        apply Int.floor_le_floor\n        linarith\n      have h10 : Int.floor (0 : ℝ) = 0 := by\n        norm_num [Int.floor_zero]\n      linarith\n    linarith\n  have h5 : Int.floor (a^2) = 1 := by\n    have h6 : 2 < a^2 := h₂\n    have h7 : a^2 < 3 := h₃\n    have h8 : Int.floor (a^2) = 1 := by\n      rw [Int.floor_eq_iff]\n      constructor <;> (try norm_num) <;> nlinarith\n    exact h8\n  rw [h4] at h₁\n  rw [h5] at h₁\n  have h6 : a^2 = 2.9999999999999996 := by\n    nlinarith\n  have h7 : a = Real.sqrt (2.9999999999999996) := by\n    have h8 : a > 0 := h₀\n    have h9 : a = Real.sqrt (a^2) := by\n      rw [Real.sqrt_sq (show 0 ≤ a by linarith)]\n    rw [h9, h6]\n  have h8 : a^12 - 144 * (1 / a) = 233 := by\n    rw [h7]\n    field_simp\n    nlinarith [Real.sqrt_nonneg (2.9999999999999996), Real.sq_sqrt (show (0 : ℝ) ≤ (2.999",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:50:89: error: unexpected end of input; expected ')', ',' or ':'\n/tmp/mathlib_test/test_pipeline.lean:23:8: error: linarith failed to find a contradiction\ncase h\na : ℝ\nh₀ : 0 < a\nh₁ : 1 / a - ↑⌊1 / a⌋ = a ^ 2 - ↑⌊a ^ 2⌋\nh₂ : 2 < a ^ 2\nh₃ : a ^ 2 < 3\nh5 : 0 < 1 / a"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:50:89: error: unexpected end of input; expected ')', ',' or ':'\n/tmp/mathlib_test/test_pipeline.lean:23:8: error: linarith failed to find a contradiction\ncase h\na : ℝ\nh₀ : 0 < a\nh₁ : 1 / a - ↑⌊1 / a⌋ = a ^ 2 - ↑⌊a ^ 2⌋\nh₂ : 2 < a ^ 2\nh₃ : a ^ 2 < 3\nh5 : 0 < 1 / a",
+    "error_reason": "Linear arithmetic tactic could not find contradiction",
+    "matched_pattern": "linarith failed"
   },
   {
     "id": "algebra_sqineq_at2malt1",
@@ -381,7 +475,9 @@
     "fl_statement": "theorem algebra_sqineq_at2malt1\n  (a : ℝ) :\n  a * (2 - a) ≤ 1 := by",
     "generated_proof": "nlinarith [sq_nonneg (a - 1)]",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "algebra_apbmpcneq0_aeq0anbeq0anceq0",
@@ -389,7 +485,9 @@
     "fl_statement": "theorem algebra_apbmpcneq0_aeq0anbeq0anceq0\n  (a b c : ℚ)\n  (m n : ℝ)\n  (h₀ : 0 < m ∧ 0 < n)\n  (h₁ : m^3 = 2)\n  (h₂ : n^3 = 4)\n  (h₃ : (a:ℝ) + b * m + c * n = 0) :\n  a = 0 ∧ b = 0 ∧ c = 0 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:14:27: error: unsolved goals\na b c : ℚ\nm n : ℝ\nh₀ : 0 < m ∧ 0 < n\nh₁ : m ^ 3 = 2\nh₂ : n ^ 3 = 4\nh₃ : ↑a + ↑b * m + ↑c * n = 0\n⊢ a = 0 ∧ b = 0 ∧ c = 0\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:14:27: error: unsolved goals\na b c : ℚ\nm n : ℝ\nh₀ : 0 < m ∧ 0 < n\nh₁ : m ^ 3 = 2\nh₂ : n ^ 3 = 4\nh₃ : ↑a + ↑b * m + ↑c * n = 0\n⊢ a = 0 ∧ b = 0 ∧ c = 0\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_algebra_171",
@@ -397,7 +495,9 @@
     "fl_statement": "theorem mathd_algebra_171\n  (f : ℝ → ℝ)\n  (h₀ : ∀x, f x = 5 * x + 4) :\n  f 1 = 9 := by",
     "generated_proof": "rw [h₀]\n  norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_227",
@@ -405,15 +505,19 @@
     "fl_statement": "theorem mathd_numbertheory_227\n  (x y n : ℕ+)\n  (h₀ : ↑x / (4:ℝ) + y / 6 = (x + y) / n) :\n  n = 5 := by",
     "generated_proof": "have h1 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h2 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h3 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h4 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h5 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h6 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h7 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h8 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h9 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h10 : (x : ℝ) / (4:ℝ) + (y : ℝ) / (6:ℝ) = (x + y) / (n:ℝ) := by\n    simpa using h₀\n  have h11 : (x : ℝ",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:31:19: error: unexpected end of input; expected ')'\n/tmp/mathlib_test/test_pipeline.lean:10:11: error: unsolved goals\ncase h11\nx y n : ℕ+\nh₀ h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 : ↑↑x / 4 + ↑↑y / 6 = (↑↑x + ↑↑y) / ↑↑n\n⊢ (_ : ℝ) ×' sorry\n\nx y n : ℕ+\nh₀ h1 h2 h3 h4 h5 h6"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:31:19: error: unexpected end of input; expected ')'\n/tmp/mathlib_test/test_pipeline.lean:10:11: error: unsolved goals\ncase h11\nx y n : ℕ+\nh₀ h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 : ↑↑x / 4 + ↑↑y / 6 = (↑↑x + ↑↑y) / ↑↑n\n⊢ (_ : ℝ) ×' sorry\n\nx y n : ℕ+\nh₀ h1 h2 h3 h4 h5 h6",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_algebra_188",
     "nl": "Suppose $f(x)$ is an invertible function, and suppose that $f(2)=f^{-1}(2)=4$.\n\nWhat is the value of $f(f(2))$? Show that it is 2.",
     "fl_statement": "theorem mathd_algebra_188\n  (σ : Equiv ℝ ℝ)\n  (h : σ.1 2 = σ.2 2) :\n  σ.1 (σ.1 2) = 2 := by",
     "generated_proof": "have h1 : σ.1 2 = 4 := by\n    have h2 : σ.1 2 = σ.2 2 := h\n    have h3 : σ.2 2 = 4 := by\n      have h4 : σ.1 2 = σ.2 2 := h2\n      have h5 : σ.1 2 = 4 := by\n        have h6 : σ.1 2 = σ.2 2 := h4\n        have h7 : σ.2 2 = 4 := by\n          apply σ.right_inv\n          all_goals norm_num\n        rw [h7] at h6\n        linarith\n      linarith\n    rw [h3] at h2\n    linarith\n  rw [h1]\n  apply σ.left_inv\n  all_goals norm_num",
-    "error_type": "UNKNOWN",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:18:10: error: Tactic `apply` failed: could not unify the conclusion of `σ.right_inv`\n  σ.toFun (σ.invFun ?x) = ?x\nwith the goal\n  σ.invFun 2 = 4\n\nNote: The full type of `σ.right_inv` is\n  Function.RightInverse σ.invFun σ.toFun\n\nσ : ℝ ≃ ℝ\nh h2 h4 h6 : σ.toFun 2 = "
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:18:10: error: Tactic `apply` failed: could not unify the conclusion of `σ.right_inv`\n  σ.toFun (σ.invFun ?x) = ?x\nwith the goal\n  σ.invFun 2 = 4\n\nNote: The full type of `σ.right_inv` is\n  Function.RightInverse σ.invFun σ.toFun\n\nσ : ℝ ≃ ℝ\nh h2 h4 h6 : σ.toFun 2 = ",
+    "error_reason": "Apply tactic failed, conclusion could not be unified",
+    "matched_pattern": "Tactic `apply` failed"
   },
   {
     "id": "mathd_numbertheory_765",
@@ -421,7 +525,9 @@
     "fl_statement": "theorem mathd_numbertheory_765\n  (x : ℤ)\n  (h₀ : x < 0)\n  (h₁ : (24 * x) % 1199 = 15) :\n  x ≤ -449 := by",
     "generated_proof": "omega",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "imo_1959_p1",
@@ -429,7 +535,9 @@
     "fl_statement": "theorem imo_1959_p1\n  (n : ℕ)\n  (h₀ : 0 < n) :\n  Nat.gcd (21*n + 4) (14*n + 3) = 1 := by",
     "generated_proof": "have h1 : Nat.gcd (21 * n + 4) (14 * n + 3) ∣ (21 * n + 4) := by\n    exact Nat.gcd_dvd_left (21 * n + 4) (14 * n + 3)\n  have h2 : Nat.gcd (21 * n + 4) (14 * n + 3) ∣ (14 * n + 3) := by\n    exact Nat.gcd_dvd_right (21 * n + 4) (14 * n + 3)\n  have h3 : Nat.gcd (21 * n + 4) (14 * n + 3) ∣ (21 * n + 4 - 3 * (14 * n + 3)) := by\n    apply Nat.dvd_sub'\n    · exact h1\n    · exact h2\n    all_goals omega\n  have h4 : (21 * n + 4 - 3 * (14 * n + 3)) = 1 := by\n    omega\n  rw [h4] at h3\n  have h5 : Nat.gcd (21 * n + 4) (14 * n + 3) ∣ 1 := by\n    exact h3\n  have h6 : Nat.gcd (21 * n + 4) (14 * n + 3) ≤ 1 := by\n    exact Nat.le_of_dvd (show 0 < 1 by norm_num) h5\n  interval_cases h : Nat.gcd (21 * n + 4) (14 * n + 3) <;> omega",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:10: error(lean.unknownIdentifier): Unknown constant `Nat.dvd_sub'`\n/tmp/mathlib_test/test_pipeline.lean:17:4: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:21:4: error: omega could not prove the goal:\na possible counterexample may satisfy t"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:10: error(lean.unknownIdentifier): Unknown constant `Nat.dvd_sub'`\n/tmp/mathlib_test/test_pipeline.lean:17:4: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:21:4: error: omega could not prove the goal:\na possible counterexample may satisfy t",
+    "error_reason": "Identifier not found in scope",
+    "matched_pattern": "unknownIdentifier"
   },
   {
     "id": "mathd_numbertheory_175",
@@ -437,7 +545,9 @@
     "fl_statement": "theorem mathd_numbertheory_175 :\n  (2^2010) % 10 = 4 := by",
     "generated_proof": "norm_num",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:23: error: unsolved goals\n⊢ 2 ^ 2010 % 10 = 4\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:23: error: unsolved goals\n⊢ 2 ^ 2010 % 10 = 4\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "numbertheory_fxeq4powxp6powxp9powx_f2powmdvdf2pown",
@@ -445,7 +555,9 @@
     "fl_statement": "theorem numbertheory_fxeq4powxp6powxp9powx_f2powmdvdf2pown\n  (m n : ℕ)\n  (f : ℕ → ℕ)\n  (h₀ : ∀ x, f x = 4^x + 6^x + 9^x)\n  (h₁ : 0 < m ∧ 0 < n)\n  (h₂ : m ≤ n) :\n  f (2^m)∣f (2^n) := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:21: error: unsolved goals\nm n : ℕ\nf : ℕ → ℕ\nh₀ : ∀ (x : ℕ), f x = 4 ^ x + 6 ^ x + 9 ^ x\nh₁ : 0 < m ∧ 0 < n\nh₂ : m ≤ n\n⊢ f (2 ^ m) ∣ f (2 ^ n)\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:21: error: unsolved goals\nm n : ℕ\nf : ℕ → ℕ\nh₀ : ∀ (x : ℕ), f x = 4 ^ x + 6 ^ x + 9 ^ x\nh₁ : 0 < m ∧ 0 < n\nh₂ : m ≤ n\n⊢ f (2 ^ m) ∣ f (2 ^ n)\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "imo_1992_p1",
@@ -453,7 +565,9 @@
     "fl_statement": "theorem imo_1992_p1\n  (p q r : ℤ)\n  (h₀ : 1 < p ∧ p < q ∧ q < r)\n  (h₁ : (p - 1) * (q - 1) * (r - 1)∣(p * q * r - 1)) :\n  (p, q, r) = (2, 4, 8) ∨ (p, q, r) = (3, 5, 15) := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:52: error: unsolved goals\np q r : ℤ\nh₀ : 1 < p ∧ p < q ∧ q < r\nh₁ : (p - 1) * (q - 1) * (r - 1) ∣ p * q * r - 1\n⊢ (p, q, r) = (2, 4, 8) ∨ (p, q, r) = (3, 5, 15)\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:52: error: unsolved goals\np q r : ℤ\nh₀ : 1 < p ∧ p < q ∧ q < r\nh₁ : (p - 1) * (q - 1) * (r - 1) ∣ p * q * r - 1\n⊢ (p, q, r) = (2, 4, 8) ∨ (p, q, r) = (3, 5, 15)\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "imo_1982_p1",
@@ -461,7 +575,9 @@
     "fl_statement": "theorem imo_1982_p1\n  (f : ℕ → ℕ)\n  (h₀ : ∀ m n, (0 < m ∧ 0 < n) → f (m + n) - f m - f n = 0 ∨ f (m + n) - f m - f n = 1)\n  (h₁ : f 2 = 0)\n  (h₂ : 0 < f 3)\n  (h₃ : f 9999 = 3333) :\n  f 1982 = 660 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:18: error: unsolved goals\nf : ℕ → ℕ\nh₀ : ∀ (m n : ℕ), 0 < m ∧ 0 < n → f (m + n) - f m - f n = 0 ∨ f (m + n) - f m - f n = 1\nh₁ : f 2 = 0\nh₂ : 0 < f 3\nh₃ : f 9999 = 3333\n⊢ f"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:18: error: unsolved goals\nf : ℕ → ℕ\nh₀ : ∀ (m n : ℕ), 0 < m ∧ 0 < n → f (m + n) - f m - f n = 0 ∨ f (m + n) - f m - f n = 1\nh₁ : f 2 = 0\nh₂ : 0 < f 3\nh₃ : f 9999 = 3333\n⊢ f",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "aime_1987_p5",
@@ -469,7 +585,9 @@
     "fl_statement": "theorem aime_1987_p5\n  (x y : ℤ)\n  (h₀ : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517):\n  3 * (x^2 * y^2) = 588 := by",
     "generated_proof": "have h1 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h2 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h3 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h4 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h5 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h6 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h7 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h8 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h9 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h10 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h11 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h12 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h13 : y^2 + 3 * (x^2 * y^2) = 30 * x^2 + 517 := h₀\n  have h14 : y^2 + 3 *",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:24:22: error: unexpected end of input\n/tmp/mathlib_test/test_pipeline.lean:24:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  HAdd ℤ ℕ (Sort ?u.5077.34547)\n\nHint: Type class instance resolution failures can be inspected with the"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:24:22: error: unexpected end of input\n/tmp/mathlib_test/test_pipeline.lean:24:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class\n  HAdd ℤ ℕ (Sort ?u.5077.34547)\n\nHint: Type class instance resolution failures can be inspected with the",
+    "error_reason": "Type class instance synthesis failed",
+    "matched_pattern": "synthInstanceFailed"
   },
   {
     "id": "mathd_algebra_346",
@@ -477,15 +595,19 @@
     "fl_statement": "theorem mathd_algebra_346\n  (f g : ℝ → ℝ)\n  (h₀ : ∀ x, f x = 2 * x - 3)\n  (h₁ : ∀ x, g x = x + 1) :\n  g (f 5 - 1) = 7 := by",
     "generated_proof": "rw [h₀, h₁]\n  norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_487",
     "nl": "What is the distance between the two intersections of $y=x^2$ and $x+y=1$? Show that it is \\sqrt{10}.",
     "fl_statement": "theorem mathd_algebra_487\n  (a b c d : ℝ)\n  (h₀ : b = a^2)\n  (h₁ : a + b = 1)\n  (h₂ : d = c^2)\n  (h₃ : c + d = 1)\n  (h₄ : a ≠ c) :\n  Real.sqrt ((a - c)^2 + (b - d)^2)= Real.sqrt 10 := by",
     "generated_proof": "have h5 : (a - c)^2 + (b - d)^2 = 10 := by\n    nlinarith [sq_pos_of_ne_zero (show a - c ≠ 0 by\n      intro h\n      apply h₄\n      linarith\n    ), sq_nonneg (a - c), sq_nonneg (b - d)]\n  rw [h5]\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith",
-    "error_type": "UNKNOWN",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:4: error: linarith failed to find a contradiction\ncase h1.h\na b c d : ℝ\nh₀ : b = a ^ 2\nh₁ : a + b = 1\nh₂ : d = c ^ 2\nh₃ : c + d = 1\nh₄ : a ≠ c\na✝ : (a - c) ^ 2 + (b - d) ^ 2 < 10\n⊢ False\nfailed\n"
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:4: error: linarith failed to find a contradiction\ncase h1.h\na b c d : ℝ\nh₀ : b = a ^ 2\nh₁ : a + b = 1\nh₂ : d = c ^ 2\nh₃ : c + d = 1\nh₄ : a ≠ c\na✝ : (a - c) ^ 2 + (b - d) ^ 2 < 10\n⊢ False\nfailed\n",
+    "error_reason": "Linear arithmetic tactic could not find contradiction",
+    "matched_pattern": "linarith failed"
   },
   {
     "id": "mathd_numbertheory_728",
@@ -493,7 +615,9 @@
     "fl_statement": "theorem mathd_numbertheory_728 :\n  (29^13 - 5^13) % 7 = 3 := by",
     "generated_proof": "norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_184",
@@ -501,7 +625,9 @@
     "fl_statement": "theorem mathd_algebra_184\n  (a b : NNReal)\n  (h₀ : 0 < a ∧ 0 < b)\n  (h₁ : (a^2) = 6*b)\n  (h₂ : (a^2) = 54/b) :\n  a = 3 * NNReal.sqrt 2 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:27: error: unsolved goals\na b : NNReal\nh₀ : 0 < a ∧ 0 < b\nh₁ : a ^ 2 = 6 * b\nh₂ : a ^ 2 = 54 / b\n⊢ a = 3 * NNReal.sqrt 2\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:27: error: unsolved goals\na b : NNReal\nh₀ : 0 < a ∧ 0 < b\nh₁ : a ^ 2 = 6 * b\nh₂ : a ^ 2 = 54 / b\n⊢ a = 3 * NNReal.sqrt 2\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_numbertheory_552",
@@ -509,7 +635,9 @@
     "fl_statement": "theorem mathd_numbertheory_552\n  (f g h : ℕ+ → ℕ)\n  (h₀ : ∀ x, f x = 12 * x + 7)\n  (h₁ : ∀ x, g x = 5 * x + 2)\n  (h₂ : ∀ x, h x = Nat.gcd (f x) (g x))\n  (h₃ : Fintype (Set.range h)) :\n  ∑ k in (Set.range h).toFinset, k = 12 := by",
     "generated_proof": "have h4 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := by\n    intro x\n    rw [h₂ x, h₀ x, h₁ x]\n  have h5 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h6 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h7 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h8 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h9 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h10 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h11 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h12 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h13 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h14 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h15 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h16 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2) := h4\n  have h17 : ∀ x, h x = Nat.gcd (12 * x + 7) (5 * x + 2",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:5: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:5: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "amc12b_2021_p9",
@@ -517,15 +645,19 @@
     "fl_statement": "-- Error: Real.log\n-- theorem amc12b_2021_p9 :\n--   (Real.log 80 / Real.log 2) / (Real.log 2 / Real.log 40) - (Real.log 160 / Real.log 2) / (Real.log 2 / Real.log 20) = 2 := by",
     "generated_proof": "--   have h1 : Real.log 80 = Real.log (2^4 * 5) := by norm_num\n--   have h2 : Real.log 160 = Real.log (2^5 * 5) := by norm_num\n--   have h3 : Real.log 40 = Real.log (2^3 * 5) := by norm_num\n--   have h4 : Real.log 20 = Real.log (2^2 * 5) := by norm_num\n--   have h5 : Real.log 80 = 4 * Real.log 2 + Real.log 5 := by\n--     rw [h1]\n--     simp [Real.log_mul, Real.log_pow]\n--   have h6 : Real.log 160 = 5 * Real.log 2 + Real.log 5 := by\n--     rw [h2]\n--     simp [Real.log_mul, Real.log_pow]\n--   have h7 : Real.log 40 = 3 * Real.log 2 + Real.log 5 := by\n--     rw [h3]\n--     simp [Real.log_mul, Real.log_pow]\n--   have h8 : Real.log 20 = 2 * Real.log 2 + Real.log 5 := by\n--     rw [h4]\n--     simp [Real.log_mul, Real.log_pow]\n--   rw [h5, h6, h7, h8]\n--   field_simp\n--   ring_nf\n--   <;> field_simp\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;> ring_nf\n--   <;> norm_num\n--   <;>",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "aime_1994_p3",
     "nl": "The function $f_{}^{}$ has the property that, for each real number $x,\\,$\n<center>$f(x)+f(x-1) = x^2.\\,$</center>\nIf $f(19)=94,\\,$ what is the remainder when $f(94)\\,$ is divided by $1000$? Show that it is 561.",
     "fl_statement": "theorem aime_1994_p3\n  (x : ℤ)\n  (f : ℤ → ℤ)\n  (h0 : f x + f (x-1) = x^2)\n  (h1 : f 19 = 94):\n  f (94) % 1000 = 561 := by",
     "generated_proof": "have h2 : ∀ (x : ℤ), f x + f (x - 1) = x ^ 2 := by\n    intro x\n    exact h0 x\n  have h3 : ∀ (x : ℤ), f (x + 1) = f x + (x + 1) ^ 2 - x ^ 2 := by\n    intro x\n    have eq1 := h2 (x + 1)\n    have eq2 := h2 x\n    simp [show x + 1 - 1 = x by omega] at eq1\n    linarith\n  have h4 : ∀ (x : ℤ), f (x + 2) = f (x + 1) + (x + 2) ^ 2 - (x + 1) ^ 2 := by\n    intro x\n    have eq1 := h2 (x + 2)\n    have eq2 := h2 (x + 1)\n    simp [show x + 2 - 1 = x + 1 by omega] at eq1\n    linarith\n  have h5 : ∀ (x : ℤ), f (x + 3) = f (x + 2) + (x + 3) ^ 2 - (x + 2) ^ 2 := by\n    intro x\n    have eq1 := h2 (x + 3)\n    have eq2 := h2 (x + 2)\n    simp [show x + 3 - 1 = x + 2 by omega] at eq1\n    linarith\n  have h6 : ∀ (x : ℤ), f (x + 4) = f (x + 3) + (x + 4) ^ 2 - (x + 3) ^ 2 := by\n    intro x\n    have eq1 := h2 (x + 4)\n    have eq2 := h2 (x + 3)\n    simp [show x + 4 - 1 = x + 3 by omega] at eq1\n    linarith\n  have h7 : ∀ (x : ℤ), f (x + 5) = f (x + 4) + (x + 5) ^ 2 - (x + 4) ^ 2 := by\n    intro x\n    have eq1 := h",
-    "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:10: error: Function expected at\n  h0\nbut this term has type\n  f x✝ + f (x✝ - 1) = x✝ ^ 2\n\nNote: Expected a function because this term is being applied to the argument\n  x\n/tmp/mathlib_test/test_pipeline.lean:21:4: error: linarith failed to find a contradiction"
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:10: error: Function expected at\n  h0\nbut this term has type\n  f x✝ + f (x✝ - 1) = x✝ ^ 2\n\nNote: Expected a function because this term is being applied to the argument\n  x\n/tmp/mathlib_test/test_pipeline.lean:21:4: error: linarith failed to find a contradiction",
+    "error_reason": "Linear arithmetic tactic could not find contradiction",
+    "matched_pattern": "linarith failed"
   },
   {
     "id": "mathd_algebra_215",
@@ -533,7 +665,9 @@
     "fl_statement": "theorem mathd_algebra_215\n  (S : Finset ℝ)\n  (h₀ : ∀ (x : ℝ), x ∈ S ↔ (x + 3)^2 = 121) :\n  ∑ k in S, k = -6 := by",
     "generated_proof": "have h1 : S = {-16, 20} := by\n    ext x\n    simp only [Finset.mem_insert, Finset.mem_singleton]\n    constructor\n    · -- Assume x ∈ S, so (x + 3)^2 = 121\n      intro h\n      have h2 : (x + 3)^2 = 121 := by\n        simpa using h\n      have h3 : x + 3 = 11 ∨ x + 3 = -11 := by\n        have h4 : (x + 3 - 11) * (x + 3 + 11) = 0 := by\n          nlinarith\n        cases (mul_eq_zero.mp h4) with\n        | inl h5 =>\n          left\n          linarith\n        | inr h6 =>\n          right\n          linarith\n      cases h3 with\n      | inl h4 =>\n        have h5 : x = 8 := by\n          linarith\n        rw [h5]\n        norm_num\n      | inr h4 =>\n        have h5 : x = -14 := by\n          linarith\n        rw [h5]\n        norm_num\n    · -- Assume x ∈ {-16, 20}, show (x + 3)^2 = 121\n      rintro (rfl | rfl)\n      · norm_num\n      · norm_num\n  rw [h1]\n  norm_num",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:5: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:5: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "mathd_numbertheory_293",
@@ -541,7 +675,9 @@
     "fl_statement": "theorem mathd_numbertheory_293\n  (n : ℕ)\n  (h₀ : n ≤ 9)\n  (h₁ : 11∣20 * 100 + 10 * n + 7) :\n  n = 5 := by",
     "generated_proof": "omega",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_769",
@@ -549,7 +685,9 @@
     "fl_statement": "theorem mathd_numbertheory_769 :\n  (129^34 + 96^38) % 11 = 9 := by",
     "generated_proof": "norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_452",
@@ -557,7 +695,9 @@
     "fl_statement": "theorem mathd_algebra_452\n  (a : ℕ → ℝ)\n  (h₀ : ∀ n, a (n + 2) - a (n + 1) = a (n + 1) - a n)\n  (h₁ : a 1 = 2 / 3)\n  (h₂ : a 9 = 4 / 5) :\n  a 5 = 11 / 15 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:19: error: unsolved goals\na : ℕ → ℝ\nh₀ : ∀ (n : ℕ), a (n + 2) - a (n + 1) = a (n + 1) - a n\nh₁ : a 1 = 2 / 3\nh₂ : a 9 = 4 / 5\n⊢ a 5 = 11 / 15\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:19: error: unsolved goals\na : ℕ → ℝ\nh₀ : ∀ (n : ℕ), a (n + 2) - a (n + 1) = a (n + 1) - a n\nh₁ : a 1 = 2 / 3\nh₂ : a 9 = 4 / 5\n⊢ a 5 = 11 / 15\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_numbertheory_5",
@@ -565,7 +705,9 @@
     "fl_statement": "theorem mathd_numbertheory_5\n  (n : ℕ)\n  (h₀ : 10 ≤ n)\n  (h₁ : ∃ x, x^2 = n)\n  (h₂ : ∃ t, t^3 = n) :\n  64 ≤ n := by",
     "generated_proof": "rcases h₁ with ⟨x, hx⟩\n  rcases h₂ with ⟨t, ht⟩\n  have h3 : x^2 = t^3 := by\n    linarith\n  have h4 : x^2 = t^3 := h3\n  have h5 : x^2 = t^3 := h3\n  have h6 : x^2 = t^3 := h3\n  have h7 : x^2 = t^3 := h3\n  have h8 : x^2 = t^3 := h3\n  have h9 : x^2 = t^3 := h3\n  have h10 : x^2 = t^3 := h3\n  have h11 : x^2 = t^3 := h3\n  have h12 : x^2 = t^3 := h3\n  have h13 : x^2 = t^3 := h3\n  have h14 : x^2 = t^3 := h3\n  have h15 : x^2 = t^3 := h3\n  have h16 : x^2 = t^3 := h3\n  have h17 : x^2 = t^3 := h3\n  have h18 : x^2 = t^3 := h3\n  have h19 : x^2 = t^3 := h3\n  have h20 : x^2 = t^3 := h3\n  have h21 : x^2 = t^3 := h3\n  have h22 : x^2 = t^3 := h3\n  have h23 : x^2 = t^3 := h3\n  have h24 : x^2 = t^3 := h3\n  have h25 : x^2 = t^3 := h3\n  have h26 : x^2 = t^3 := h3\n  have h27 : x^2 = t^3 := h3\n  have h28 : x^2 = t^3 := h3\n  have h29 : x^2 = t^3 := h3\n  have h30 : x^2 = t^3 := h3\n  have h31 : x^2 = t^3 := h",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:44:26: error(lean.unknownIdentifier): Unknown identifier `h`\n/tmp/mathlib_test/test_pipeline.lean:12:12: error: unsolved goals\nn : ℕ\nh₀ : 10 ≤ n\nx : ℕ\nhx : x ^ 2 = n\nt : ℕ\nht : t ^ 3 = n\nh3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 h17 h18 h19 h20 h21 h22 h23"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:44:26: error(lean.unknownIdentifier): Unknown identifier `h`\n/tmp/mathlib_test/test_pipeline.lean:12:12: error: unsolved goals\nn : ℕ\nh₀ : 10 ≤ n\nx : ℕ\nhx : x ^ 2 = n\nt : ℕ\nht : t ^ 3 = n\nh3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 h17 h18 h19 h20 h21 h22 h23",
+    "error_reason": "Identifier not found in scope",
+    "matched_pattern": "unknownIdentifier"
   },
   {
     "id": "mathd_numbertheory_207",
@@ -573,7 +715,9 @@
     "fl_statement": "theorem mathd_numbertheory_207 :\n  8 * 9^2 + 5 * 9 + 2 = 695 := by",
     "generated_proof": "norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_342",
@@ -581,7 +725,9 @@
     "fl_statement": "theorem mathd_numbertheory_342 :\n  54 % 6 = 0 := by",
     "generated_proof": "norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_483",
@@ -589,7 +735,9 @@
     "fl_statement": "theorem mathd_numbertheory_483\n  (a : ℕ → ℕ)\n  (h₀ : a 1 = 1)\n  (h₁ : a 2 = 1)\n  (h₂ : ∀ n, a (n + 2) = a (n + 1) + a n) :\n  (a 100) % 4 = 3 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:21: error: unsolved goals\na : ℕ → ℕ\nh₀ : a 1 = 1\nh₁ : a 2 = 1\nh₂ : ∀ (n : ℕ), a (n + 2) = a (n + 1) + a n\n⊢ a 100 % 4 = 3\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:21: error: unsolved goals\na : ℕ → ℕ\nh₀ : a 1 = 1\nh₁ : a 2 = 1\nh₂ : ∀ (n : ℕ), a (n + 2) = a (n + 1) + a n\n⊢ a 100 % 4 = 3\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "amc12b_2020_p21",
@@ -597,7 +745,9 @@
     "fl_statement": "theorem amc12b_2020_p21\n  (S : Finset ℕ)\n  (h₀ : ∀ (n : ℕ), n ∈ S ↔ 0 < n ∧ (↑n + (1000 : ℝ)) / 70 = Int.floor (Real.sqrt n)) :\n  S.card = 6 := by",
     "generated_proof": "have h1 : S = {1, 2, 3, 4, 5, 6} := by\n    ext n\n    simp [h₀]\n    constructor\n    · -- Assume n ∈ S, prove n ∈ {1, 2, 3, 4, 5, 6}\n      intro h\n      rcases h with ⟨hn_pos, h_eq⟩\n      have h2 : n ≤ 6 := by\n        by_contra h\n        push_neg at h\n        have h3 : (↑n + (1000 : ℝ)) / 70 < (↑n : ℝ) / 70 := by\n          linarith\n        have h4 : Int.floor (Real.sqrt n) < (↑n : ℝ) / 70 := by\n          have h5 : Real.sqrt n > (↑n : ℝ) / 70 := by\n            nlinarith [Real.sqrt_nonneg (n : ℝ), Real.sq_sqrt (show (0 : ℝ) ≤ (n : ℝ) by linarith), sq_nonneg ((↑n : ℝ) / 70 - Real.sqrt n)]\n          have h6 : Int.floor (Real.sqrt n) < (↑n : ℝ) / 70 := by\n            have h7 : Real.sqrt n > (↑n : ℝ) / 70 := h5\n            have h8 : Int.floor (Real.sqrt n) ≥ (↑n : ℝ) / 70 - 1 := by\n              have h9 : Real.sqrt n > (↑n : ℝ) / 70 := h7\n              have h10 : Int.floor (Real.sqrt n) ≥ (↑n : ℝ) / 70 - 1 := by\n                have h11 : Real.sqrt n > (↑n : ℝ) / 70 := h9\n                have h12 : Int.floor (Real.sqrt n) ≥ (↑n : ℝ) / 70 - 1 := by\n                  have h13 : Real.sqrt n > (↑n : ℝ) / 70 := h11\n                  have h14 : Int.floor (Real.sqrt n) ≥ (↑n : ℝ) / 70 - 1 := by\n                    have h15 : Real.sqrt n > (↑n : ℝ) / 70",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:20:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n "
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:20:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n ",
+    "error_reason": "Deprecated tactic used (push_neg → push Not)",
+    "matched_pattern": "push_neg` has been deprecated"
   },
   {
     "id": "amc12a_2003_p5",
@@ -605,7 +755,9 @@
     "fl_statement": "theorem amc12a_2003_p5\n  (A M C : ℕ)\n  (h₀ : A ≤ 9 ∧ M ≤ 9 ∧ C ≤ 9)\n  (h₁ : Nat.ofDigits 10 [0,1,C,M,A] + Nat.ofDigits 10 [2,1,C,M,A] = 123422) :\n  A + M + C = 14 := by",
     "generated_proof": "simp [Nat.ofDigits] at h₁\n  rcases h₀ with ⟨hA, hM, hC⟩\n  have h2 : A ≤ 9 := hA\n  have h3 : M ≤ 9 := hM\n  have h4 : C ≤ 9 := hC\n  interval_cases A <;> interval_cases M <;> omega",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_495",
@@ -613,7 +765,9 @@
     "fl_statement": "theorem mathd_numbertheory_495\n  (a b : ℕ)\n  (h₀ : 0 < a ∧ 0 < b)\n  (h₁ : a % 10 = 2)\n  (h₂ : b % 10 = 4)\n  (h₃ : Nat.gcd a b = 6) :\n  108 ≤ Nat.lcm a b := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:23: error: unsolved goals\na b : ℕ\nh₀ : 0 < a ∧ 0 < b\nh₁ : a % 10 = 2\nh₂ : b % 10 = 4\nh₃ : a.gcd b = 6\n⊢ 108 ≤ a.lcm b\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:23: error: unsolved goals\na b : ℕ\nh₀ : 0 < a ∧ 0 < b\nh₁ : a % 10 = 2\nh₂ : b % 10 = 4\nh₃ : a.gcd b = 6\n⊢ 108 ≤ a.lcm b\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_algebra_296",
@@ -621,7 +775,9 @@
     "fl_statement": "theorem mathd_algebra_296 :\n  abs (((3491 - 60) * (3491 + 60) - 3491^2):ℤ) = 3600 := by",
     "generated_proof": "norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "algebra_abpbcpcageq3_sumaonsqrtapbgeq3onsqrt2",
@@ -629,7 +785,9 @@
     "fl_statement": "theorem algebra_abpbcpcageq3_sumaonsqrtapbgeq3onsqrt2\n  (a b c : ℝ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c)\n  (h₁ : 3 ≤ a * b + b * c + c * a) :\n  3 / Real.sqrt 2 ≤ a / Real.sqrt (a + b) + b / Real.sqrt (b + c) + c / Real.sqrt (c + a) := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:93: error: unsolved goals\na b c : ℝ\nh₀ : 0 < a ∧ 0 < b ∧ 0 < c\nh₁ : 3 ≤ a * b + b * c + c * a\n⊢ 3 / √2 ≤ a / √(a + b) + b / √(b + c) + c / √(c + a)\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:93: error: unsolved goals\na b c : ℝ\nh₀ : 0 < a ∧ 0 < b ∧ 0 < c\nh₁ : 3 ≤ a * b + b * c + c * a\n⊢ 3 / √2 ≤ a / √(a + b) + b / √(b + c) + c / √(c + a)\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7",
@@ -637,7 +795,9 @@
     "fl_statement": "theorem algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7\n  (f z: ℂ)\n  (h₀ : f + 3*z = 11)\n  (h₁ : 3*(f - 1) - 5*z = -68) :\n  f = -10 ∧ z = 7 := by",
     "generated_proof": "have h2 : f = -10 := by\n    have eq1 := h₀\n    have eq2 := h₁\n    simp [Complex.ext_iff] at eq1 eq2 ⊢\n    constructor\n    · ring_nf at eq1 eq2 ⊢\n      linarith\n    · ring_nf at eq1 eq2 ⊢\n      linarith\n  have h3 : z = 7 := by\n    rw [h2] at h₀\n    simp [Complex.ext_iff] at h₀ ⊢\n    constructor\n    · ring_nf at h₀ ⊢\n      linarith\n    · ring_nf at h₀ ⊢\n      linarith\n  exact ⟨h2, h3⟩",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_247",
@@ -645,7 +805,9 @@
     "fl_statement": "theorem mathd_numbertheory_247\n  (n : ℕ)\n  (h₀ : (3 * n) % 2 = 11) :\n  n % 11 = 8 := by",
     "generated_proof": "omega",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "induction_pord1p1on2powklt5on2",
@@ -653,7 +815,9 @@
     "fl_statement": "theorem induction_pord1p1on2powklt5on2\n  (n : ℕ)\n  (h₀ : 0 < n) :\n  ∏ k in Finset.Icc 1 n, (1 + (1:ℝ) / 2^k) < 5 / 2 := by",
     "generated_proof": "have h1 : ∀ n : ℕ, 0 < n → ∏ k in Finset.Icc 1 n, (1 + (1:ℝ) / 2^k) < 5 / 2 := by\n    intro n hn\n    induction n with\n    | zero =>\n      linarith\n    | succ n ih =>\n      cases n with\n      | zero =>\n        norm_num\n      | succ n =>\n        rw [Finset.prod_Icc_succ_top (by linarith)]\n        rw [show (1 + (1:ℝ) / 2^(n + 1 + 1)) = (1 + (1:ℝ) / 2^(n + 1)) * (1 + (1:ℝ) / 2^(n + 1 + 1)) by ring]\n        rw [show (1 + (1:ℝ) / 2^(n + 1 + 1)) = (1 + (1:ℝ) / 2^(n + 1)) * (1 + (1:ℝ) / 2^(n + 1 + 1)) by ring]\n        rw [show (1 + (1:ℝ) / 2^(n + 1)) = (1 + (1:ℝ) / 2^(n + 1)) by rfl]\n        rw [show (1 + (1:ℝ) / 2^(n + 1 + 1)) = (1 + (1:ℝ) / 2^(n + 1 + 1)) by rfl]\n        rw [show (1 + (1:ℝ) / 2^(n + 1 + 1)) = (1 + (1:ℝ) / 2^(n + 1 + 1)) by rfl]\n        rw [show (1 + (1:ℝ) / 2^(n + 1 + 1)) = (1 + (1:ℝ) / 2^(n + 1 + 1)) by rfl]\n        rw [show (1 + (1:ℝ) / 2^(n + 1 + 1)) = (1 + (1:ℝ) / 2^(n + 1 + 1)) by rfl]\n        rw [show (1 + (1:ℝ) / 2^(n + 1 + 1)) = (1 + (1:ℝ) / 2^(n",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:5: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:5: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "mathd_algebra_107",
@@ -661,15 +825,19 @@
     "fl_statement": "theorem mathd_algebra_107\n  (x y : ℝ)\n  (h₀ : x^2 + 8 * x + y^2 - 6 * y = 0) :\n  (x + 4)^2 + (y-3)^2 = 5^2 := by",
     "generated_proof": "ring_nf\n  nlinarith",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "numbertheory_2pownm1prime_nprime",
     "nl": "Show that if $n$ is a positive integer and $2^n - 1$ is prime, then $n$ is prime.",
     "fl_statement": "theorem numbertheory_2pownm1prime_nprime\n  (n : ℕ)\n  (h₀ : 0 < n)\n  (h₁ : Nat.Prime (2^n - 1)) :\n  Nat.Prime n := by",
     "generated_proof": "by_contra h\n  push_neg at h\n  have h2 : n > 1 := by linarith\n  have h3 : ¬ Nat.Prime n := by\n    apply Nat.not_prime_of_dvd_of_lt (show 2 ∣ n by omega)\n    all_goals omega\n  have h4 : ¬ Nat.Prime (2^n - 1) := by\n    apply Nat.not_prime_of_dvd_of_lt (show 2 ∣ (2^n - 1) by\n      have h5 : 2^n % 2 = 0 := by\n        omega\n      omega\n    )\n    all_goals\n      have h6 : 2 < 2^n - 1 := by\n        have h7 : 2^n > 2 := by\n          have h8 : n > 1 := by linarith\n          have h9 : 2^n ≥ 2^2 := by\n            apply Nat.pow_le_pow_of_le_right\n            all_goals linarith\n          have h10 : 2^2 = 4 := by norm_num\n          have h11 : 2^n ≥ 4 := by linarith [h9, h10]\n          omega\n        omega\n      all_goals omega\n  contradiction",
-    "error_type": "UNKNOWN",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n "
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n ",
+    "error_reason": "Deprecated tactic used (push_neg → push Not)",
+    "matched_pattern": "push_neg` has been deprecated"
   },
   {
     "id": "mathd_algebra_412",
@@ -677,7 +845,9 @@
     "fl_statement": "theorem mathd_algebra_412\n  (x y : ℝ)\n  (h₀ : x + y = 25)\n  (h₁ : x - y = 11) :\n  x = 18 := by",
     "generated_proof": "linarith",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "amc12a_2013_p4",
@@ -685,7 +855,9 @@
     "fl_statement": "theorem amc12a_2013_p4 :\n  (2^2014 + 2^2012) / (2^2014 - 2^2012) = (5:ℝ) / 3 := by",
     "generated_proof": "norm_num",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:55: error: unsolved goals\n⊢ (2 ^ 2014 + 2 ^ 2012) / (2 ^ 2014 - 2 ^ 2012) = 5 / 3\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:55: error: unsolved goals\n⊢ (2 ^ 2014 + 2 ^ 2012) / (2 ^ 2014 - 2 ^ 2012) = 5 / 3\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_algebra_392",
@@ -693,7 +865,9 @@
     "fl_statement": "theorem mathd_algebra_392\n  (n : ℕ)\n  (h₀ : Even n)\n  (h₁ : ((n:ℤ) - 2)^2 + (n:ℤ)^2 + ((n:ℤ) + 2)^2 = 12296) :\n  ((n - 2) * n * (n + 2)) / 8 = 32736 := by",
     "generated_proof": "have h2 : n = 102 := by\n    have h3 : (n:ℤ) = 102 := by\n      nlinarith [sq_nonneg ((n:ℤ) - 102:ℤ), sq_nonneg ((n:ℤ) + 102:ℤ)]\n    exact_mod_cast h3\n  rw [h2]\n  all_goals norm_num",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:6: error: linarith failed to find a contradiction\ncase h1.h\nn : ℕ\nh₀ : Even n\nh₁ : (↑n - 2) ^ 2 + ↑n ^ 2 + (↑n + 2) ^ 2 = 12296\na✝ : ↑n < 102\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipeline.lean:11:41: error: unsolved goals\nn : ℕ\nh₀ : Even n\nh₁ : (↑n - 2) ^ 2 +"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:6: error: linarith failed to find a contradiction\ncase h1.h\nn : ℕ\nh₀ : Even n\nh₁ : (↑n - 2) ^ 2 + ↑n ^ 2 + (↑n + 2) ^ 2 = 12296\na✝ : ↑n < 102\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipeline.lean:11:41: error: unsolved goals\nn : ℕ\nh₀ : Even n\nh₁ : (↑n - 2) ^ 2 +",
+    "error_reason": "Linear arithmetic tactic could not find contradiction",
+    "matched_pattern": "linarith failed"
   },
   {
     "id": "mathd_numbertheory_314",
@@ -701,7 +875,9 @@
     "fl_statement": "theorem mathd_numbertheory_314\n  (r n : ℕ)\n  (h₀ : r = 1342 % 13)\n  (h₁ : 0 < n)\n  (h₂ : 1342∣n)\n  (h₃ : n % 13 < r) :\n  6710 ≤ n := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:14: error: unsolved goals\nr n : ℕ\nh₀ : r = 1342 % 13\nh₁ : 0 < n\nh₂ : 1342 ∣ n\nh₃ : n % 13 < r\n⊢ 6710 ≤ n\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:14: error: unsolved goals\nr n : ℕ\nh₀ : r = 1342 % 13\nh₁ : 0 < n\nh₂ : 1342 ∣ n\nh₃ : n % 13 < r\n⊢ 6710 ≤ n\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "induction_prod1p1onk3le3m1onn",
@@ -709,7 +885,9 @@
     "fl_statement": "theorem induction_prod1p1onk3le3m1onn\n  (n : ℕ)\n  (h₀ : 0 < n) :\n  ∏ k in Finset.Icc 1 n, (1 + 1 / k^3) ≤ (3:ℝ) - 1 / ↑n := by",
     "generated_proof": "induction n with\n  | zero =>\n    linarith\n  | succ n ih =>\n    rw [Finset.prod_Icc_succ_top (by linarith)]\n    rw [show (3:ℝ) - 1 / ↑(n + 1) = (3 * n - 1) / (n * 1) by field_simp; ring]\n    rw [show (1 + 1 / (↑n + 1:ℝ)^3) = (↑n^3 + 2 * ↑n + 1) / (↑n^3) by field_simp; ring]\n    rw [show (3:ℝ) - 1 / ↑n = (3 * n - 1) / (n:ℝ) by field_simp; ring]\n    rw [show (1 + 1 / (↑n:ℝ)^3) = (↑n^3 + 1) / (↑n^3) by field_simp; ring]\n    rw [show (3:ℝ) - 1 / (↑n:ℝ) = (3 * n - 1) / (n:ℝ) by field_simp; ring]\n    rw [show (↑n:ℝ) = (↑n:ℝ) by rfl]\n    rw [show (↑n + 1:ℝ) = (↑n + 1:ℝ) by rfl]\n    rw [show (↑n + 1:ℝ)^3 = (↑n + 1:ℝ)^3 by rfl]\n    rw [show (↑n:ℝ)^3 = (↑n:ℝ)^3 by rfl]\n    rw [show (↑n + 1:ℝ)^3 = (↑n + 1:ℝ)^3 by rfl]\n    rw [show (↑n:ℝ)^3 = (↑n:ℝ)^3 by rfl]\n    rw [show (↑n:ℝ)^3 = (↑n:ℝ)^3 by rfl]\n    rw [show (↑n + 1:ℝ)^3 = (↑n + 1:ℝ)^3 by rfl]\n    rw [show (↑n:ℝ)^3 = (↑n:ℝ)^3 by rfl]\n    rw [show (↑n + 1:ℝ)^3 = (↑n + 1:ℝ)^3 by rfl]\n    rw [show (↑n:ℝ)^3 = (↑n:ℝ",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:5: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:5: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "mathd_numbertheory_343",
@@ -717,7 +895,9 @@
     "fl_statement": "theorem mathd_numbertheory_343 :\n  (∏ k in Finset.range 6, (2 * k + 1)) % 10 = 5 := by",
     "generated_proof": "native_decide",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:6: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:6: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "mathd_algebra_756",
@@ -725,7 +905,9 @@
     "fl_statement": "-- Error: Real^Real\n-- theorem mathd_algebra_756\n--   (a b : ℝ)\n--   (h₀ : 2^a = 32)\n--   (h₁ : a^b = 125) :\n--   b^a = 243 := by",
     "generated_proof": "-- Error 1: `type mismatch`\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 2: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 3: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 4: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 5: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 6: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 7: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 8: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 9: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 10: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 11: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a` is not a natural number\n-- Error 12: `invalid operation`\n--   `^` is not defined for real exponents\n--   `a` is not a natural number\n--   `a",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "amc12b_2002_p7",
@@ -733,7 +915,9 @@
     "fl_statement": "theorem amc12b_2002_p7\n  (a b c : ℕ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c)\n  (h₁ : b = a + 1)\n  (h₂ : c = b + 1)\n  (h₃ : a * b * c = 8 * (a + b + c)) :\n  a^2 + (b^2 + c^2) = 77 := by",
     "generated_proof": "rw [h₁] at h₂\n  rw [h₁] at h₃\n  rw [h₂] at h₃\n  have h4 : a * (a + 1) * (a + 2) = 8 * (a + (a + 1) + (a + 2)) := by\n    nlinarith\n  have h5 : a ≤ 6 := by\n    by_contra h\n    push_neg at h\n    have h6 : a * (a + 1) * (a + 2) > 8 * (a + (a + 1) + (a + 2)) := by\n      nlinarith [sq_nonneg (a * (a + 1) * (a + 2) - 8 * (a + (a + 1) + (a + 2))), sq_nonneg (a - 6)]\n    nlinarith\n  interval_cases a <;> try { \n    omega\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try { \n    ring_nf at h₃\n    all_goals\n      nlinarith\n  }\n  <;> try",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:83:9: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:21:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:83:9: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:21:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```",
+    "error_reason": "Deprecated tactic used (push_neg → push Not)",
+    "matched_pattern": "push_neg` has been deprecated"
   },
   {
     "id": "mathd_algebra_80",
@@ -741,7 +925,9 @@
     "fl_statement": "theorem mathd_algebra_80\n  (x : ℝ)\n  (h₀ : x ≠ -1)\n  (h₁ : (x - 9) / (x + 1) = 2) :\n  x = -11 := by",
     "generated_proof": "have h2 : x + 1 ≠ 0 := by\n    intro h\n    apply h₀\n    linarith\n  have h3 : x - 9 = 2 * (x + 1) := by\n    field_simp [h2] at h₁\n    linarith\n  linarith",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_457",
@@ -749,7 +935,9 @@
     "fl_statement": "theorem mathd_numbertheory_457\n  (n : ℕ)\n  (h₀ : 0 < n)\n  (h₁ : 80325∣(n!)) :\n  17 ≤ n := by",
     "generated_proof": "by_contra h\n  push_neg at h\n  have h2 : n < 17 := by linarith\n  interval_cases n <;> norm_num [Nat.factorial] at h₁ ⊢ <;> omega",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n "
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n ",
+    "error_reason": "Deprecated tactic used (push_neg → push Not)",
+    "matched_pattern": "push_neg` has been deprecated"
   },
   {
     "id": "amc12_2000_p12",
@@ -757,7 +945,9 @@
     "fl_statement": "theorem amc12_2000_p12\n  (a m c : ℕ)\n  (h₀ : a + m + c = 12) :\n  a*m*c + a*m + m*c + a*c ≤ 112 := by",
     "generated_proof": "rcases a with a\n  rcases m with m\n  rcases c with c\n  have h1 : c = 12 - a - m := by\n    omega\n  rw [h1]\n  have h2 : a ≤ 12 := by\n    omega\n  have h3 : m ≤ 12 := by\n    omega\n  interval_cases a <;> interval_cases m\n  <;> omega",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_135",
@@ -765,7 +955,9 @@
     "fl_statement": "theorem mathd_numbertheory_135\n  (n A B C : ℕ)\n  (h₀ : n = 3^17 + 3^10)\n  (h₁ : 11 ∣ (n + 1))\n  (h₂ : [A,B,C].Pairwise (·≠·))\n  (h₃ : {A,B,C} ⊂ Finset.Icc 0 9)\n  (h₄ : Odd A ∧ Odd C)\n  (h₅ : ¬ 3 ∣ B)\n  (h₆ : Nat.digits 10 n = [B,A,B,C,C,A,C,B,A]) :\n  100 * A + 10 * B + C = 129 := by",
     "generated_proof": "-- We need to prove that 100A + 10B + C = 129\n  -- We have n = 3^17 + 3^10, and n = ABCACCBAB\n  -- We need to find the value of 100A + 10B + C\n  -- We know that 11 divides n + 1\n  -- We also know that A, B, C are distinct digits\n  -- A and C are odd, B is not divisible by 3\n  -- Let's compute n\n  -- n = 3^17 + 3^10 = 3^10 * (3^7 + 1)\n  -- 3^10 = 59049\n  -- 3^7 = 2187\n  -- 3^7 + 1 = 2188\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n\n  -- n = 59049 * 2188\n  -- Let's compute n",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:53:20: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:16:32: error: unsolved goals\nn A B C : ℕ\nh₀ : n = 3 ^ 17 + 3 ^ 10\nh₁ : 11 ∣ n + 1\nh₂ : List.Pairwise (fun x1 x2 => x1 ≠ x2) [A, B, C]\nh₃ : {A, B, C} ⊂ Finset.Icc 0 9\nh₄ : Odd"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:53:20: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:16:32: error: unsolved goals\nn A B C : ℕ\nh₀ : n = 3 ^ 17 + 3 ^ 10\nh₁ : 11 ∣ n + 1\nh₂ : List.Pairwise (fun x1 x2 => x1 ≠ x2) [A, B, C]\nh₃ : {A, B, C} ⊂ Finset.Icc 0 9\nh₄ : Odd",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_algebra_275",
@@ -773,7 +965,9 @@
     "fl_statement": "-- Error: Real^Real\n-- theorem mathd_algebra_275\n--   (x : ℝ)\n--   (h : ((11:ℝ)^(1 / 4))^(3 * x - 3) = 1 / 5) :\n--   ((11:ℝ)^(1 / 4))^(6 * x + 2) = 121 / 25 := by",
     "generated_proof": "--   sorry",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_388",
@@ -781,7 +975,9 @@
     "fl_statement": "theorem mathd_algebra_388\n  (x y z : ℝ)\n  (h₀ : 3 * x + 4 * y - 12 * z = 10)\n  (h₁ : -2 * x - 3 * y + 9 * z = -4) :\n  x = 14 := by",
     "generated_proof": "linarith",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "amc12a_2020_p7",
@@ -789,7 +985,9 @@
     "fl_statement": "theorem amc12a_2020_p7\n  (a : ℕ → ℕ)\n  (h₀ : (a 0)^3 = 1)\n  (h₁ : (a 1)^3 = 8)\n  (h₂ : (a 2)^3 = 27)\n  (h₃ : (a 3)^3 = 64)\n  (h₄ : (a 4)^3 = 125)\n  (h₅ : (a 5)^3 = 216)\n  (h₆ : (a 6)^3 = 343) :\n  ∑ k in Finset.range 7, (6 * (a k)^2) - ↑(2 * ∑ k in Finset.range 6, (a k)^2) = 658 := by",
     "generated_proof": "have h7 : a 0 = 1 := by\n    have h8 : a 0 = 1 := by\n      have h9 : a 0 ^ 3 = 1 := h₀\n      have h10 : a 0 ≤ 1 := by\n        by_contra h\n        push_neg at h\n        have h11 : a 0 ^ 3 ≥ 8 := by\n          have h12 : a 0 ≥ 2 := by linarith\n          have h13 : a 0 ^ 3 ≥ 2^3 := by\n            apply Nat.pow_le_pow_of_le_left h12 3\n          norm_num at h13 ⊢\n          linarith\n        linarith\n      interval_cases a 0 <;> omega\n    exact h8\n  have h8 : a 1 = 2 := by\n    have h9 : a 1 = 2 := by\n      have h10 : a 1 ^ 3 = 8 := h₁\n      have h11 : a 1 ≤ 2 := by\n        by_contra h\n        push_neg at h\n        have h12 : a 1 ^ 3 ≥ 27 := by\n          have h13 : a 1 ≥ 3 := by linarith\n          have h14 : a 1 ^ 3 ≥ 3^3 := by\n            apply Nat.pow_le_pow_of_le_left h13 3\n          norm_num at h14 ⊢\n          linarith\n        linarith\n      interval_cases a 1 <;> omega\n    exact h9\n  have h9 : a 2 = 3 := by\n    have h10 : a 2 = 3 := by\n      have h11 : a 2 ^ 3 = 27 := h₂\n      have h12 : a 2 ≤ 3 := by\n        by_contra h\n        push_neg at h\n        have h13 : a 2 ^ 3 ≥ 27 := by\n          have h14 : a 2 ≥ 4 := by linarith\n          have h15 : a 2 ^ 3 ≥ 4^3 := by\n            apply Nat.pow_le_pow_of_le_left h14 3\n          norm_num at h15 �",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:5: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:5: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "induction_sumkexp3eqsumksq",
@@ -797,7 +995,9 @@
     "fl_statement": "theorem induction_sumkexp3eqsumksq\n  (n : ℕ) :\n  ∑ k in Finset.range n, k^3 = (∑ k in Finset.range n, k)^2 := by",
     "generated_proof": "induction n with\n  | zero =>\n    simp\n  | succ n ih =>\n    rw [Finset.sum_range_succ, ih]\n    ring_nf\n    <;> omega",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:5: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:5: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "imo_1981_p6",
@@ -805,7 +1005,9 @@
     "fl_statement": "theorem imo_1981_p6\n  (f : ℕ → ℕ → ℕ)\n  (h₀ : ∀ y, f 0 y = y + 1)\n  (h₁ : ∀ x, f (x + 1) 0 = f x 1)\n  (h₂ : ∀ x y, f (x + 1) (y + 1) = f x (f (x + 1) y)) :\n  ∀ y, f 4 (y + 1) = 2^(f 4 y + 3) - 3 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:42: error: unsolved goals\nf : ℕ → ℕ → ℕ\nh₀ : ∀ (y : ℕ), f 0 y = y + 1\nh₁ : ∀ (x : ℕ), f (x + 1) 0 = f x 1\nh₂ : ∀ (x y : ℕ), f (x + 1) (y + 1) = f x (f (x + 1) y)\n⊢ ∀ (y : ℕ"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:42: error: unsolved goals\nf : ℕ → ℕ → ℕ\nh₀ : ∀ (y : ℕ), f 0 y = y + 1\nh₁ : ∀ (x : ℕ), f (x + 1) 0 = f x 1\nh₂ : ∀ (x y : ℕ), f (x + 1) (y + 1) = f x (f (x + 1) y)\n⊢ ∀ (y : ℕ",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_algebra_263",
@@ -813,7 +1015,9 @@
     "fl_statement": "theorem mathd_algebra_263\n  (y : ℝ)\n  (h₀ : 0 ≤ 19 + 3 * y)\n  (h₁ : Real.sqrt (19 + 3 * y) = 7) :\n  y = 10 := by",
     "generated_proof": "have h2 : 19 + 3 * y = 49 := by\n    calc\n      19 + 3 * y = (Real.sqrt (19 + 3 * y)) ^ 2 := by\n        rw [Real.sq_sqrt]\n        linarith\n      _ = 7 ^ 2 := by\n        rw [h₁]\n      _ = 49 := by\n        norm_num\n  linarith",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_34",
@@ -821,7 +1025,9 @@
     "fl_statement": "theorem mathd_numbertheory_34\n  (x: ℕ)\n  (h₀ : x < 100)\n  (h₁ : x*9 % 100 = 1) :\n  x = 89 := by",
     "generated_proof": "omega",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_764",
@@ -829,7 +1035,9 @@
     "fl_statement": "theorem mathd_numbertheory_764\n  (p : ℕ)\n  (h₀ : Nat.Prime p)\n  (h₁ : 7 ≤ p) :\n  ∑ k in Finset.Icc 1 (p-2), ((k: ZMod p)⁻¹ * ((k: ZMod p) + 1)⁻¹) = 2 := by",
     "generated_proof": "have h2 : Fact p.Prime := ⟨h₀⟩\n  have h3 : Fact p.Prime := ⟨h₀⟩\n  have h4 : Fact p.Prime := ⟨h₀⟩\n  have h5 : Fact p.Prime := ⟨h₀⟩\n  have h6 : Fact p.Prime := ⟨h₀⟩\n  have h7 : Fact p.Prime := ⟨h₀⟩\n  have h8 : Fact p.Prime := ⟨h₀⟩\n  have h9 : Fact p.Prime := ⟨h₀⟩\n  have h10 : Fact p.Prime := ⟨h₀⟩\n  have h11 : Fact p.Prime := ⟨h₀⟩\n  have h12 : Fact p.Prime := ⟨h₀⟩\n  have h13 : Fact p.Prime := ⟨h₀⟩\n  have h14 : Fact p.Prime := ⟨h₀⟩\n  have h15 : Fact p.Prime := ⟨h₀⟩\n  have h16 : Fact p.Prime := ⟨h₀⟩\n  have h17 : Fact p.Prime := ⟨h₀⟩\n  have h18 : Fact p.Prime := ⟨h₀⟩\n  have h19 : Fact p.Prime := ⟨h₀⟩\n  have h20 : Fact p.Prime := ⟨h₀⟩\n  have h21 : Fact p.Prime := ⟨h₀⟩\n  have h22 : Fact p.Prime := ⟨h₀⟩\n  have h23 : Fact p.Prime := ⟨h₀⟩\n  have h24 : Fact p.Prime := ⟨h₀⟩\n  have h25 : Fact p.Prime := ⟨h₀⟩\n  have h26 : Fact p.Prime := ⟨h₀⟩\n  have h27 : Fact p.Prime := ⟨h₀⟩\n  have h28 : Fact p.Prime := ⟨h₀⟩\n  have h29 : Fact p.Prime := ⟨h₀⟩\n  have h30 : Fact p.Prime := ⟨h₀⟩\n  have h31 : Fact p.Prime := ⟨h₀⟩\n  have h32 : Fact p.Prime := ⟨h₀⟩\n  have h33 : Fact p.Prime := ⟨h₀⟩\n  have h34 : Fact",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:5: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:5: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "amc12b_2021_p4",
@@ -837,7 +1045,9 @@
     "fl_statement": "theorem amc12b_2021_p4\n  (m a : ℕ)\n  (h₀ : 0 < m ∧ 0 < a)\n  (h₁ : ↑m / ↑a = (3:ℝ) / 4) :\n  (84 * ↑m + 70 * ↑a) / (↑m + ↑a) = (76:ℝ) := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:46: error: unsolved goals\nm a : ℕ\nh₀ : 0 < m ∧ 0 < a\nh₁ : ↑m / ↑a = 3 / 4\n⊢ (84 * ↑m + 70 * ↑a) / (↑m + ↑a) = 76\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:46: error: unsolved goals\nm a : ℕ\nh₀ : 0 < m ∧ 0 < a\nh₁ : ↑m / ↑a = 3 / 4\n⊢ (84 * ↑m + 70 * ↑a) / (↑m + ↑a) = 76\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "imo_1962_p2",
@@ -845,15 +1055,19 @@
     "fl_statement": "theorem imo_1962_p2\n  (x : ℝ)\n  (h₀ : 0 ≤ 3 - x)\n  (h₁ : 0 ≤ x + 1)\n  (h₂ : 1 / 2 < Real.sqrt (3 - x) - Real.sqrt (x + 1)) :\n  -1 ≤ x ∧ x < 1 - Real.sqrt 31 / 8 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:39: error: unsolved goals\nx : ℝ\nh₀ : 0 ≤ 3 - x\nh₁ : 0 ≤ x + 1\nh₂ : 1 / 2 < √(3 - x) - √(x + 1)\n⊢ -1 ≤ x ∧ x < 1 - √31 / 8\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:12:39: error: unsolved goals\nx : ℝ\nh₀ : 0 ≤ 3 - x\nh₁ : 0 ≤ x + 1\nh₂ : 1 / 2 < √(3 - x) - √(x + 1)\n⊢ -1 ≤ x ∧ x < 1 - √31 / 8\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_algebra_170",
     "nl": "How many integers are in the solution set of $|x-2|\\leq5.6$ ? Show that it is 11.",
     "fl_statement": "theorem mathd_algebra_170\n  (S : Finset ℤ)\n  (h₀ : ∀ (n : ℤ), n ∈ S ↔ abs (n - 2) ≤ 5 + 6 / 10) :\n  S.card = 11 := by",
     "generated_proof": "have h1 : S = Finset.Icc (2 - 5 - 6 / 10 : ℤ) (2 + 5 + 6 / 10 : ℤ) := by\n    ext n\n    simp [h₀]\n    constructor\n    · -- Assume |n - 2| ≤ 5 + 6 / 10, prove n ∈ Finset.Icc (2 - 5 - 6 / 10 : ℤ) (2 + 5 + 6 / 10 : ℤ)\n      intro h\n      have h2 : (n : ℝ) ≥ (2 - 5 - 6 / 10 : ℝ) := by\n        cases' abs_le.mp h with h3 h4\n        linarith\n      have h3 : (n : ℝ) ≤ (2 + 5 + 6 / 10 : ℝ) := by\n        cases' abs_le.mp h with h3 h4\n        linarith\n      have h4 : n ≥ (2 - 5 - 6 / 10 : ℤ) := by\n        exact_mod_cast h2\n      have h5 : n ≤ (2 + 5 + 6 / 10 : ℤ) := by\n        exact_mod_cast h3\n      simp [Finset.mem_Icc]\n      all_goals omega\n    · -- Assume n ∈ Finset.Icc (2 - 5 - 6 / 10 : ℤ) (2 + 5 + 6 / 10 : ℤ), prove |n - 2| ≤ 5 + 6 / 10\n      rintro ⟨h1, h2⟩\n      have h3 : (n : ℝ) ≥ (2 - 5 - 6 / 10 : ℝ) := by\n        exact_mod_cast h1\n      have h4 : (n : ℝ) ≤ (2 + 5 + 6 / 10 : ℝ) := by\n        exact_mod_cast h2\n      have h5 : abs ((n : ℝ) - 2) ≤ (5 + 6 / 10 : ℝ) := by\n        apply abs_le.mpr\n        constructor <;> linarith\n      exact_mod_cast h5\n  rw [h1]\n  native_decide",
-    "error_type": "UNKNOWN",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:19:8: error: linarith failed to find a contradiction\ncase intro.h\nS : Finset ℤ\nh₀ : ∀ (n : ℤ), n ∈ S ↔ |n - 2| ≤ 5 + 6 / 10\nn : ℤ\nh : |n - 2| ≤ 5\nh3 : -5 ≤ n - 2\nh4 : n - 2 ≤ 5\na✝ : ↑n < 2 - 5 - 6 / 10\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipeline.lean:22:8: err"
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:19:8: error: linarith failed to find a contradiction\ncase intro.h\nS : Finset ℤ\nh₀ : ∀ (n : ℤ), n ∈ S ↔ |n - 2| ≤ 5 + 6 / 10\nn : ℤ\nh : |n - 2| ≤ 5\nh3 : -5 ≤ n - 2\nh4 : n - 2 ≤ 5\na✝ : ↑n < 2 - 5 - 6 / 10\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipeline.lean:22:8: err",
+    "error_reason": "Linear arithmetic tactic could not find contradiction",
+    "matched_pattern": "linarith failed"
   },
   {
     "id": "mathd_algebra_432",
@@ -861,7 +1075,9 @@
     "fl_statement": "theorem mathd_algebra_432\n  (x : ℝ) :\n  (x + 3) * (2 * x - 6) = 2 * x^2 - 18 := by",
     "generated_proof": "ring",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_598",
@@ -869,23 +1085,29 @@
     "fl_statement": "-- Error: Real^Real\n-- theorem mathd_algebra_598\n--   (a b c d : ℝ)\n--   (h₁ : ((4:ℝ)^a) = 5)\n--   (h₂ : ((5:ℝ)^b) = 6)\n--   (h₃ : ((6:ℝ)^c) = 7)\n--   (h₄ : ((7:ℝ)^d) = 8) :\n--   a * b * c * d = 3 / 2 := by",
     "generated_proof": "-- Error 1: `invalid type`\n--   `h₁ : ((4:ℝ)^a) = 5`\n--   `h₂ : ((5:ℝ)^b) = 6`\n--   `h₃ : ((6:ℝ)^c) = 7`\n--   `h₄ : ((7:ℝ)^d) = 8`\n-- Error 2: `invalid operation`\n--   `^` is not a field of `Real`\n--   `h₁ : ((4:ℝ)^a) = 5`\n--   `h₂ : ((5:ℝ)^b) = 6`\n--   `h₃ : ((6:ℝ)^c) = 7`\n--   `h₄ : ((7:ℝ)^d) = 8`\n-- Error 3: `invalid operation`\n--   `^` is not a field of `Real`\n--   `h₁ : ((4:ℝ)^a) = 5`\n--   `h₂ : ((5:ℝ)^b) = 6`\n--   `h₃ : ((6:ℝ)^c) = 7`\n--   `h₄ : ((7:ℝ)^d) = 8`\n-- Error 4: `invalid operation`\n--   `^` is not a field of `Real`\n--   `h₁ : ((4:ℝ)^a) = 5`\n--   `h₂ : ((5:ℝ)^b) = 6`\n--   `h₃ : ((6:ℝ)^c) = 7`\n--   `h₄ : ((7:ℝ)^d) = 8`\n-- Error 5: `invalid operation`\n--   `^` is not a field of `Real`\n--   `h₁ : ((4:ℝ)^a) = 5`\n--   `h₂ : ((5:ℝ)^b) = 6`\n--   `h₃ : ((6:ℝ)^c) = 7`\n--   `h₄ : ((7:ℝ)^d) = 8`\n-- Error 6: `invalid operation`\n--   `^` is not a field of `Real`\n--   `h₁ : ((4:ℝ)^a) = 5`\n--   `h₂ : ((5:ℝ)^b) = 6`\n--   `h₃ : ((",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "algebra_bleqa_apbon2msqrtableqambsqon8b",
     "nl": "Let $a$ and $b$ be positive real numbers such that $b \\leq a$. Show that $\\frac{a+b}{2} - \\sqrt{ab} \\leq \\frac{(a-b)^2}{8b}$.",
     "fl_statement": "theorem algebra_bleqa_apbon2msqrtableqambsqon8b\n  (a b : ℝ)\n  (h₀ : 0 < a ∧ 0 < b)\n  (h₁ : b ≤ a) :\n  (a + b) / 2 - Real.sqrt (a * b) ≤ (a - b)^2 / (8 * b) := by",
     "generated_proof": "have h2 : 0 < a * b := by nlinarith\n  have h3 : Real.sqrt (a * b) = Real.sqrt a * Real.sqrt b := by\n    rw [Real.sqrt_mul]\n    all_goals nlinarith\n  have h4 : Real.sqrt a ≥ Real.sqrt b := by\n    apply Real.sqrt_le_sqrt\n    linarith\n  have h5 : (a + b) / 2 - Real.sqrt (a * b) ≤ (a - b)^2 / (8 * b) := by\n    have h6 : (a + b) / 2 - Real.sqrt (a * b) = ((a + b) ^ 2 - 4 * a * b) / (2 * (2 * Real.sqrt a * Real.sqrt b)) := by\n      field_simp\n      <;> nlinarith [Real.sqrt_nonneg (a * b), Real.sqrt_nonneg a, Real.sqrt_nonneg b, Real.sq_sqrt (show 0 ≤ a by linarith), Real.sq_sqrt (show 0 ≤ b by linarith)]\n    rw [h6]\n    have h7 : ((a + b) ^ 2 - 4 * a * b) / (2 * (2 * Real.sqrt a * Real.sqrt b)) ≤ (a - b)^2 / (8 * b) := by\n      apply (div_le_div_iff (by positivity) (by positivity)).mpr\n      nlinarith [sq_nonneg (a - b), sq_nonneg (Real.sqrt a - Real.sqrt b), sq_nonneg (a + b - 2 * Real.sqrt a * Real.sqrt b), sq_nonneg (a - 2 * Real.sqrt a * Real.sqrt b + b), sq_nonneg (a + b - 2 * Real.sqrt a * Real.sqrt b), Real.sqrt_nonneg a, Real.sqrt_nonneg b, Real.sq_sqrt (show 0 ≤ a by linarith), Real.sq_sqrt (show 0 ≤ b by linarith), mul_nonneg (Real.sqrt_nonneg a) (Real.sqrt_nonneg b), sq_nonneg (a - b), sq_nonneg (Real.sqrt a - Real.sqrt b), Real.sqrt_nonneg a, Real.sqrt_nonneg b, mul_nonneg (Real.sqrt_nonneg a) (Real.sqrt_nonneg b)]\n    linarith\n  linarith",
-    "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:22:10: error: linarith failed to find a contradiction\ncase h1.h\na b : ℝ\nh₀ : 0 < a ∧ 0 < b\nh₁ : b ≤ a\nh2 : 0 < a * b\nh3 : √(a * b) = √a * √b\nh4 : √a ≥ √b\na✝ : 2 * (a + b - 2 * √(a * b)) < ((a + b) ^ 2 - a * b * 4) / (√a * √b)\n⊢ False\nfailed\n/tmp/mathlib_test/test"
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:22:10: error: linarith failed to find a contradiction\ncase h1.h\na b : ℝ\nh₀ : 0 < a ∧ 0 < b\nh₁ : b ≤ a\nh2 : 0 < a * b\nh3 : √(a * b) = √a * √b\nh4 : √a ≥ √b\na✝ : 2 * (a + b - 2 * √(a * b)) < ((a + b) ^ 2 - a * b * 4) / (√a * √b)\n⊢ False\nfailed\n/tmp/mathlib_test/test",
+    "error_reason": "Linear arithmetic tactic could not find contradiction",
+    "matched_pattern": "linarith failed"
   },
   {
     "id": "mathd_algebra_276",
     "nl": "The expression $10x^2-x-24$ can be written as $(Ax-8)(Bx+3),$ where $A$ and $B$ are integers. What is $AB + B$? Show that it is 12.",
     "fl_statement": "theorem mathd_algebra_276\n  (a b : ℤ)\n  (h₀ : ∀ x : ℝ, 10 * x^2 - x - 24 = (a * x - 8) * (b * x + 3)) :\n  a * b + b = 12 := by",
     "generated_proof": "have h1 := h₀ 0\n  have h2 := h₀ 1\n  have h3 := h₀ (-1)\n  have h4 := h₀ (1 / 10 : ℝ)\n  norm_num at h1 h2 h3 h4\n  ring_nf at h1 h2 h3 h4\n  have h5 : a = 10 := by\n    nlinarith\n  have h6 : b = 2 := by\n    nlinarith\n  rw [h5, h6]\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num\n  all_goals nlinarith\n  all_goals norm_num",
-    "error_type": "UNKNOWN",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:2: error: `ring_nf` made no progress at `h1`\n"
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:2: error: `ring_nf` made no progress at `h1`\n",
+    "error_reason": "Ring normalization made no progress",
+    "matched_pattern": "ring_nf` made no progress"
   },
   {
     "id": "amc12a_2021_p14",
@@ -893,7 +1115,9 @@
     "fl_statement": "-- Error: Real.log\n-- theorem amc12a_2021_p14 :\n--   (∑ k in (Finset.Icc 1 20), (Real.logb (5^k) (3^(k^2)))) * (∑ k in (Finset.Icc 1 100), (Real.logb (9^k) (25^k))) = 21000 := by",
     "generated_proof": "--   sorry\n-- Error 2: Real.logb\n-- theorem amc12a_2021_p14 :\n--   (∑ k in (Finset.Icc 1 20), (Real.logb (5^k) (3^(k^2)))) * (∑ k in (Finset.Icc 1 100), (Real.logb (9^k) (25^k))) = 21000 := by\n--   sorry\n-- Error 3: Real.log\n-- theorem amc12a_2021_p14 :\n--   (∑ k in (Finset.Icc 1 20), (Real.logb (5^k) (3^(k^2)))) * (∑ k in (Finset.Icc 1 100), (Real.logb (9^k) (25^k))) = 21000 := by\n--   sorry",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "algebra_sum1onsqrt2to1onsqrt10000lt198",
@@ -901,15 +1125,19 @@
     "fl_statement": "theorem algebra_sum1onsqrt2to1onsqrt10000lt198 :\n  ∑ k in (Finset.Icc (2 : ℕ) 10000), (1 / Real.sqrt k) < 198 := by",
     "generated_proof": "have h1 : ∀ n : ℕ, ∑ k in (Finset.Icc (2 : ℕ) n), (1 / Real.sqrt k) < 198 := by\n    intro n\n    induction n with\n    | zero =>\n      simp\n    | succ n ih =>\n      rw [Finset.sum_Icc_succ_top (by linarith)]\n      rw [show (n + 1 : ℝ) = (n : ℝ) + 1 by simp]\n      have h2 : ∑ k in (Finset.Icc (2 : ℕ) (n + 1 : ℕ)), (1 / Real.sqrt k) < 198 := by\n        have h3 : ∑ k in (Finset.Icc (2 : ℕ) (n + 1 : ℕ)), (1 / Real.sqrt k) = ∑ k in (Finset.Icc (2 : ℕ) (n : ℕ)), (1 / Real.sqrt k) + (1 / Real.sqrt (n + 1 : ℕ)) := by\n          rw [Finset.sum_Icc_succ_top (by linarith)]\n        rw [h3]\n        linarith [ih]\n      linarith\n  specialize h1 10000\n  simpa using h1",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:5: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:5: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "mathd_numbertheory_618",
     "nl": "Euler discovered that the polynomial $p(n) = n^2 - n + 41$ yields prime numbers for many small positive integer values of $n$. What is the smallest positive integer $n$ for which $p(n)$ and $p(n+1)$ share a common factor greater than $1$? Show that it is 41.",
     "fl_statement": "theorem mathd_numbertheory_618\n  (n : ℕ)\n  (p : ℕ → ℕ)\n  (h₀ : ∀ x, p x = x^2 - x + 41)\n  (h₁ : 1 < Nat.gcd (p n) (p (n+1))) :\n  41 ≤ n := by",
     "generated_proof": "by_contra h\n  push_neg at h\n  have h2 : n < 41 := by linarith\n  have h3 : n ≤ 40 := by omega\n  interval_cases n <;> norm_num [h₀] at h₁ ⊢ <;> try { contradiction }\n  <;> try { omega }",
-    "error_type": "UNKNOWN",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n "
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n ",
+    "error_reason": "Deprecated tactic used (push_neg → push Not)",
+    "matched_pattern": "push_neg` has been deprecated"
   },
   {
     "id": "amc12a_2020_p4",
@@ -917,7 +1145,9 @@
     "fl_statement": "theorem amc12a_2020_p4\n  (S : Finset ℕ)\n  (h₀ : ∀ (n : ℕ), n ∈ S ↔ 1000 ≤ n ∧ n ≤ 9999 ∧ (∀ (d : ℕ), d ∈ Nat.digits 10 n → Even d) ∧ 5 ∣ n) :\n  S.card = 100 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:10:18: error: unsolved goals\nS : Finset ℕ\nh₀ : ∀ (n : ℕ), n ∈ S ↔ 1000 ≤ n ∧ n ≤ 9999 ∧ (∀ d ∈ Nat.digits 10 n, Even d) ∧ 5 ∣ n\n⊢ S.card = 100\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:10:18: error: unsolved goals\nS : Finset ℕ\nh₀ : ∀ (n : ℕ), n ∈ S ↔ 1000 ≤ n ∧ n ≤ 9999 ∧ (∀ d ∈ Nat.digits 10 n, Even d) ∧ 5 ∣ n\n⊢ S.card = 100\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "amc12b_2020_p6",
@@ -925,7 +1155,9 @@
     "fl_statement": "theorem amc12b_2020_p6\n  (n : ℕ)\n  (h₀ : 9 ≤ n) :\n  ∃ (x : ℕ), (x : ℝ)^2 = ((n + 2)! - (n + 1)!) / n! := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:10:55: error: unsolved goals\nn! : ℝ\nn : ℕ\nh₀ : 9 ≤ n\n⊢ ∃ x, ↑x ^ 2 = (↑(n + 2)! - ↑(n + 1)!) / n!\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:10:55: error: unsolved goals\nn! : ℝ\nn : ℕ\nh₀ : 9 ≤ n\n⊢ ∃ x, ↑x ^ 2 = (↑(n + 2)! - ↑(n + 1)!) / n!\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_numbertheory_435",
@@ -933,7 +1165,9 @@
     "fl_statement": "theorem mathd_numbertheory_435\n  (k : ℕ)\n  (h₀ : 0 < k)\n  (h₁ : ∀ n, Nat.gcd (6 * n + k) (6 * n + 3) = 1)\n  (h₂ : ∀ n, Nat.gcd (6 * n + k) (6 * n + 2) = 1)\n  (h₃ : ∀ n, Nat.gcd (6 * n + k) (6 * n + 1) = 1) :\n  5 ≤ k := by",
     "generated_proof": "have h4 := h₁ 0\n  have h5 := h₂ 0\n  have h6 := h₃ 0\n  norm_num at h4 h5 h6\n  omega",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:18:2: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  1 ≤ a ≤ 4\nwhere\n a := ↑k\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:18:2: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  1 ≤ a ≤ 4\nwhere\n a := ↑k\n",
+    "error_reason": "Integer arithmetic tactic failed",
+    "matched_pattern": "omega could not prove"
   },
   {
     "id": "algebra_others_exirrpowirrrat",
@@ -941,7 +1175,9 @@
     "fl_statement": "-- Error: irrational\n-- theorem algebra_others_exirrpowirrrat :\n--   ∃ a b, irrational a ∧ irrational b ∧ ¬ irrational (a^b) := by",
     "generated_proof": "--   use Real.sqrt 2\n--   use (Real.log 2) / 2\n--   constructor\n--   · -- Show that sqrt 2 is irrational\n--     native_decide\n--   constructor\n--   · -- Show that log 2 / 2 is irrational\n--     native_decide\n--   · -- Show that (sqrt 2)^(log 2 / 2) is rational\n--     have h1 : Real.sqrt 2 ^ ((Real.log 2) / 2) = Real.sqrt 2 ^ (Real.log 2 / 2) := by rfl\n--     rw [h1]\n--     have h2 : Real.sqrt 2 ^ (Real.log 2 / 2) = (2 : ℝ) := by\n--       have h3 : Real.sqrt 2 = (2 : ℝ) ^ (1 / 2 : ℝ) := by\n--         rw [Real.sqrt_eq_rpow]\n--       rw [h3]\n--       have h4 : ((2 : ℝ) ^ (1 / 2 : ℝ)) ^ (Real.log 2 / 2) = (2 : ℝ) ^ (1 / 2 * (Real.log 2 / 2) : ℝ) := by\n--         rw [← Real.rpow_mul]\n--         ring_nf\n--         all_goals linarith\n--       rw [h4]\n--       have h5 : (2 : ℝ) ^ (1 / 2 * (Real.log 2 / 2) : ℝ) = (2 : ℝ) := by\n--         have h6 : 1 / 2 * (Real.log 2 / 2) = (1 / 2) * (Real.log 2) / 2 := by ring\n--         rw [h6]\n--         have h7 : (2 : ℝ) ^ ((1 / 2) * (Real.log 2) / 2 : ℝ) = (2 : ℝ) ^ (Real.log 2 / 2 : ℝ) := by\n--           ring_nf\n--         rw [h7]\n--         have h8 : (2 : ℝ) ^ (Real.log 2 / 2 : ℝ) = (2 : ℝ) := by\n--           rw [Real.rpow_logb]\n--           all_goals norm_num\n--         rw [h8]\n--       rw [h",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_427",
@@ -949,15 +1185,19 @@
     "fl_statement": "theorem mathd_algebra_427\n  (x y z : ℝ)\n  (h₀ : 3 * x + y = 17)\n  (h₁ : 5 * y + z = 14)\n  (h₂ : 3 * x + 5 * z = 41) :\n  x + y + z = 12 := by",
     "generated_proof": "linarith",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_76",
     "nl": "For integers $n$, let \\[f(n) = \\left\\{\n\\begin{array}{cl}\nn^2 & \\text{ if }n\\text{ is odd}, \\\\\nn^2 - 4n - 1 & \\text{ if }n\\text{ is even}.\n\\end{array}\n\\right.\\]Find $f(f(f(f(f(4)))))$. Show that it is 1.",
     "fl_statement": "theorem mathd_algebra_76\n  (f : ℤ → ℤ)\n  (h₀ : ∀n, Odd n → f n = n^2)\n  (h₁ : ∀ n, Even n → f n = n^2 - 4*n -1) :\n  f 4 = -1 := by",
     "generated_proof": "have h2 : Even 4 := by\n    exact ⟨2, by norm_num⟩\n  have h3 : f 4 = 4^2 - 4 * 4 - 1 := by\n    apply h₁ 4\n    exact h2\n  norm_num at h3 ⊢\n  exact h3",
-    "error_type": "UNKNOWN",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:4: error: Type mismatch\n  h2\nhas type\n  Even (4 : ℕ)\nbut is expected to have type\n  Even (4 : ℤ)\n"
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:4: error: Type mismatch\n  h2\nhas type\n  Even (4 : ℕ)\nbut is expected to have type\n  Even (4 : ℤ)\n",
+    "error_reason": "Type mismatch between expected and given type",
+    "matched_pattern": "Type mismatch"
   },
   {
     "id": "mathd_numbertheory_99",
@@ -965,7 +1205,9 @@
     "fl_statement": "theorem mathd_numbertheory_99\n  (n : ℕ)\n  (h₀ : (2 * n) % 47 = 15) :\n  n % 47 = 31 := by",
     "generated_proof": "omega",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "algebra_9onxpypzleqsum2onxpy",
@@ -973,7 +1215,9 @@
     "fl_statement": "theorem algebra_9onxpypzleqsum2onxpy\n  (x y z : ℝ)\n  (h₀ : 0 < x ∧ 0 < y ∧ 0 < z) :\n  9 / (x + y + z) ≤ 2 / (x + y) + 2 / (y + z) + 2 / (z + x) := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:10:63: error: unsolved goals\nx y z : ℝ\nh₀ : 0 < x ∧ 0 < y ∧ 0 < z\n⊢ 9 / (x + y + z) ≤ 2 / (x + y) + 2 / (y + z) + 2 / (z + x)\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:10:63: error: unsolved goals\nx y z : ℝ\nh₀ : 0 < x ∧ 0 < y ∧ 0 < z\n⊢ 9 / (x + y + z) ≤ 2 / (x + y) + 2 / (y + z) + 2 / (z + x)\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_numbertheory_233",
@@ -981,7 +1225,9 @@
     "fl_statement": "theorem mathd_numbertheory_233\n  (b :  ZMod (11^2))\n  (h₀ : b = 24⁻¹) :\n  b = 116 := by",
     "generated_proof": "rw [h₀]\n  native_decide",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "algebra_absapbon1pabsapbleqsumabsaon1pabsa",
@@ -989,7 +1235,9 @@
     "fl_statement": "theorem algebra_absapbon1pabsapbleqsumabsaon1pabsa\n  (a b : ℝ) :\n  abs (a + b) / (1 + abs (a + b)) ≤ abs a / (1 + abs a) + abs b / (1 + abs b) := by",
     "generated_proof": "have h1 : abs (a + b) ≤ abs a + abs b := by\n    apply abs_add\n  have h2 : 0 < 1 + abs (a + b) := by\n    linarith [abs_nonneg (a + b)]\n  have h3 : 0 < 1 + abs a := by\n    linarith [abs_nonneg a]\n  have h4 : 0 < 1 + abs b := by\n    linarith [abs_nonneg b]\n  have h5 : abs (a + b) / (1 + abs (a + b)) ≤ (abs a / (1 + abs a) + abs b / (1 + abs b)) := by\n    have h6 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h7 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h8 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h9 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h10 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h11 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h12 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h13 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h14 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h15 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h16 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h17 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h18 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add\n    have h19 : abs (a + b) ≤ abs a + abs b := by\n      apply abs_add",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:10: error(lean.unknownIdentifier): Unknown identifier `abs_add`\n/tmp/mathlib_test/test_pipeline.lean:20:12: error(lean.unknownIdentifier): Unknown identifier `abs_add`\n/tmp/mathlib_test/test_pipeline.lean:22:12: error(lean.unknownIdentifier): Unknown identifie"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:10: error(lean.unknownIdentifier): Unknown identifier `abs_add`\n/tmp/mathlib_test/test_pipeline.lean:20:12: error(lean.unknownIdentifier): Unknown identifier `abs_add`\n/tmp/mathlib_test/test_pipeline.lean:22:12: error(lean.unknownIdentifier): Unknown identifie",
+    "error_reason": "Identifier not found in scope",
+    "matched_pattern": "unknownIdentifier"
   },
   {
     "id": "imo_1984_p6",
@@ -997,7 +1245,9 @@
     "fl_statement": "theorem imo_1984_p6\n  (a b c d k m : ℕ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 < d)\n  (h₁ : Odd a ∧ Odd b ∧ Odd c ∧ Odd d)\n  (h₂ : a < b ∧ b < c ∧ c < d)\n  (h₃ : a * d = b * c)\n  (h₄ : a + d = 2^k)\n  (h₅ : b + c = 2^m) :\n  a = 1 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:15:11: error: unsolved goals\na b c d k m : ℕ\nh₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 < d\nh₁ : Odd a ∧ Odd b ∧ Odd c ∧ Odd d\nh₂ : a < b ∧ b < c ∧ c < d\nh₃ : a * d = b * c\nh₄ : a + d = 2"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:15:11: error: unsolved goals\na b c d k m : ℕ\nh₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 < d\nh₁ : Odd a ∧ Odd b ∧ Odd c ∧ Odd d\nh₂ : a < b ∧ b < c ∧ c < d\nh₃ : a * d = b * c\nh₄ : a + d = 2",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "imo_2001_p6",
@@ -1005,7 +1255,9 @@
     "fl_statement": "theorem imo_2001_p6\n  (a b c d : ℕ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 < d)\n  (h₁ : d < c)\n  (h₂ : c < b)\n  (h₃ : b < a)\n  (h₄ : a * c + b * d = (b + d + a - c) * (b + d + c - a)) :\n  ¬ Nat.Prime (a * b + c * d) := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:14:33: error: unsolved goals\na b c d : ℕ\nh₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 < d\nh₁ : d < c\nh₂ : c < b\nh₃ : b < a\nh₄ : a * c + b * d = (b + d + a - c) * (b + d + c - a)\n⊢ ¬Nat.Prim"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:14:33: error: unsolved goals\na b c d : ℕ\nh₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 < d\nh₁ : d < c\nh₂ : c < b\nh₃ : b < a\nh₄ : a * c + b * d = (b + d + a - c) * (b + d + c - a)\n⊢ ¬Nat.Prim",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_numbertheory_321",
@@ -1013,7 +1265,9 @@
     "fl_statement": "theorem mathd_numbertheory_321\n  (n :  ZMod 1399)\n  (h₁ : n = 160⁻¹) :\n  n = 1058 := by",
     "generated_proof": "rw [h₁]\n  native_decide",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_17",
@@ -1021,7 +1275,9 @@
     "fl_statement": "theorem mathd_algebra_17\n  (a : ℝ)\n  (h₀ : Real.sqrt (4 + Real.sqrt (16 + 16 * a)) + Real.sqrt (1 + Real.sqrt (1 + a)) = 6) :\n  a = 8 := by",
     "generated_proof": "have h1 : Real.sqrt (4 + Real.sqrt (16 + 16 * a)) = 2 + Real.sqrt (1 + Real.sqrt (1 + a)) := by\n    nlinarith [Real.sqrt_nonneg (4 + Real.sqrt (16 + 16 * a)), Real.sqrt_nonneg (1 + Real.sqrt (1 + a)), Real.sq_sqrt (show (0 : ℝ) ≤ 4 + Real.sqrt (16 + 16 * a) by positivity), Real.sq_sqrt (show (0 : ℝ) ≤ 1 + Real.sqrt (1 + a) by positivity), Real.sqrt_nonneg (16 + 16 * a), Real.sqrt_nonneg (1 + a), Real.sq_sqrt (show (0 : ℝ) ≤ 16 + 16 * a by positivity), Real.sq_sqrt (show (0 : ℝ) ≤ 1 + a by positivity)]\n  have h2 : Real.sqrt (1 + Real.sqrt (1 + a)) = 2 := by\n    nlinarith [Real.sqrt_nonneg (4 + Real.sqrt (16 + 16 * a)), Real.sqrt_nonneg (1 + Real.sqrt (1 + a)), Real.sq_sqrt (show (0 : ℝ) ≤ 4 + Real.sqrt (16 + 16 * a) by positivity), Real.sq_sqrt (show (0 : ℝ) ≤ 1 + Real.sqrt (1 + a) by positivity), Real.sqrt_nonneg (16 + 16 * a), Real.sqrt_nonneg (1 + a), Real.sq_sqrt (show (0 : ℝ) ≤ 16 + 16 * a by positivity), Real.sq_sqrt (show (0 : ℝ) ≤ 1 + a by positivity)]\n  have h3 : Real.sqrt (1 + a) = 1 := by\n    nlinarith [Real.sqrt_nonneg (1 + a), Real.sq_sqrt (show (0 : ℝ) ≤ 1 + a by positivity)]\n  have h4 : a = 8 := by\n    nlinarith [Real.sqrt_nonneg (1 + a), Real.sq_sqrt (show (0 : ℝ) ≤ 1 + a by positivity)]\n  exact h4",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:347: error: failed to prove positivity/nonnegativity/nonzeroness\n/tmp/mathlib_test/test_pipeline.lean:14:347: error: failed to prove positivity/nonnegativity/nonzeroness\n/tmp/mathlib_test/test_pipeline.lean:16:79: error: failed to prove positivity/nonnegativit"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:347: error: failed to prove positivity/nonnegativity/nonzeroness\n/tmp/mathlib_test/test_pipeline.lean:14:347: error: failed to prove positivity/nonnegativity/nonzeroness\n/tmp/mathlib_test/test_pipeline.lean:16:79: error: failed to prove positivity/nonnegativit",
+    "error_reason": "Proof attempt failed",
+    "matched_pattern": "failed to prove"
   },
   {
     "id": "mathd_algebra_153",
@@ -1029,7 +1285,9 @@
     "fl_statement": "theorem mathd_algebra_153\n  (n : ℝ)\n  (h₀ : n = 1 / 3) :\n  Int.floor (10 * n) + Int.floor (100 * n) + Int.floor (1000 * n) + Int.floor (10000 * n) = 3702 := by",
     "generated_proof": "rw [h₀]\n  norm_num [Int.floor_eq_iff]\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num\n  <;> norm_num",
     "error_type": "SUCCESS",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:6: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n/tmp/mathlib_test/test_pipeline.lean:14:6: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option "
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:13:6: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n/tmp/mathlib_test/test_pipeline.lean:14:6: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option ",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "algebra_sqineq_unitcircatbpamblt1",
@@ -1037,7 +1295,9 @@
     "fl_statement": "theorem algebra_sqineq_unitcircatbpamblt1\n  (a b: ℝ)\n  (h₀ : a^2 + b^2 = 1) :\n  a * b + (a - b) ≤ 1 := by",
     "generated_proof": "nlinarith [sq_nonneg (a - b), sq_nonneg (a + b), sq_nonneg (a - 1), sq_nonneg (b - 1), sq_nonneg (a + b - 1), sq_nonneg (a - b - 1), sq_nonneg (a + 1), sq_nonneg (b + 1), sq_nonneg (a - 1), sq_nonneg (b - 1), sq_nonneg (a + b - 1), sq_nonneg (a - b - 1)]",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "amc12a_2021_p18",
@@ -1045,7 +1305,9 @@
     "fl_statement": "theorem amc12a_2021_p18\n  (f : ℚ → ℝ)\n  (h₀ : ∀x>0, ∀y>0, f (x * y) = f x + f y)\n  (h₁ : ∀p, Nat.Prime p → f p = p) :\n  f (25 / 11) < 0 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:21: error: unsolved goals\nf : ℚ → ℝ\nh₀ : ∀ x > 0, ∀ y > 0, f (x * y) = f x + f y\nh₁ : ∀ (p : ℕ), Nat.Prime p → f ↑p = ↑p\n⊢ f (25 / 11) < 0\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:21: error: unsolved goals\nf : ℚ → ℝ\nh₀ : ∀ x > 0, ∀ y > 0, f (x * y) = f x + f y\nh₁ : ∀ (p : ℕ), Nat.Prime p → f ↑p = ↑p\n⊢ f (25 / 11) < 0\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "mathd_algebra_329",
@@ -1053,7 +1315,9 @@
     "fl_statement": "theorem mathd_algebra_329\n  (x y : ℝ)\n  (h₀ : 3 * y = x)\n  (h₁ : 2 * x + 5 * y = 11) :\n  x + y = 4 := by",
     "generated_proof": "linarith",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "induction_pprime_pdvdapowpma",
@@ -1061,7 +1325,9 @@
     "fl_statement": "theorem induction_pprime_pdvdapowpma\n  (p a : ℕ)\n  (h₀ : 0 < a)\n  (h₁ : Nat.Prime p) :\n  p ∣ (a^p - a) := by",
     "generated_proof": "have h2 : a ^ p % p = a % p := by\n    have h3 : a ^ p % p = a % p := by\n      have h4 : ∀ (k : ℕ), (a ^ (k + 1) : ℕ) % p = (a ^ k * a) % p := by\n        intro k\n        simp [Nat.pow_succ, Nat.mul_mod]\n      have h5 : ∀ (k : ℕ), (a ^ (k + 1) : ℕ) % p = (a ^ k * a) % p := by\n        intro k\n        simp [Nat.pow_succ, Nat.mul_mod]\n      have h6 : ∀ (k : ℕ), (a ^ (k + 1) : ℕ) % p = (a ^ k * a) % p := by\n        intro k\n        simp [Nat.pow_succ, Nat.mul_mod]\n      have h7 : ∀ (k : ℕ), (a ^ (k + 1) : ℕ) % p = (a ^ k * a) % p := by\n        intro k\n        simp [Nat.pow_succ, Nat.mul_mod]\n      have h8 : ∀ (k : ℕ), (a ^ (k + 1) : ℕ) % p = (a ^ k * a) % p := by\n        intro k\n        simp [Nat.pow_succ, Nat.mul_mod]\n      have h9 : ∀ (k : ℕ), (a ^ (k + 1) : ℕ) % p = (a ^ k * a) % p := by\n        intro k\n        simp [Nat.pow_succ, Nat.mul_mod]\n      have h10 : ∀ (k : ℕ), (a ^ (k + 1) : ℕ) % p = (a ^ k * a) % p := by\n        intro k\n        simp [Nat.pow_succ, Nat.mul_mod]\n      have h11 : ∀ (k : ℕ), (a ^ (k + 1) : ℕ) % p = (a ^ k * a) % p := by\n        intro k\n        simp [Nat.pow_succ, Nat.mul_mod]\n      have h12 : ∀ (k : ℕ), (a ^ (k + 1) : ℕ) % p = (a ^ k * a) % p := by\n        intro k\n        simp [Nat.pow_succ, Nat",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:40:31: error: unexpected end of input; expected ']'\n/tmp/mathlib_test/test_pipeline.lean:13:35: error: unsolved goals\np a : ℕ\nh₀ : 0 < a\nh₁ : Nat.Prime p\nh4 h5 h6 h7 h8 h9 h10 h11 h12 : ∀ (k : ℕ), a ^ (k + 1) % p = a ^ k * a % p\n⊢ a ^ p % p = a % p\n/tmp/mathlib_t"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:40:31: error: unexpected end of input; expected ']'\n/tmp/mathlib_test/test_pipeline.lean:13:35: error: unsolved goals\np a : ℕ\nh₀ : 0 < a\nh₁ : Nat.Prime p\nh4 h5 h6 h7 h8 h9 h10 h11 h12 : ∀ (k : ℕ), a ^ (k + 1) % p = a ^ k * a % p\n⊢ a ^ p % p = a % p\n/tmp/mathlib_t",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "amc12a_2021_p9",
@@ -1069,7 +1335,9 @@
     "fl_statement": "theorem amc12a_2021_p9 :\n  ∏ k in Finset.range 7, (2^(2^k) + 3^(2^k)) = 3^128 - 2^128 := by",
     "generated_proof": "norm_num [Finset.prod_range_succ]\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;> norm_num\n  <;> ring_nf\n  <;>",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:5: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:8:5: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "aime_1984_p1",
@@ -1077,7 +1345,9 @@
     "fl_statement": "theorem aime_1984_p1\n  (u : ℕ → ℚ)\n  (h₀ : ∀ n, u (n + 1) = u n + 1)\n  (h₁ : ∑ k in Finset.range 98, u k.succ = 137) :\n  ∑ k in Finset.range 49, u (2 * k.succ) = 93 := by",
     "generated_proof": "",
     "error_type": "SYNTACTIC",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:11: error: unexpected token 'in'; expected ','\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:10:11: error: unexpected token 'in'; expected ','\n",
+    "error_reason": "Invalid Lean 4 syntax token",
+    "matched_pattern": "unexpected token"
   },
   {
     "id": "amc12a_2021_p22",
@@ -1085,7 +1355,9 @@
     "fl_statement": "-- Error: Real.pi\n-- theorem amc12a_2021_p22\n--   (a b c : ℝ)\n--   (f : ℝ → ℝ)\n--   (h₀ : ∀ x, f x = x^3 + a * x^2 + b * x + c)\n--   (h₁ : f⁻¹' {0} = {Real.cos (2 * Real.pi / 7), Real.cos (4 * Real.pi / 7), Real.cos (6 * Real.pi / 7)}) :\n--   a * b * c = 1 / 32 := by",
     "generated_proof": "-- Error 1: `Real.pi` is not recognized as a valid identifier in Lean 4. This error occurs in the line `Real.pi`.\n-- Error 2: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression` for `rw [Real.pi_gt_three]`.\n-- Error 3: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression` for `rw [Real.pi_lt_31416]`.\n-- Error 4: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression` for `rw [Real.pi_gt_three]`.\n-- Error 5: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression` for `rw [Real.pi_lt_31416]`.\n-- Error 6: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression` for `rw [Real.pi_gt_three]`.\n-- Error 7: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression` for `rw [Real.pi_lt_31416]`.\n-- Error 8: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression` for `rw [Real.pi_gt_three]`.\n-- Error 9: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression` for `rw [Real.pi_lt_31416]`.\n-- Error 10: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression` for `rw [Real.pi_gt_three]`.\n-- Error 11: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression` for `rw [Real.pi_lt_31416]`.\n-- Error 12: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression` for `rw [Real.pi_gt_three]`.\n-- Error 13: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression` for `rw [Real.pi_lt_31416]`.\n-- Error 14: `tactic 'rewrite' failed, did not find instance of the pattern in the target expression`",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_229",
@@ -1093,15 +1365,19 @@
     "fl_statement": "theorem mathd_numbertheory_229 :\n  (5^30) % 7 = 1 := by",
     "generated_proof": "norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_100",
     "nl": "Find $n$ if $\\gcd(n,40) = 10$ and $\\mathop{\\text{lcm}}[n,40] = 280$. Show that it is 70.",
     "fl_statement": "theorem mathd_numbertheory_100\n  (n : ℕ)\n  (h₀ : 0 < n)\n  (h₁ : Nat.gcd n 40 = 10)\n  (h₂ : Nat.lcm n 40 = 280) :\n  n = 70 := by",
     "generated_proof": "have h3 : n ∣ 280 := by\n    have h4 : n ∣ Nat.lcm n 40 := by\n      exact Nat.dvd_lcm_left n 40\n    rw [h₂] at h4\n    exact h4\n  have h4 : n ∣ 40 := by\n    have h5 : n ∣ Nat.lcm n 40 := by\n      exact Nat.dvd_lcm_left n 40\n    rw [h₂] at h5\n    exact h5\n  have h5 : n ∣ 280 := h3\n  have h6 : n ∣ 40 := h4\n  have h7 : n ∣ 140 := by\n    exact Nat.dvd_gcd h5 h6\n  have h8 : n ∣ 280 := h3\n  have h9 : n ∣ 40 := h4\n  have h10 : n ∣ 140 := h7\n  have h11 : n ∣ 280 := h8\n  have h12 : n ∣ 40 := h9\n  have h13 : n ≤ 280 := by\n    exact Nat.le_of_dvd (by norm_num) h5\n  have h14 : n ≤ 40 := by\n    exact Nat.le_of_dvd (by norm_num) h6\n  interval_cases n <;> norm_num at h₁ h₂ <;> omega",
-    "error_type": "UNKNOWN",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:22:4: error: Type mismatch\n  h5\nhas type\n  n ∣ 280\nbut is expected to have type\n  n ∣ 40\n/tmp/mathlib_test/test_pipeline.lean:26:4: error: Type mismatch\n  Nat.dvd_gcd h5 h6\nhas type\n  n ∣ Nat.gcd 280 40\nbut is expected to have type\n  n ∣ 140\n/tmp/mathlib_test/tes"
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:22:4: error: Type mismatch\n  h5\nhas type\n  n ∣ 280\nbut is expected to have type\n  n ∣ 40\n/tmp/mathlib_test/test_pipeline.lean:26:4: error: Type mismatch\n  Nat.dvd_gcd h5 h6\nhas type\n  n ∣ Nat.gcd 280 40\nbut is expected to have type\n  n ∣ 140\n/tmp/mathlib_test/tes",
+    "error_reason": "Type mismatch between expected and given type",
+    "matched_pattern": "Type mismatch"
   },
   {
     "id": "mathd_algebra_313",
@@ -1109,7 +1385,9 @@
     "fl_statement": "theorem mathd_algebra_313\n  (v i z : ℂ)\n  (h₀ : v = i * z)\n  (h₁ : v = 1 + Complex.I)\n  (h₂ : z = 2 - Complex.I) :\n  i = 1/5 + 3/5 * Complex.I := by",
     "generated_proof": "rw [h₁, h₂] at h₀\n  have h3 : i = (1 + Complex.I) / (2 - Complex.I) := by\n    rw [←h₀]\n    field_simp [Complex.ext_iff, Complex.I_mul_I]\n    <;> ring_nf <;> norm_num\n  rw [h3]\n  field_simp [Complex.ext_iff, Complex.I_mul_I]\n  <;> ring_nf <;> norm_num",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  i * (2 - Complex.I)\nin the target expression\n  i = (1 + Complex.I) / (2 - Complex.I)\n\nv i z : ℂ\nh₀ : 1 + Complex.I = i * (2 - Complex.I)\nh₁ : v = 1 + Complex.I\nh₂ : z = 2 - Complex."
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:15:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  i * (2 - Complex.I)\nin the target expression\n  i = (1 + Complex.I) / (2 - Complex.I)\n\nv i z : ℂ\nh₀ : 1 + Complex.I = i * (2 - Complex.I)\nh₁ : v = 1 + Complex.I\nh₂ : z = 2 - Complex.",
+    "error_reason": "Rewrite tactic failed, pattern not found",
+    "matched_pattern": "Tactic `rewrite` failed"
   },
   {
     "id": "amc12b_2002_p4",
@@ -1117,7 +1395,9 @@
     "fl_statement": "theorem amc12b_2002_p4\n  (n : ℕ)\n  (h₀ : 0 < n)\n  (h₀ : ((1 / 2 + 1 / 3 + 1 / 7 + 1 / n) : ℚ).den = 1) :\n  n = 42 := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:12: error: unsolved goals\nn : ℕ\nh₀✝ : 0 < n\nh₀ : (1 / 2 + 1 / 3 + 1 / 7 + 1 / ↑n).den = 1\n⊢ n = 42\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:12:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:11:12: error: unsolved goals\nn : ℕ\nh₀✝ : 0 < n\nh₀ : (1 / 2 + 1 / 3 + 1 / 7 + 1 / ↑n).den = 1\n⊢ n = 42\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "amc12a_2002_p6",
@@ -1125,7 +1405,9 @@
     "fl_statement": "theorem amc12a_2002_p6\n  (n : ℕ)\n  (h₀ : 0 < n) :\n  ∃ m, (m > n ∧ ∃ p, m * p ≤ m + p) := by",
     "generated_proof": "use n + 1\n  constructor\n  · -- Show that m > n\n    omega\n  · -- Show that there exists a positive integer p such that m * p ≤ m + p\n    use 1\n    all_goals\n      omega",
     "error_type": "SUCCESS",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:3: warning: unused variable `h₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:9:3: warning: unused variable `h₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "amc12a_2003_p23",
@@ -1133,7 +1415,9 @@
     "fl_statement": "theorem amc12a_2003_p23\n  (S : Finset ℕ)\n  (h₀ : ∀ (k : ℕ), k ∈ S ↔ 0 < k ∧ ((k * k) : ℕ) ∣ (∏ i ∈ (Finset.Icc 1 9), i!)) :\n  S.card = 672 := by",
     "generated_proof": "have h1 : S = Finset.filter (fun k => 0 < k ∧ k * k ∣ ∏ i ∈ (Finset.Icc 1 9), i!) (Finset.Icc 1 9) := by\n    ext k\n    simp\n    intro hk1 hk2\n    constructor\n    · -- Show that k is in the set\n      intro h\n      rcases h with ⟨hk_pos, hk_div⟩\n      have h3 : k ≤ 9 := by\n        by_contra h\n        push_neg at h\n        have h4 : k * k > ∏ i ∈ (Finset.Icc 1 9), i! := by\n          have h5 : k ≥ 10 := by linarith\n          have h6 : k * k ≥ 100 := by nlinarith\n          have h7 : ∏ i ∈ (Finset.Icc 1 9), i! ≤ 9! := by\n            apply Finset.prod_le_prod_of_subset\n            · -- Show that {1, ..., 9} ⊆ {1, ..., 9}\n              intro i hi\n              simp at hi ⊢\n              all_goals omega\n            · -- Show that {1, ..., 9} ⊆ {1, ..., 9}\n              intro i hi\n              simp at hi ⊢\n              all_goals omega\n            all_goals\n              simp [Finset.prod_const, Finset.card_range, Nat.factorial]\n              <;> try { native_decide }\n          nlinarith [show ∏ i ∈ (Finset.Icc 1 9), i! ≤ 9! by\n            apply Finset.prod_le_prod_of_subset\n            · -- Show that {1, ..., 9} ⊆ {1, ..., 9}\n              intro i hi\n              simp at hi ⊢\n              all_goals omega\n            · -- Show that {1, ..., 9} ⊆ {1, ..., 9}\n              intro i hi\n              simp at hi ⊢\n              all_goals omega\n            all_goals\n              simp [Finset.prod_const, Finset.card_range, Nat.factorial]\n              <;> try { native_decide }\n          ]\n        linarith\n      interval_cases k <;> norm_num at *\n      <;> try { tauto }\n    · -- Show that k is in the set",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:55:34: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:14:10: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce\n\ncase h\ni! : ℕ\nS : Finset ℕ\nh₀ : ∀ (k : ℕ), k ∈ S ↔ 0 < k ∧ k"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:55:34: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:14:10: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce\n\ncase h\ni! : ℕ\nS : Finset ℕ\nh₀ : ∀ (k : ℕ), k ∈ S ↔ 0 < k ∧ k",
+    "error_reason": "Proof incomplete, unexpected end",
+    "matched_pattern": "unexpected end of input"
   },
   {
     "id": "mathd_algebra_129",
@@ -1141,7 +1425,9 @@
     "fl_statement": "theorem mathd_algebra_129\n  (a : ℝ)\n  (h₀ : a ≠ 0)\n  (h₁ : 8⁻¹ / 4⁻¹ - a⁻¹ = 1) :\n  a = -2 := by",
     "generated_proof": "field_simp at h₁\n  nlinarith",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "amc12b_2021_p18",
@@ -1149,7 +1435,9 @@
     "fl_statement": "theorem amc12b_2021_p18\n  (z : ℂ)\n  (h₀ : 12 * Complex.normSq z = 2 * Complex.normSq (z + 2) + Complex.normSq (z^2 + 1) + 31) :\n  z + 6 / z = -2 := by",
     "generated_proof": "have h1 : z ≠ 0 := by\n    by_contra h\n    rw [h] at h₀\n    norm_num at h₀\n  have h2 : z.re ^ 2 + z.im ^ 2 = 12 * (z.re + 2) ^ 2 + 2 * (z.re + 2 * z.im) ^ 2 + (z.im ^ 2 + 1) ^ 2 + 31 := by\n    have hz : z = z.re + z.im * Complex.I := by\n      simp [Complex.ext_iff]\n    rw [hz] at h₀\n    simp [Complex.normSq, pow_two, Complex.add_re, Complex.add_im, Complex.mul_re, Complex.mul_im, Complex.I_re, Complex.I_im] at h₀\n    ring_nf at h₀ ⊢\n    <;> nlinarith\n  have h3 : (z.re + 2) ^ 2 + (z.im) ^ 2 = 12 * (z.re + 2) ^ 2 + 2 * (z.re + 2 * z.im) ^ 2 + (z.im ^ 2 + 1) ^ 2 + 31 := by\n    nlinarith\n  have h4 : z.re ^ 2 + z.im ^ 2 = 12 * (z.re + 2) ^ 2 + 2 * (z.re + 2 * z.im) ^ 2 + (z.im ^ 2 + 1) ^ 2 + 31 := by\n    nlinarith\n  have h5 : (z.re + 2) ^ 2 + (z.im) ^ 2 = 12 * (z.re + 2) ^ 2 + 2 * (z.re + 2 * z.im) ^ 2 + (z.im ^ 2 + 1) ^ 2 + 31 := by\n    nlinarith\n  have h6 : z.re ^ 2 + z.im ^ 2 = 12 * (z.re + 2) ^ 2 + 2 * (z.re + 2 * z.im) ^ 2 + (z.im ^ 2 + 1) ^ 2 + 31 := by\n    nlinarith\n  have h7 : (z.re +",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:30:19: error: unexpected end of input\n/tmp/mathlib_test/test_pipeline.lean:21:8: error: linarith failed to find a contradiction\ncase h1.h\nz : ℂ\nh1 : z ≠ 0\nhz : z = ↑z.re + ↑z.im * Complex.I\nh₀ : z.re ^ 2 * 12 + z.im ^ 2 * 12 = 40 + z.re * 8 + z.re ^ 2 * 4 + z.re "
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:30:19: error: unexpected end of input\n/tmp/mathlib_test/test_pipeline.lean:21:8: error: linarith failed to find a contradiction\ncase h1.h\nz : ℂ\nh1 : z ≠ 0\nhz : z = ↑z.re + ↑z.im * Complex.I\nh₀ : z.re ^ 2 * 12 + z.im ^ 2 * 12 = 40 + z.re * 8 + z.re ^ 2 * 4 + z.re ",
+    "error_reason": "Linear arithmetic tactic could not find contradiction",
+    "matched_pattern": "linarith failed"
   },
   {
     "id": "mathd_algebra_484",
@@ -1157,7 +1445,9 @@
     "fl_statement": "-- Error: Real.log\n-- theorem mathd_algebra_484 :\n--   Real.log 27 / Real.log 3 = 3 := by",
     "generated_proof": "--   rw [show (27 : ℝ) = 3 ^ 3 by norm_num]\n--   rw [Real.log_pow]\n--   simp\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;> norm_num\n--   <;> ring_nf <;>",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_551",
@@ -1165,7 +1455,9 @@
     "fl_statement": "theorem mathd_numbertheory_551 :\n  1529 % 6 = 5 := by",
     "generated_proof": "norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_304",
@@ -1173,7 +1465,9 @@
     "fl_statement": "theorem mathd_algebra_304 :\n  91^2 = 8281 := by",
     "generated_proof": "norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "amc12a_2021_p8",
@@ -1181,7 +1475,9 @@
     "fl_statement": "theorem amc12a_2021_p8\n  (d : ℕ → ℕ)\n  (h₀ : d 0 = 0)\n  (h₁ : d 1 = 0)\n  (h₂ : d 2 = 1)\n  (h₃ : ∀ n≥3, d n = d (n - 1) + d (n - 3)) :\n  Even (d 2021) ∧ Odd (d 2022) ∧ Even (d 2023) := by",
     "generated_proof": "",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:50: error: unsolved goals\nd : ℕ → ℕ\nh₀ : d 0 = 0\nh₁ : d 1 = 0\nh₂ : d 2 = 1\nh₃ : ∀ n ≥ 3, d n = d (n - 1) + d (n - 3)\n⊢ Even (d 2021) ∧ Odd (d 2022) ∧ Even (d 2023)\n"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:14:2: error: unexpected end of input; expected '{'\n/tmp/mathlib_test/test_pipeline.lean:13:50: error: unsolved goals\nd : ℕ → ℕ\nh₀ : d 0 = 0\nh₁ : d 1 = 0\nh₂ : d 2 = 1\nh₃ : ∀ n ≥ 3, d n = d (n - 1) + d (n - 3)\n⊢ Even (d 2021) ∧ Odd (d 2022) ∧ Even (d 2023)\n",
+    "error_reason": "Proof incomplete, goals remain",
+    "matched_pattern": "unsolved goals"
   },
   {
     "id": "algebra_ineq_nto1onlt2m1on",
@@ -1189,7 +1485,9 @@
     "fl_statement": "theorem algebra_ineq_nto1onlt2m1on\n  (n : ℕ) :\n  n^(1 / n) < 2 - 1 / n := by",
     "generated_proof": "have h1 : (n : ℝ) > 0 := by\n    exact_mod_cast show (n : ℕ) > 0 by linarith\n  have h2 : (n : ℝ) ≥ 1 := by\n    have hn : (n : ℝ) ≥ 1 := by\n      have hn1 : (n : ℝ) ≥ 1 := by\n        have hn2 : (n : ℝ) ≥ 1 := by\n          exact_mod_cast show (n : ℕ) ≥ 1 by linarith\n        linarith\n      linarith\n    linarith\n  have h3 : (n : ℝ) ^ (1 / n : ℝ) < 2 - 1 / n := by\n    have h4 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n      have h5 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n        have h6 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n          have h7 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n            have h8 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n              have h9 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n                have h10 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n                  have h11 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n                    have h12 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n                      have h13 : (n : ℝ) ^ (1 / n : ℝ) < (2 : ℝ) - (1 / n : ℝ) := by\n                        have h",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:39: error: linarith failed to find a contradiction\ncase h\nn : ℕ\na✝ : n ≤ 0\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipeline.lean:16:45: error: linarith failed to find a contradiction\ncase h\nn : ℕ\nh1 : ↑n > 0\na✝ : n < 1\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipel"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:39: error: linarith failed to find a contradiction\ncase h\nn : ℕ\na✝ : n ≤ 0\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipeline.lean:16:45: error: linarith failed to find a contradiction\ncase h\nn : ℕ\nh1 : ↑n > 0\na✝ : n < 1\n⊢ False\nfailed\n/tmp/mathlib_test/test_pipel",
+    "error_reason": "Linear arithmetic tactic could not find contradiction",
+    "matched_pattern": "linarith failed"
   },
   {
     "id": "amc12b_2002_p19",
@@ -1197,23 +1495,29 @@
     "fl_statement": "theorem amc12b_2002_p19\n  (a b c: ℝ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c)\n  (h₁ : a * (b + c) = 152)\n  (h₂ : b * (c + a) = 162)\n  (h₃ : c * (a + b) = 170) :\n  a * b * c = 720 := by",
     "generated_proof": "nlinarith [sq_nonneg (a - b), sq_nonneg (b - c), sq_nonneg (c - a),\n    mul_pos (h₀.1) (h₀.2.1), mul_pos (h₀.2.1) (h₀.2.2), mul_pos (h₀.2.2) (h₀.1)]",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_341",
     "nl": "What is the sum of the final three digits of the integer representation of $5^{100}$? Show that it is 13.",
     "fl_statement": "theorem mathd_numbertheory_341\n  (a b c : ℕ)\n  (h₀ : a ≤ 9 ∧ b ≤ 9 ∧ c ≤ 9)\n  (h₁ : Nat.digits 10 ((5^100) % 1000) = [c,b,a]) :\n  a + b + c = 13 := by",
     "generated_proof": "have h2 : a = 1 := by\n    have h3 : c ≤ 9 := h₀.right.right\n    have h4 : b ≤ 9 := h₀.right.left\n    have h5 : a ≤ 9 := h₀.left\n    interval_cases a <;> interval_cases b <;> interval_cases c\n    <;> norm_num at h₁ ⊢\n    <;> omega\n  have h3 : b = 3 := by\n    have h4 : c ≤ 9 := h₀.right.right\n    have h5 : b ≤ 9 := h₀.right.left\n    have h6 : a ≤ 9 := h₀.left\n    interval_cases a <;> interval_cases b <;> interval_cases c\n    <;> norm_num at h₁ ⊢\n    <;> omega\n  have h4 : c = 7 := by\n    have h5 : c ≤ 9 := h₀.right.right\n    have h6 : b ≤ 9 := h₀.right.left\n    have h7 : a ≤ 9 := h₀.left\n    interval_cases a <;> interval_cases b <;> interval_cases c\n    <;> norm_num at h₁ ⊢\n    <;> omega\n  omega",
-    "error_type": "UNKNOWN",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:17:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:17:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:17:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:17:8: error: No goals to be solved\n/tmp/mathlib"
+    "error_type": "PROVER_FAILURE",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:17:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:17:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:17:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:17:8: error: No goals to be solved\n/tmp/mathlib",
+    "error_reason": "Tactic applied after proof already complete",
+    "matched_pattern": "No goals to be solved"
   },
   {
     "id": "mathd_numbertheory_711",
     "nl": "The greatest common divisor of positive integers $m$ and $n$ is 8. The least common multiple of $m$ and $n$ is 112. What is the least possible value of $m+n$? Show that it is 72.",
     "fl_statement": "theorem mathd_numbertheory_711\n  (m n : ℕ)\n  (h₀ : 0 < m ∧ 0 < n)\n  (h₁ : Nat.gcd m n = 8)\n  (h₂ : lcm m n = 112) :\n  72 ≤ m + n := by",
     "generated_proof": "have h₃ : m ∣ 112 := by\n    have h₄ : m ∣ lcm m n := by\n      exact Nat.dvd_lcm_left m n\n    rw [h₂] at h₄\n    exact h₄\n  have h₄ : n ∣ 112 := by\n    have h₅ : n ∣ lcm m n := by\n      exact Nat.dvd_lcm_right m n\n    rw [h₂] at h₅\n    exact h₅\n  have h₅ : m ≤ 112 := by\n    exact Nat.le_of_dvd (by norm_num) h₃\n  have h₆ : n ≤ 112 := by\n    exact Nat.le_of_dvd (by norm_num) h₄\n  interval_cases m <;> interval_cases n\n    <;> norm_num [Nat.lcm, Nat.gcd] at h₁ h₂ ⊢\n    <;> omega",
-    "error_type": "UNKNOWN",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:8: error: Ambiguous term\n  lcm\nPossible interpretations:\n  m.lcm n : ℕ\n  \n  GCDMonoid.lcm m n : ℕ\n/tmp/mathlib_test/test_pipeline.lean:14:18: error: Ambiguous term\n  lcm\nPossible interpretations:\n  m.lcm n : ℕ\n  \n  GCDMonoid.lcm m n : ℕ\n/tmp/mathlib_test/test_"
+    "error_type": "SYNTACTIC",
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:11:8: error: Ambiguous term\n  lcm\nPossible interpretations:\n  m.lcm n : ℕ\n  \n  GCDMonoid.lcm m n : ℕ\n/tmp/mathlib_test/test_pipeline.lean:14:18: error: Ambiguous term\n  lcm\nPossible interpretations:\n  m.lcm n : ℕ\n  \n  GCDMonoid.lcm m n : ℕ\n/tmp/mathlib_test/test_",
+    "error_reason": "Term has multiple possible interpretations",
+    "matched_pattern": "Ambiguous term"
   },
   {
     "id": "amc12b_2020_p22",
@@ -1221,7 +1525,9 @@
     "fl_statement": "-- Error: Real^Real\n-- theorem amc12b_2020_p22\n--   (t : ℝ) :\n--   ((2^t - 3 * t) * t) / (4^t) ≤ 1 / 12 := by",
     "generated_proof": "--     have h1 : (4 : ℝ) ^ t = (2 : ℝ) ^ (2 * t) := by\n--       rw [show (4 : ℝ) = 2 ^ (2 : ℝ) by norm_num]\n--       rw [← Real.rpow_mul]\n--       ring_nf\n--       all_goals linarith\n--     rw [h1]\n--     have h2 : (2 : ℝ) ^ (2 * t) = ((2 : ℝ) ^ t) ^ 2 := by\n--       rw [← Real.rpow_natCast]\n--       rw [← Real.rpow_mul]\n--       ring_nf\n--       all_goals linarith\n--     rw [h2]\n--     have h3 : ((2 : ℝ) ^ t) ^ 2 = (2 : ℝ) ^ (2 * t) := by\n--       rw [← Real.rpow_natCast]\n--       rw [← Real.rpow_mul]\n--       ring_nf\n--       all_goals linarith\n--     rw [h3]\n--     have h4 : (2 : ℝ) ^ t > 0 := by positivity\n--     have h5 : ((2 : ℝ) ^ t - 3 * t) * t ≤ 1 / 12 * (2 : ℝ) ^ (2 * t) := by\n--       nlinarith [sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 / 2), sq_nonneg ((2 : ℝ) ^ t - 3 /",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_algebra_113",
@@ -1229,7 +1535,9 @@
     "fl_statement": "theorem mathd_algebra_113\n  (x : ℝ) :\n  x^2 - 14 * x + 3 ≥ 7^2 - 14 * 7 + 3 := by",
     "generated_proof": "nlinarith [sq_nonneg (x - 7)]",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "amc12a_2020_p9",
@@ -1237,7 +1545,9 @@
     "fl_statement": "-- Error: Real.pi\n-- theorem amc12a_2020_p9\n--   (S : Finset ℝ)\n--   (h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 ≤ x ∧ x ≤ 2 * Real.pi ∧ Real.tan (2 * x) = Real.cos (x / 2)) :\n--   S.card = 5 := by",
     "generated_proof": "-- Error 1: `linarith failed to find a contradiction`\n-- Error 2: `linarith failed to find a contradiction`\n-- Error 3: `linarith failed to find a contradiction`\n-- Error 4: `linarith failed to find a contradiction`\n-- Error 5: `linarith failed to find a contradiction`\n-- Error 6: `linarith failed to find a contradiction`\n-- Error 7: `linarith failed to find a contradiction`\n-- Error 8: `linarith failed to find a contradiction`\n-- Error 9: `linarith failed to find a contradiction`\n-- Error 10: `linarith failed to find a contradiction`\n-- Error 11: `linarith failed to find a contradiction`\n-- Error 12: `linarith failed to find a contradiction`\n-- Error 13: `linarith failed to find a contradiction`\n-- Error 14: `linarith failed to find a contradiction`\n-- Error 15: `linarith failed to find a contradiction`\n-- Error 16: `linarith failed to find a contradiction`\n-- Error 17: `linarith failed to find a contradiction`\n-- Error 18: `linarith failed to find a contradiction`\n-- Error 19: `linarith failed to find a contradiction`\n-- Error 20: `linarith failed to find a contradiction`\n-- Error 21: `linarith failed to find a contradiction`\n-- Error 22: `linarith failed to find a contradiction`\n-- Error 23: `linarith failed to find a contradiction`\n-- Error 24: `linarith failed to find a contradiction`\n-- Error 25: `linarith failed to find a contradiction`\n-- Error 26: `linarith failed to find a contradiction`\n-- Error 27: `linarith failed to find a contradiction`\n-- Error 28: `linarith failed to find a contradiction`\n-- Error 29: `linarith failed to find a contradiction`\n-- Error 30: `linarith failed to find a contradiction`\n-- Error 31: `linarith failed to find a contradiction`\n-- Error 32: `linarith failed to find a contradiction`\n-- Error 33: `linarith failed to find a contradiction`\n-- Error 34: `linarith failed to find a contradiction`\n-- Error 35: `linarith failed",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "amc12_2000_p1",
@@ -1245,7 +1555,9 @@
     "fl_statement": "theorem amc12_2000_p1\n  (i m o : ℕ)\n  (h₀ : i ≠ m ∧ m ≠ o ∧ o ≠ i)\n  (h₁ : i*m*o = 2001) :\n  i+m+o ≤ 671 := by",
     "generated_proof": "have h2 : i ∣ 2001 := by\n    use m * o\n    linarith\n  have h3 : m ∣ 2001 := by\n    use i * o\n    linarith\n  have h4 : o ∣ 2001 := by\n    use i * m\n    linarith\n  have h5 : i ≤ 2001 := by\n    exact Nat.le_of_dvd (by norm_num) h2\n  have h6 : m ≤ 2001 := by\n    exact Nat.le_of_dvd (by norm_num) h3\n  have h7 : o ≤ 2001 := by\n    exact Nat.le_of_dvd (by norm_num) h4\n  interval_cases i <;> omega",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:27:23: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  2 ≤ a ≤ 2001\n  a ≥ 671\nwhere\n a := ↑m\n/tmp/mathlib_test/test_pipeline.lean:27:23: error: omega could not prove the goal:\na possible counterexample may satisfy th"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:27:23: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  2 ≤ a ≤ 2001\n  a ≥ 671\nwhere\n a := ↑m\n/tmp/mathlib_test/test_pipeline.lean:27:23: error: omega could not prove the goal:\na possible counterexample may satisfy th",
+    "error_reason": "Integer arithmetic tactic failed",
+    "matched_pattern": "omega could not prove"
   },
   {
     "id": "amc12a_2021_p19",
@@ -1253,7 +1565,9 @@
     "fl_statement": "-- Error: Real.pi\n-- theorem amc12a_2021_p19\n--   (S : Finset ℝ)\n--   (h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 ≤ x ∧ x ≤ Real.pi ∧ Real.sin (Real.pi / 2 * Real.cos x) = Real.cos (Real.pi / 2 * Real.sin x)) :\n--   S.card = 2 := by",
     "generated_proof": "-- Error 1: `linarith failed to find a contradiction`\n-- Error 2: `linarith failed to find a contradiction`\n-- Error 3: `linarith failed to find a contradiction`\n-- Error 4: `linarith failed to find a contradiction`\n-- Error 5: `linarith failed to find a contradiction`\n-- Error 6: `linarith failed to find a contradiction`\n-- Error 7: `linarith failed to find a contradiction`\n-- Error 8: `linarith failed to find a contradiction`\n-- Error 9: `linarith failed to find a contradiction`\n-- Error 10: `linarith failed to find a contradiction`\n-- Error 11: `linarith failed to find a contradiction`\n-- Error 12: `linarith failed to find a contradiction`\n-- Error 13: `linarith failed to find a contradiction`\n-- Error 14: `linarith failed to find a contradiction`\n-- Error 15: `linarith failed to find a contradiction`\n-- Error 16: `linarith failed to find a contradiction`\n-- Error 17: `linarith failed to find a contradiction`\n-- Error 18: `linarith failed to find a contradiction`\n-- Error 19: `linarith failed to find a contradiction`\n-- Error 20: `linarith failed to find a contradiction`\n-- Error 21: `linarith failed to find a contradiction`\n-- Error 22: `linarith failed to find a contradiction`\n-- Error 23: `linarith failed to find a contradiction`\n-- Error 24: `linarith failed to find a contradiction`\n-- Error 25: `linarith failed to find a contradiction`\n-- Error 26: `linarith failed to find a contradiction`\n-- Error 27: `linarith failed to find a contradiction`\n-- Error 28: `linarith failed to find a contradiction`\n-- Error 29: `linarith failed to find a contradiction`\n-- Error 30: `linarith failed to find a contradiction`\n-- Error 31: `linarith failed to find a contradiction`\n-- Error 32: `linarith failed to find a contradiction`\n-- Error 33: `linarith failed to find a contradiction`\n-- Error 34: `linarith failed to find a contradiction`\n-- Error 35: `linarith failed",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "algebra_amgm_sumasqdivbgeqsuma",
@@ -1261,7 +1575,9 @@
     "fl_statement": "theorem algebra_amgm_sumasqdivbgeqsuma\n  (a b c d : ℝ)\n  (h₀ : 0 < a ∧ 0 < b ∧ 0 < c ∧ 0 < d) :\n  a^2 / b + b^2 / c + c^2 / d + d^2 / a ≥ a + b + c + d := by",
     "generated_proof": "rcases h₀ with ⟨ha, hb, hc, hd⟩\n  have h1 : a^2 / b + b ≥ 2 * a := by\n    have h2 : a^2 / b + b - 2 * a ≥ 0 := by\n      have h3 : a^2 / b + b - 2 * a = (a^2 + b^2 - 2 * a * b) / b := by\n        field_simp\n        ring\n      rw [h3]\n      have h4 : a^2 + b^2 - 2 * a * b ≥ 0 := by\n        nlinarith [sq_nonneg (a - b)]\n      have h5 : (a^2 + b^2 - 2 * a * b) / b ≥ 0 := by\n        apply div_nonneg\n        linarith\n        linarith\n      linarith\n    linarith\n  have h2 : b^2 / c + c ≥ 2 * b := by\n    have h3 : b^2 / c + c - 2 * b ≥ 0 := by\n      have h4 : b^2 / c + c - 2 * b = (b^2 + c^2 - 2 * b * c) / c := by\n        field_simp\n        ring\n      rw [h4]\n      have h5 : b^2 + c^2 - 2 * b * c ≥ 0 := by\n        nlinarith [sq_nonneg (b - c)]\n      have h6 : (b^2 + c^2 - 2 * b * c) / c ≥ 0 := by\n        apply div_nonneg\n        linarith\n        linarith\n      linarith\n    linarith\n  have h3 : c^2 / d + d ≥ 2 * c := by\n    have h4 : c^2 / d + d - 2 * c ≥ 0 := by\n      have h5 : c^2 / d + d - 2 * c = (c^2 + d^2 - 2 * c * d) / d := by\n        field_simp\n        ring\n      rw [h5]\n      have h6 : c^2 + d^2 - 2 * c * d ≥ 0 := by\n        nlinarith",
     "error_type": "PROVER_FAILURE",
-    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:30:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:44:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:47:8: error: linarith failed to find a contradi"
+    "lean_output": "/tmp/mathlib_test/test_pipeline.lean:16:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:30:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:44:8: error: No goals to be solved\n/tmp/mathlib_test/test_pipeline.lean:47:8: error: linarith failed to find a contradi",
+    "error_reason": "Linear arithmetic tactic could not find contradiction",
+    "matched_pattern": "linarith failed"
   },
   {
     "id": "mathd_numbertheory_212",
@@ -1269,7 +1585,9 @@
     "fl_statement": "theorem mathd_numbertheory_212 :\n  (16^17 * 17^18 * 18^19) % 10 = 8 := by",
     "generated_proof": "norm_num",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   },
   {
     "id": "mathd_numbertheory_320",
@@ -1277,6 +1595,8 @@
     "fl_statement": "theorem mathd_numbertheory_320\n  (n : ℕ)\n  (h₀ : n < 101)\n  (h₁ : 101 ∣ (123456 - n)) :\n  n = 34 := by",
     "generated_proof": "omega",
     "error_type": "SUCCESS",
-    "lean_output": ""
+    "lean_output": "",
+    "error_reason": null,
+    "matched_pattern": null
   }
 ]
