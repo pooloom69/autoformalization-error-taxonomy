@@ -18,9 +18,11 @@ def git_push(message="Update results"):
         return
     subprocess.run(
         f'cd {REPO_PATH} && '
+        f'git config --local user.email "pooloom069@gmail.com" && '
+        f'git config --local user.name "pooloom069" && '
         f'git remote set-url origin https://{GITHUB_USER}:{GITHUB_TOKEN}@github.com/{GITHUB_USER}/{GITHUB_REPO}.git && '
         f'git add results/ && '
-        f'git commit -m "{message}" && '
+        f'git diff --cached --quiet || git commit -m "{message}" && '
         f'git push origin mathlib',
         shell=True, capture_output=True
     )
@@ -114,6 +116,7 @@ def classify_error(output):
         "synthInstanceFailed", "failed to synthesize",
         "unexpected token", "unknown identifier", "unknownIdentifier",
         "application type mismatch", "type mismatch",
+        "Type mismatch", "Ambiguous term",
     ]
     # Prover failure patterns
     prover = [
@@ -127,16 +130,13 @@ def classify_error(output):
         "Tactic `apply` failed", "ring_nf` made no progress",
         "No goals to be solved",
     ]
-    syntactic_extra = [
-        "Type mismatch", "Ambiguous term",
-    ]
     if any(p in msg for p in syntactic):
         return "SYNTACTIC"
     if any(p in msg for p in prover):
         return "PROVER_FAILURE"
     return "UNKNOWN"
 
-# Run pipeline on full MiniF2F test set (244 problems)
+# Load existing results and resume from where we left off
 results_path = f"{REPO_PATH}/results/results_full.json"
 if os.path.exists(results_path):
     with open(results_path) as f:
@@ -147,9 +147,13 @@ else:
     results = []
     start_idx = 0
     print("Starting fresh...")
+
+# Run pipeline on full MiniF2F test set (244 problems)
 for i, sample in enumerate(ds['test']):
     if i < start_idx:
         continue
+
+    print(f"\n[{i+1}/244] {sample['id']}")
 
     # Prepare formal statement
     fl_statement = fix_statement(sample['formal_statement']).replace(':= sorry', ':= by')
@@ -175,7 +179,7 @@ for i, sample in enumerate(ds['test']):
 
     # Save and push every 10 problems
     if (i + 1) % 10 == 0:
-        with open(f"{REPO_PATH}/results/results_full.json", "w") as f:
+        with open(results_path, "w") as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
         git_push(f"Update results [{i+1}/244]")
 
@@ -186,7 +190,7 @@ for i, sample in enumerate(ds['test']):
             print(f"  {k}: {v}")
 
 # Final save and push
-with open(f"{REPO_PATH}/results/results_full.json", "w") as f:
+with open(results_path, "w") as f:
     json.dump(results, f, indent=2, ensure_ascii=False)
 git_push("Final results 244/244")
 
