@@ -1,18 +1,17 @@
-# classifier/pipeline_autoformalizer.py
 """
 Pipeline for NL -> FL statement generation and error classification.
 Uses Kimina-Autoformalizer-7B to generate FL statements (ending with 'by sorry'),
 then validates them with Lean 4 to classify statement-level errors only.
 
 Error taxonomy (statement-level only):
-  SUCCESS       - FL statement compiles with sorry
-  SYNTACTIC     - Invalid Lean 4 grammar / parse error
-  TYPE_ERROR    - Type mismatch / typeclass failure
-  SEMANTIC      - Compiles but meaning differs from NL (Claude API check)
-  UNKNOWN       - Unclassified failure
+  SUCCESS    - FL statement compiles with sorry
+  SYNTACTIC  - Invalid Lean 4 grammar / parse error
+  TYPE_ERROR - Type mismatch / typeclass failure
+  TIMEOUT    - Lean verification timed out
+  UNKNOWN    - Unclassified failure
 """
 
-import subprocess, json, torch, os, time
+import subprocess, json, torch, os
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from datasets import load_dataset
 from collections import Counter
@@ -20,13 +19,13 @@ from collections import Counter
 # ─────────────────────────────────────────────
 # Config
 # ─────────────────────────────────────────────
-GITHUB_TOKEN  = os.environ.get("GITHUB_TOKEN", "")
-GITHUB_USER   = "pooloom69"
-GITHUB_REPO   = "autoformalization-error-taxonomy"
-REPO_PATH     = "/tmp/mathlib_test/autoformalization-error-taxonomy"
-MODEL_PATH    = "/tmp/kimina-autoformalizer-7b"
-MATHLIB_PATH  = "/tmp/mathlib_test"
-RESULTS_PATH  = f"{REPO_PATH}/results/results_autoformalizer_244.json"
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
+GITHUB_USER  = "pooloom69"
+GITHUB_REPO  = "autoformalization-error-taxonomy"
+REPO_PATH    = "/tmp/mathlib_test/autoformalization-error-taxonomy"
+MODEL_PATH   = "/tmp/kimina-autoformalizer-7b"
+MATHLIB_PATH = "/tmp/mathlib_test/myproject"
+RESULTS_PATH = f"{REPO_PATH}/results/results_autoformalizer_244.json"
 
 os.makedirs(f"{REPO_PATH}/results", exist_ok=True)
 
@@ -39,7 +38,7 @@ def git_push(message="Update results"):
         return
     subprocess.run(
         f'cd {REPO_PATH} && '
-        f'git config --local user.email "pooloom069@gmail.com" && '
+        f'git config --local user.email "pooloom69@gmail.com" && '
         f'git config --local user.name "pooloom69" && '
         f'git remote set-url origin https://{GITHUB_USER}:{GITHUB_TOKEN}@github.com/{GITHUB_USER}/{GITHUB_REPO}.git && '
         f'git add results/ && '
@@ -56,7 +55,7 @@ print("Loading Kimina-Autoformalizer-7B...")
 tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_PATH,
-    torch_dtype=torch.float16,
+    dtype=torch.float16,
     device_map="auto"
 )
 print(f"Model loaded! Device: {next(model.parameters()).device}")
@@ -68,6 +67,7 @@ def generate_fl_statement(nl_problem: str, theorem_name: str) -> str:
     """Generate FL statement (ending with 'by sorry') from NL problem."""
     prompt = (
         f"Please autoformalize the following problem in Lean 4 with a header. "
+        f"The theorem must end with ':= by sorry'. "
         f"Use the following theorem names: {theorem_name}.\n\n"
         f"{nl_problem}"
     )
@@ -93,13 +93,20 @@ def generate_fl_statement(nl_problem: str, theorem_name: str) -> str:
         outputs[0][inputs["input_ids"].shape[-1]:],
         skip_special_tokens=True
     ).strip()
+
+    # Post-process: ensure statement ends with by sorry
+    if generated.endswith(":="):
+        generated = generated + " by sorry"
+    elif "sorry" not in generated:
+        generated = generated.rstrip() + " := by sorry"
+
     return generated
 
 # ─────────────────────────────────────────────
 # Lean Validation (sorry allowed)
 # ─────────────────────────────────────────────
 def run_lean(code: str, timeout: int = 60) -> dict:
-    """Run Lean 4 with Mathlib; sorry is allowed (we only check the statement)."""
+    """Run Lean 4 with Mathlib; sorry is allowed (statement-level check only)."""
     lean_file = f"{MATHLIB_PATH}/test_autoform.lean"
     with open(lean_file, "w") as f:
         f.write(code)
@@ -139,13 +146,7 @@ def classify_statement_error(output: dict) -> str:
 
     msg = output["stdout"] + output["stderr"]
 
-    # Compiled successfully (sorry warning is fine)
     if output["returncode"] == 0:
-        return "SUCCESS"
-
-    # sorry warning + returncode 0 is already caught above,
-    # but sometimes sorry shows as warning with errors too
-    if "sorry" in msg and "warning" in msg and output["returncode"] == 0:
         return "SUCCESS"
 
     for p in TYPE_ERROR_PATTERNS:
@@ -189,25 +190,24 @@ for i, sample in enumerate(ds["test"]):
     )
     print(f"FL: {fl_generated[:120]}")
 
-    # Build full Lean file
-    # If model already includes header/imports, use as-is; otherwise prepend
+    # Prepend Mathlib header if model didn't include it
     if "import Mathlib" in fl_generated:
         lean_code = fl_generated
     else:
         lean_code = MATHLIB_HEADER + fl_generated
 
     # Validate with Lean
-    lean_out  = run_lean(lean_code, timeout=60)
+    lean_out   = run_lean(lean_code, timeout=60)
     error_type = classify_statement_error(lean_out)
     print(f"Result: {error_type}")
 
     results.append({
-        "id":            sample["id"],
-        "nl":            sample["informal_stmt"],
-        "fl_generated":  fl_generated,
-        "lean_code":     lean_code,
-        "error_type":    error_type,
-        "lean_output":   (lean_out["stdout"] + lean_out["stderr"])[:400]
+        "id":           sample["id"],
+        "nl":           sample["informal_stmt"],
+        "fl_generated": fl_generated,
+        "lean_code":    lean_code,
+        "error_type":   error_type,
+        "lean_output":  (lean_out["stdout"] + lean_out["stderr"])[:400]
     })
 
     # Save + push every 10
