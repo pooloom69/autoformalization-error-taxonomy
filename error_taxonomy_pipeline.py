@@ -14,6 +14,7 @@ SAVE_DIR = '/ProofBridge/autoformalization-error-taxonomy/results/kimina_1.7B'
 REPO_DIR = '/ProofBridge/autoformalization-error-taxonomy'
 CHECKPOINT_FILE = f'{SAVE_DIR}/checkpoint_latest.json'
 LEAN_PATH = '/root/.elan/bin/lean'
+LAKE_PATH = '/root/.elan/bin/lake'
 MATHLIB_PROJECT = '/ProofBridge/mathlib_project'
 
 os.makedirs(SAVE_DIR, exist_ok=True)
@@ -25,6 +26,14 @@ if result.returncode != 0:
     print("ERROR: Lean not found. Stopping.")
     sys.exit(1)
 print("Lean OK!")
+
+# Verify Lake
+print("Verifying Lake...")
+result = subprocess.run([LAKE_PATH, '--version'], capture_output=True)
+if result.returncode != 0:
+    print("ERROR: Lake not found. Stopping.")
+    sys.exit(1)
+print("Lake OK!")
 
 # Load model
 print("Loading model...")
@@ -45,16 +54,20 @@ def classify_error(error_msg):
         return 'prover_timeout'
     elif 'expected' in error_msg or 'unknown identifier' in error_msg:
         return 'syntactic'
+    elif 'unknown module' in error_msg or 'import' in error_msg.lower():
+        return 'import_error'
     else:
         return 'other'
 
 def lean_check(fl_code):
+    """Run Lean via lake and return (error_type, error_message)."""
     try:
         test_file = f'{MATHLIB_PROJECT}/Test.lean'
         with open(test_file, 'w') as f:
             f.write(fl_code)
+        # Use lake build instead of lean directly
         result = subprocess.run(
-            [LEAN_PATH, test_file],
+            [LAKE_PATH, 'build', 'Test'],
             capture_output=True,
             text=True,
             timeout=60,
@@ -63,8 +76,9 @@ def lean_check(fl_code):
         if result.returncode == 0:
             return 'success', ''
         else:
-            error_msg = result.stderr
-            return classify_error(error_msg), error_msg
+            error_msg = result.stderr + result.stdout
+            error_type = classify_error(error_msg)
+            return error_type, error_msg
     except subprocess.TimeoutExpired:
         return 'prover_timeout', 'timeout'
     except Exception as e:
@@ -166,7 +180,7 @@ for i, (nl, fl_gold) in enumerate(pairs):
                 'error_message': 'no lean code found in output'
             })
         else:
-            # Step 3: Lean compiler check
+            # Step 3: Lean compiler check via lake
             error_type, error_msg = lean_check(fl_generated)
             results.append({
                 'index': i,
@@ -179,19 +193,14 @@ for i, (nl, fl_gold) in enumerate(pairs):
 
     # Every 20 samples: save + push + stats + clear cache
     if (i+1) % 20 == 0:
-        # Save checkpoint
         with open(CHECKPOINT_FILE, 'w') as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
-        # Save current batch
         batch = results[-20:]
         batch_path = f'{SAVE_DIR}/batch_{i+1}.json'
         with open(batch_path, 'w') as f:
             json.dump(batch, f, indent=2, ensure_ascii=False)
-        # Clear GPU cache
         torch.cuda.empty_cache()
-        # Print stats
         print_stats(results)
-        # Push to GitHub
         git_push(i+1)
 
 # Final save
